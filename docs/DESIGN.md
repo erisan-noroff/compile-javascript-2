@@ -150,9 +150,9 @@ On mobile, spacing steps down one scale from the desktop value.
 | 2     | 8px   | 0.5rem  | Gap between post card elements (title→meta, meta→body)                      |
 | 3     | 16px  | 1rem    | Post card internal padding, gap between form label, input and error message |
 | 4     | 24px  | 1.5rem  | Gap between post cards in the feed, header vertical padding                 |
-| 5     | 32px  | 2rem    | Gap between content blocks, space below header and above footer             |
+| 5     | 32px  | 2rem    | Gap between content blocks, page vertical padding                           |
 | 6     | 48px  | 3rem    | Section vertical padding                                                    |
-| 7     | 64px  | 4rem    | Page horizontal margins, profile page header padding                        |
+| 7     | 64px  | 4rem    | Page horizontal padding, profile page header padding                        |
 
 ***
 
