@@ -75,7 +75,6 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 - **Default:** #E6EDF3
 - **Hover:** #A2D6F9
-- **Active:** 2px #2B59C3 left border on menu item
 
 ### Links
 
