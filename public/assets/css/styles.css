@@ -1,0 +1,161 @@
+@import url("reset.css");
+@import url("variables.css");
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: var(--space-6);
+    background-color: var(--color-background);
+    font-size: 1rem;
+    font-family: var(--font-body), sans-serif;
+    color: var(--color-text);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--color-text);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    padding-block: var(--space-5);
+}
+
+.container {
+    width: 100%;
+    max-width: 75rem;
+    padding-inline: var(--space-7);
+    margin-inline: auto;
+}
+
+.logo {
+    font-family: var(--font-display), monospace;
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+}
+
+.profile-menu {
+    position: relative;
+}
+
+.profile-menu__toggle,
+.profile-menu__items {
+    width: 10.25rem;
+}
+
+.profile-menu__toggle {
+    display: flex;
+    height: 2.75rem;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+    padding-inline: var(--space-3);
+    background: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius) var(--radius) 0 0;
+    color: inherit;
+    cursor: pointer;
+}
+
+.profile-menu__toggle:hover,
+.profile-menu.is-open .profile-menu__toggle {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+.profile-menu__items {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0 0 var(--radius) var(--radius);
+    list-style: none;
+}
+
+.profile-menu__items[hidden] {
+    display: none;
+}
+
+.profile-menu__item {
+    font-family: var(--font-display), monospace;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.profile-menu__item:hover {
+    color: var(--color-accent);
+}
+
+.material-icons {
+    font-size: 2rem;
+}
+
+footer {
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.875rem;
+        gap: var(--space-5);
+    }
+
+    .container {
+        padding-inline: var(--space-5);
+    }
+
+    main {
+        padding-block: var(--space-4);
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    header {
+        padding-block: var(--space-3);
+    }
+
+    .profile-menu__items {
+        font-size: 1rem;
+        padding: var(--space-2);
+    }
+
+    footer {
+        font-size: 0.75rem;
+    }
+}

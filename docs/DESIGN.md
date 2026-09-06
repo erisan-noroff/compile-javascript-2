@@ -4,7 +4,7 @@ All developers must adhere to these design specifications when implementing the 
 made by the UX/UI team and approved by the Product Owner. This document outlines the visual design system including
 typography, colour palette, spacing, and component specifications for the Compile website.
 
-**Root font size:** 16px. All values should be implemented in rem in CSS.
+**Root font size:** 16px.
 
 ***
 
@@ -75,13 +75,12 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 - **Default:** #E6EDF3
 - **Hover:** #A2D6F9
-- **Active:** 2px #2B59C3 left border on menu item
 
 ### Links
 
 - **Colour:** #A2D6F9
 - **Text decoration:** Underline
-- **Hover:** #B0DCFA
+- **Hover:** #E6EDF3
 
 ### States
 
@@ -118,10 +117,10 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 **Font:** JetBrains Mono
 
-|                | Desktop                           | Mobile                        |
-|----------------|-----------------------------------|-------------------------------|
-| **Logo**       | 1.75rem                           | 1.5rem                        |
-| **Navigation** | Medium (500), 1.125rem, uppercase | Medium (500), 1rem, uppercase |
+|                | Desktop                                   | Mobile                                   |
+|----------------|-------------------------------------------|------------------------------------------|
+| **Logo**       | Bold (600), 1.75rem, letter-spacing 0.1em | Bold (600), 1.5rem, letter-spacing 0.1em |
+| **Navigation** | Medium (500), 1.125rem, uppercase         | Medium (500), 1rem, uppercase            |
 
 ### Body
 
@@ -142,7 +141,8 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 ## Spacing (8-point scale)
 
-On mobile, spacing steps down one scale from the desktop value.
+On mobile, spacing typically steps down one scale from the desktop value.
+The exception is page horizontal padding, which steps down to scale 5 rather than scale 6.
 
 | Scale | Value | rem     | Usage                                                                       |
 |-------|-------|---------|-----------------------------------------------------------------------------|
@@ -150,9 +150,9 @@ On mobile, spacing steps down one scale from the desktop value.
 | 2     | 8px   | 0.5rem  | Gap between post card elements (title→meta, meta→body)                      |
 | 3     | 16px  | 1rem    | Post card internal padding, gap between form label, input and error message |
 | 4     | 24px  | 1.5rem  | Gap between post cards in the feed, header vertical padding                 |
-| 5     | 32px  | 2rem    | Gap between content blocks, space below header and above footer             |
+| 5     | 32px  | 2rem    | Gap between content blocks, page vertical padding                           |
 | 6     | 48px  | 3rem    | Section vertical padding                                                    |
-| 7     | 64px  | 4rem    | Page horizontal margins, profile page header padding                        |
+| 7     | 64px  | 4rem    | Page horizontal padding, profile page header padding                        |
 
 ***
 

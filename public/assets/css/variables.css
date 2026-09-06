@@ -13,8 +13,8 @@
     --color-accent-hover: #B0DCFA;
     --color-success: #31D962;
     --color-danger: #DC2626;
-    --font-display: "JetBrains Mono", monospace;
-    --font-body: "Inter", sans-serif;
+    --font-display: "JetBrains Mono";
+    --font-body: "Inter";
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 1rem;
@@ -23,4 +23,14 @@
     --space-6: 3rem;
     --space-7: 4rem;
     --radius: 0.25rem;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-VariableFont_opsz,wght.ttf");
 }
