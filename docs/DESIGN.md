@@ -81,7 +81,7 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 - **Colour:** #A2D6F9
 - **Text decoration:** Underline
-- **Hover:** #B0DCFA
+- **Hover:** #E6EDF3
 
 ### States
 
