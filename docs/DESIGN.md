@@ -4,7 +4,7 @@ All developers must adhere to these design specifications when implementing the 
 made by the UX/UI team and approved by the Product Owner. This document outlines the visual design system including
 typography, colour palette, spacing, and component specifications for the Compile website.
 
-**Root font size:** 16px. All values should be implemented in rem in CSS.
+**Root font size:** 16px.
 
 ***
 
@@ -117,10 +117,10 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 **Font:** JetBrains Mono
 
-|                | Desktop                           | Mobile                        |
-|----------------|-----------------------------------|-------------------------------|
-| **Logo**       | 1.75rem                           | 1.5rem                        |
-| **Navigation** | Medium (500), 1.125rem, uppercase | Medium (500), 1rem, uppercase |
+|                | Desktop                                   | Mobile                                   |
+|----------------|-------------------------------------------|------------------------------------------|
+| **Logo**       | Bold (600), 1.75rem, letter-spacing 0.1em | Bold (600), 1.5rem, letter-spacing 0.1em |
+| **Navigation** | Medium (500), 1.125rem, uppercase         | Medium (500), 1rem, uppercase            |
 
 ### Body
 
@@ -141,7 +141,8 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 ## Spacing (8-point scale)
 
-On mobile, spacing steps down one scale from the desktop value.
+On mobile, spacing typically steps down one scale from the desktop value.
+The exception is page horizontal padding, which steps down to scale 5 rather than scale 6.
 
 | Scale | Value | rem     | Usage                                                                       |
 |-------|-------|---------|-----------------------------------------------------------------------------|
