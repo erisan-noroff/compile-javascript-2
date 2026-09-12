@@ -1,3 +1,5 @@
+import { isAuthenticated } from '../utils/authentication.js';
+
 /**
  * Renders the specified icon from Material Icons
  * @param iconClass - The Material Icons ligature name, e.g. 'account_circle'.
@@ -88,13 +90,10 @@ function createProfileMenu() {
     return profileMenu;
 }
 
-// Placeholder. To be replaced by authentication implementation.
-const userIsLoggedIn = true;
-
 const logo = document.createElement('p');
 logo.className = 'logo';
 logo.textContent = 'compile';
 container.append(logo);
 
-if (userIsLoggedIn)
+if (isAuthenticated())
     container.append(createProfileMenu());
