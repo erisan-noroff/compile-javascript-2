@@ -22,7 +22,7 @@ header {
     top: 0;
     z-index: 10;
     padding-block: var(--spacing-4);
-    border-bottom: 1px solid var(--color-text);
+    border-bottom: 1px solid var(--color-border);
 }
 
 header .container {
