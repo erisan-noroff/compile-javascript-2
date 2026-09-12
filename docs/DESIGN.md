@@ -144,15 +144,15 @@ typography, colour palette, spacing, and component specifications for the Compil
 On mobile, spacing typically steps down one scale from the desktop value.
 The exception is page horizontal padding, which steps down to scale 5 rather than scale 6.
 
-| Scale | Value | rem     | Usage                                                                                                         |
-|-------|-------|---------|---------------------------------------------------------------------------------------------------------------|
-| 1     | 4px   | 0.25rem | Border radius on buttons and badges, gap between tags                                                         |
-| 2     | 8px   | 0.5rem  | Gap between post card elements (title→meta, meta→body), gap between form label and input, input field padding |
-| 3     | 16px  | 1rem    | Gap between form label, input and error message                                                               |
-| 4     | 24px  | 1.5rem  | Card internal padding, gap between post cards in the feed, header vertical padding                            |
-| 5     | 32px  | 2rem    | Gap between content blocks, page vertical padding                                                             |
-| 6     | 48px  | 3rem    | Section vertical padding                                                                                      |
-| 7     | 64px  | 4rem    | Page horizontal padding, profile page header padding                                                          |
+| Scale | Value | rem     | Usage                                                                                                                           |
+|-------|-------|---------|---------------------------------------------------------------------------------------------------------------------------------|
+| 1     | 4px   | 0.25rem | Border radius on buttons and badges, gap between tags                                                                           |
+| 2     | 8px   | 0.5rem  | Gap between label and input, gap between input and error message                                                                |
+| 3     | 16px  | 1rem    | Gap between post title and meta                                                                                                 |
+| 4     | 24px  | 1.5rem  | Gap between form fields, gap between post meta and body, card internal padding, gap between post cards, header vertical padding |
+| 5     | 32px  | 2rem    | Gap between content blocks, page vertical padding                                                                               |
+| 6     | 48px  | 3rem    | Section vertical padding                                                                                                        |
+| 7     | 64px  | 4rem    | Page horizontal padding, profile page header padding                                                                            |
 
 ***
 
