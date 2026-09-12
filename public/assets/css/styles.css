@@ -45,7 +45,6 @@ main {
     font-family: var(--font-display), monospace;
     font-size: 1.75rem;
     font-weight: 600;
-    text-transform: capitalize;
     letter-spacing: 0.1em;
     display: flex;
     align-items: center;
@@ -121,11 +120,94 @@ footer {
 
 a {
     color: var(--color-accent);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
     color: var(--color-text);
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-display), monospace;
+}
+
+.logo, h1, label, button {
+    text-transform: capitalize;
+}
+
+.card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--spacing-4);
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.card--auth {
+    max-width: 30rem;
+    margin-inline: auto;
+}
+
+.card--auth h1,
+.card--auth p {
+    align-self: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    text-align: left;
+}
+
+.text-input {
+    background: var(--color-input-background);
+    padding-inline: var(--spacing-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    height: 2.5rem;
+    color: var(--color-text);
+}
+
+.text-input:hover {
+    color: var(--color-primary-hover);
+}
+
+.text-input:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0;
+}
+
+.text-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+label {
+    font-weight: 600;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+}
+
+.primary-btn {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: var(--spacing-3);
+    border-radius: var(--radius);
+    font-weight: 600;
 }
 
 @media (max-width: 480px) {
@@ -157,5 +239,9 @@ a:hover {
 
     footer {
         font-size: 0.75rem;
+    }
+
+    h1 {
+        font-size: 2rem;
     }
 }
