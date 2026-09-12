@@ -18,6 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Generate config
+        run: |
+          cat > public/assets/scripts/utils/config.js <<'EOF'
+          export const API_KEY = '${{ secrets.API_KEY }}';
+          EOF
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public/
