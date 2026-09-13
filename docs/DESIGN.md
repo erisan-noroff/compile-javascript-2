@@ -1,8 +1,8 @@
 # Compile
 
 All developers must adhere to these design specifications when implementing the website. The design specifications are
-made by the UX/UI team and approved by the Product Owner. This document outlines the visual design system including
-typography, colour palette, spacing, and component specifications for the Compile website.
+made by the UX/UI team and approved by the Product Owner. This document outlines the design tokens — colour palette,
+typography and spacing — for the Compile website. Component specifications live in Figma.
 
 **Root font size:** 16px.
 
@@ -12,131 +12,75 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 ### Brand
 
-- **Primary:** #2B59C3
-- **Usage:** Buttons, primary actions, active nav
-
-- **Secondary:** #FFA62B
-- **Usage:** Highlights, badges, secondary actions
-
-- **Accent:** #A2D6F9
-- **Usage:** Hover states, tags, small UI details
+| Token           | Colour  | Usage                                |
+|-----------------|---------|--------------------------------------|
+| **Primary**     | #2B59C3 | Primary actions                      |
+| Primary hover   | #264EAC |                                      |
+| Primary active  | #204392 |                                      |
+| **Secondary**   | #FFA62B | Highlights, badges                   |
+| **Accent**      | #A2D6F9 | Hover states, tags, small UI details |
+| Accent hover    | #B0DCFA |                                      |
 
 ### Text
 
-#### Primary
-
-- **Colour:** #E6EDF3
-- **Usage:** Headings, post titles, body text
-
-#### Muted
-
-- **Colour:** #E6EDF3 70% opacity
-- **Usage:** Timestamps, author metadata, placeholders, follower counts
+| Token    | Colour              | Usage                                                      |
+|----------|---------------------|------------------------------------------------------------|
+| **Text** | #E6EDF3             | Headings, post titles, body text                           |
+| Muted    | #E6EDF3 70% opacity | Timestamps, author metadata, placeholders, follower counts |
 
 ### Background
 
-- **Page:** #0D1117
-- **Usage:** Page background
-
-- **Surface:** #161B22
-- **Usage:** Post cards, profile page header, panels
+| Token       | Colour  | Usage                                   |
+|-------------|---------|-----------------------------------------|
+| **Page**    | #0D1117 | Page background                         |
+| **Surface** | #161B22 | Post cards, profile page header, panels |
+| **Input**   | #010409 | Input fields                            |
 
 ### Borders
 
-- **Colour:** #E6EDF3 15% opacity
-- **Border radius:** 0.25rem
-- **Usage:** Card borders, input borders, dividers
-
-### Buttons
-
-#### Primary
-
-- **Default:** #2B59C3, Text: #E6EDF3
-- **Hover:** #264EAC
-- **Active:** #204392
-
-#### Secondary
-
-- **Default:** #FFA62B, Text: #0D1117
-- **Hover:** #FFB144
-
-#### Follow
-
-- **Default:** #2B59C3, Text: #E6EDF3
-- **Hover:** #264EAC
-- **Following:** Transparent, Border: #A2D6F9, Text: #A2D6F9
-- **Following (hover):** Transparent, Border: #B0DCFA, Text: #B0DCFA
-
-### Badges and Tags
-
-- **Background:** #A2D6F9
-- **Text:** #0D1117
-
-### Navigation
-
-- **Default:** #E6EDF3
-- **Hover:** #A2D6F9
-
-### Links
-
-- **Colour:** #A2D6F9
-- **Hover:** #E6EDF3
-- **Text decoration:** None, underline on hover
+| Token      | Value               | Usage                                 |
+|------------|---------------------|---------------------------------------|
+| **Border** | #E6EDF3 15% opacity | Card borders, input borders, dividers |
+| **Radius** | 0.25rem             | Buttons, badges, inputs, cards        |
 
 ### States
 
-- **Success:** #31D962
-- **Usage:** Successful post creation, follow confirmation
-- **Error:** #DC2626
-- **Usage:** Form validation errors, failed API requests
-
-### Input
-
-- **Background:** #010409
-- **Border:** #E6EDF3, 15% opacity, 1px
-- **Border radius:** 0.25rem
-
-### Active
-
-- **Outline:** 2px #2B59C3
+| Token       | Colour  | Usage                                         |
+|-------------|---------|-----------------------------------------------|
+| **Success** | #31D962 | Successful post creation, follow confirmation |
+| **Error**   | #F85149 | Form validation errors, failed API requests   |
+| **Focus**   | #2B59C3 | 2px outline on focused inputs                 |
 
 ***
 
 ## Typography
 
-### Headings
+### Display
 
 **Font:** JetBrains Mono
 
-|        | Desktop | Mobile |
-|--------|---------|--------|
-| **H1** | 2.5rem  | 2rem   |
-| **H2** | 2rem    | 1.5rem |
-| **H3** | 1.5rem  | 1rem   |
-
-### Navigation
-
-**Font:** JetBrains Mono
-
-|                | Desktop                                   | Mobile                                   |
-|----------------|-------------------------------------------|------------------------------------------|
-| **Logo**       | Bold (700), 1.75rem, letter-spacing 0.1em | Bold (700), 1.5rem, letter-spacing 0.1em |
-| **Navigation** | Semibold (600), 1.125rem, uppercase       | Semibold (600), 1rem, uppercase          |
+|                | Desktop                             | Mobile                            |
+|----------------|-------------------------------------|-----------------------------------|
+| **Logo**       | 1.75rem, Bold (700), 0.1em tracking | 1.5rem, Bold (700), 0.1em tracking |
+| **H1**         | 2.5rem                              | 2rem                              |
+| **H2**         | 2rem                                | 1.5rem                            |
+| **H3**         | 1.5rem                              | 1rem                              |
+| **Navigation** | 1.125rem, Semibold (600), uppercase | 1rem, Semibold (600), uppercase   |
 
 ### Body
 
 **Font:** Inter
 
-|                | Desktop              | Mobile   |
-|----------------|----------------------|----------|
-| **Body**       | 1rem                 | 0.875rem |
-| **Post Title** | 2rem                 | 1.5rem   |
-| **Post Body**  | 1rem                 | 0.875rem |
-| **Post Meta**  | 0.875rem             | 0.875rem |
-| **Buttons**    | 1rem, Semibold (600) | 0.875rem |
-| **Tag**        | 0.875rem             | 0.875rem |
-| **Form Label** | 1rem, Semibold (600) | 0.875rem |
-| **Link**       | 1rem                 | 0.875rem |
+|                | Desktop              | Mobile                   |
+|----------------|----------------------|--------------------------|
+| **Body**       | 1rem                 | 0.875rem                 |
+| **Post title** | 2rem                 | 1.5rem                   |
+| **Post body**  | 1rem                 | 0.875rem                 |
+| **Post meta**  | 0.875rem             | 0.875rem                 |
+| **Buttons**    | 1rem, Semibold (600) | 0.875rem, Semibold (600) |
+| **Form label** | 1rem, Semibold (600) | 0.875rem, Semibold (600) |
+| **Tag**        | 0.875rem             | 0.875rem                 |
+| **Link**       | 1rem                 | 0.875rem                 |
 
 ***
 
