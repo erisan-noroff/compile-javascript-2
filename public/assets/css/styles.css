@@ -123,12 +123,14 @@ footer {
     text-align: center;
 }
 
-a {
+a,
+.link-btn {
     color: var(--color-accent);
     text-decoration: none;
 }
 
-a:hover {
+a:hover,
+.link-btn:hover {
     color: var(--color-text);
     text-decoration: underline;
 }
@@ -170,6 +172,24 @@ h1 {
     flex-direction: column;
     gap: var(--spacing-2);
     text-align: left;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+input[type="checkbox"] {
+    accent-color: var(--color-primary);
+    width: 1rem;
+    height: 1rem;
 }
 
 .text-input {

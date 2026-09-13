@@ -39,8 +39,22 @@ function init() {
     form.append(...FormFields.map(createTextInput));
 
     const button = Button('sign in', 'btn primary-btn', 'login-btn', ButtonType.Submit);
-    form.append(button);
+    const formRow = document.createElement('div');
+    formRow.className = 'form-row';
 
+    const checkboxGroup = document.createElement('label');
+    checkboxGroup.className = 'checkbox-group';
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = 'remember-me';
+
+    checkboxGroup.append(checkbox, 'Remember me');
+    formRow.append(checkboxGroup);
+    
+    form.append(formRow, button);
+
+    addForgotPasswordButton();
     addSubmitEventListener();
 }
 
@@ -75,6 +89,24 @@ function addSubmitEventListener() {
         } finally {
             setButtonLoading(submitBtn, false);
         }
+    });
+}
+
+function addForgotPasswordButton() {
+    const formRow = document.querySelector('.form-row');
+    if (!formRow) return;
+
+    const forgotPasswordButton = Button('Forgot password?', 'link-btn');
+    formRow.append(forgotPasswordButton);
+
+    forgotPasswordButton.addEventListener('click', () => {
+        const email = document.getElementById('email');
+        if (!email.value.trim()) {
+            ToastNotification.error('Missing email address', 'Insert your email address to reset your password');
+            return;
+        }
+
+        ToastNotification.success('Password Reset', 'If the account exists, a reset link has been sent to your email');
     });
 }
 
