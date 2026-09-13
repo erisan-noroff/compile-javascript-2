@@ -62,7 +62,8 @@ function addSubmitEventListener() {
 
     form.addEventListener('submit', async(e) => {
         const isValid = formValidation(e);
-         if (!isValid) return;
+        if (!isValid) return;
+        
         const email = document.getElementById('email').value;
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
