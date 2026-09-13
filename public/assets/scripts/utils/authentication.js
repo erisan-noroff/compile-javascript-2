@@ -14,6 +14,9 @@ export function redirectToSignUp() {
     location.replace(new URL('register.html', location.href));
 }
 
+/**
+ * Redirects the user to the home page. Called on successful log in or if the user is already logged in and tries to access log in page.
+ */
 export function redirectToHomepage() {
     location.replace(new URL('index.html', location.href));
 }
