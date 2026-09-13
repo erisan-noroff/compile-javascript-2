@@ -50,6 +50,12 @@ function init() {
     addSubmitEventListener();
 }
 
+// Redirect user to login.html and display a success Toast Notification
+function signUpSuccessful() {
+    sessionStorage.setItem('showSignUpSuccess', 'true');
+    location.replace(new URL('login.html', location.href));
+}
+
 function addSubmitEventListener() {
     const form = document.querySelector('form');
     if (!form) return;
