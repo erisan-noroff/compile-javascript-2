@@ -82,16 +82,25 @@ function displayToast(type, title, message) {
     const toastCloseBtn = document.createElement('button');
     toastCloseBtn.id = 'close-toast';
     toastCloseBtn.classList.add('toast__close');
+    toastCloseBtn.ariaLabel = 'Dismiss notification';
     toastContainer.append(toastCloseBtn);
     const toastCloseIcon = document.createElement('span');
     toastCloseIcon.className = 'material-icons';
     toastCloseIcon.textContent = 'close';
+    toastCloseIcon.ariaHidden = 'true';
     toastCloseBtn.append(toastCloseIcon);
     addCloseBtnEventListener(type);
 
-    setTimeout(() => {
-        toastContainer.remove();
-    }, 5000);
+    // Hovering or focusing the notification resets the timer of 5 seconds before it gets dismissed.
+    let timer;
+    const pauseTimer = () => clearTimeout(timer);
+    const resumeTimer = () => { timer = setTimeout(() => toastContainer.remove(), 5000); };
+    resumeTimer();
+    
+    toastContainer.addEventListener('mouseenter', pauseTimer);
+    toastContainer.addEventListener('focusin', pauseTimer);
+    toastContainer.addEventListener('mouseleave', resumeTimer);
+    toastContainer.addEventListener('focusout', resumeTimer);
 }
 
 function addCloseBtnEventListener(type) {
