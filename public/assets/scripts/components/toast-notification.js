@@ -40,7 +40,7 @@ export const ToastNotification = {
 
 function displayToast(type, title, message) {
     // Avoids same toast from being displayed multiple times if the user spam clicks a button that triggers it.
-    removeToastIfAlreadyiExsts();
+    removeToastIfAlreadyExists();
 
     const main = document.querySelector('main');
     const toastContainer = document.createElement('div');
@@ -103,6 +103,6 @@ function addCloseBtnEventListener(type) {
     }
 }
 
-function removeToastIfAlreadyiExsts() {
+function removeToastIfAlreadyExists() {
     Object.values(TOAST_TYPES).forEach(({ id }) => document.getElementById(id)?.remove());
 }
