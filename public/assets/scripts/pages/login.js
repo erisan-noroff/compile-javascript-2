@@ -1,4 +1,4 @@
-import { redirectToHomepage } from '../utils/authentication.js';
+import { isAuthenticated, redirectToHomepage } from '../utils/authentication.js';
 import { createTextInput } from '../components/form-group.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
@@ -6,6 +6,11 @@ import { apiClient } from '../api/api-client.js';
 import formValidation from '../utils/form-validation.js';
 
 function init() {
+    if (isAuthenticated()) {
+        redirectToHomepage();
+        return;
+    }
+    
     if (sessionStorage.getItem('showSignUpSuccess')) {
         ToastNotification.success('Account Created', 'Sign in to get started.');
         sessionStorage.removeItem('showSignUpSuccess');
