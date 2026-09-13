@@ -23,6 +23,7 @@ header {
     z-index: 10;
     padding-block: var(--spacing-4);
     border-bottom: 1px solid var(--color-border);
+    padding-inline: var(--spacing-7);
 }
 
 header .container {
@@ -169,7 +170,7 @@ h1 {
 
 .text-input {
     background: var(--color-input-background);
-    padding-inline: var(--spacing-2);
+    padding-inline: var(--spacing-3);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     height: 2.5rem;
@@ -211,6 +212,11 @@ button {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding-inline: var(--spacing-3);
+        padding-block: var(--spacing-7) var(--spacing-3);
+    }
+    
     body {
         font-size: 0.875rem;
         gap: var(--spacing-5);

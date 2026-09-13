@@ -36,9 +36,6 @@ function navigationLinks() {
 }
 
 const header = document.querySelector('header');
-const container = document.createElement('div');
-container.className = 'container';
-header.append(container);
 
 /**
  * Builds the profile menu. Menu closes on the chevron, outside click or on Escape key.
@@ -93,7 +90,7 @@ function createProfileMenu() {
 const logo = document.createElement('p');
 logo.className = 'logo';
 logo.textContent = 'compile';
-container.append(logo);
+header.append(logo);
 
 if (isAuthenticated())
-    container.append(createProfileMenu());
+    header.append(createProfileMenu());
