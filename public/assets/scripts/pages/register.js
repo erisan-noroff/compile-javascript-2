@@ -82,8 +82,6 @@ function addSubmitEventListener() {
         } finally {
             setButtonLoading(submitBtn, false);
         }
-
-        // signUpSuccess();
     });
 }
 
