@@ -87,9 +87,11 @@ function createProfileMenu() {
     return profileMenu;
 }
 
-const logo = document.createElement('p');
+const logo = document.createElement('a');
 logo.className = 'logo';
 logo.textContent = 'compile';
+logo.href = 'index.html';
+logo.ariaLabel = 'Compile home page';
 header.append(logo);
 
 if (isAuthenticated())
