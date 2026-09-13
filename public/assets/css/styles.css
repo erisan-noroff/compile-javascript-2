@@ -210,6 +210,9 @@ button {
     color: inherit;
     cursor: pointer;
     font: inherit;
+}
+
+.btn {
     font-weight: 600;
     height: 3.125rem;
     display: inline-flex;
