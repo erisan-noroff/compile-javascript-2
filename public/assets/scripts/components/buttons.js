@@ -22,3 +22,11 @@ export function Button(text, className = '', id='', type = ButtonType.Button) {
     button.textContent = text;
     return button;
 }
+
+export function setButtonLoading(button, isLoading) {
+    console.log(button);
+    if (!button) return;
+    
+    button.disabled = isLoading;
+    button.classList.toggle('btn--loading', isLoading);
+}
