@@ -24,7 +24,6 @@ export function Button(text, className = '', id='', type = ButtonType.Button) {
 }
 
 export function setButtonLoading(button, isLoading) {
-    console.log(button);
     if (!button) return;
     
     button.disabled = isLoading;

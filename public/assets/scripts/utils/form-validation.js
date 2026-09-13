@@ -8,8 +8,6 @@
 export default function formValidation(e) {
     e.preventDefault();
     let isValid = true;
-    
-    console.log('wtf');
 
     const requiredInputs = e.target.querySelectorAll('[required]');
     for (let i = 0; i < requiredInputs.length; i++) {

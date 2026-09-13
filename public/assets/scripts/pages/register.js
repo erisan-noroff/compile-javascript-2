@@ -63,7 +63,6 @@ function addSubmitEventListener() {
         const password = document.getElementById('password').value;
 
         const submitBtn = form.querySelector('#register-btn');
-        console.log(submitBtn);
         setButtonLoading(submitBtn, true);
 
         const api = apiClient();
