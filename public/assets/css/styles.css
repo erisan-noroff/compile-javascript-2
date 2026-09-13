@@ -103,7 +103,7 @@ header {
 .profile-menu__item {
     font-family: var(--font-display), monospace;
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     color: var(--color-text);
     text-decoration: none;
@@ -111,6 +111,7 @@ header {
 
 .profile-menu__item:hover {
     color: var(--color-accent);
+    text-decoration: underline;
 }
 
 .material-icons {
@@ -209,6 +210,9 @@ button {
     color: inherit;
     cursor: pointer;
     font: inherit;
+}
+
+.btn {
     font-weight: 600;
     height: 3.125rem;
     display: inline-flex;

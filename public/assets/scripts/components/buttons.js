@@ -17,7 +17,7 @@ export const ButtonType = {
 export function Button(text, className = '', id='', type = ButtonType.Button) {
     const button = document.createElement('button');
     button.type = type;
-    if (className) button.className = className;
+    if (className) button.classList.add(...className.split(' '));
     if (id) button.id = id;
     button.textContent = text;
     return button;

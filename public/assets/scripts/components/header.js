@@ -1,4 +1,5 @@
-import { isAuthenticated } from '../utils/authentication.js';
+import { isAuthenticated, redirectToSignIn } from '../utils/authentication.js';
+import { Button } from './buttons.js';
 
 /**
  * Renders the specified icon from Material Icons
@@ -26,11 +27,13 @@ function navigationLinks() {
     profileItem.append(profileLink);
 
     const signOutItem = document.createElement('li');
-    const signOutLink = document.createElement('a');
-    signOutLink.className = 'profile-menu__item';
-    signOutLink.href = '#';
-    signOutLink.textContent = 'Sign Out';
-    signOutItem.append(signOutLink);
+    const signOutBtn = Button('sign out', 'profile-menu__item', 'sign-out-btn');
+    signOutItem.append(signOutBtn);
+    
+    signOutBtn.addEventListener('click', () => {
+       localStorage.removeItem('auth_token');
+       redirectToSignIn();
+    });
 
     return [profileItem, signOutItem];
 }
