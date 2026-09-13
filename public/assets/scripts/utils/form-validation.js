@@ -42,7 +42,6 @@ export default function formValidation(e) {
     }
 
     /**
-     * Requires the `data-validate-domain` attribute on the input to run.
      * Checks if the email ends with @stud.noroff.no and marks as invalid if not.
      * @param {HTMLInputElement} input
      */
