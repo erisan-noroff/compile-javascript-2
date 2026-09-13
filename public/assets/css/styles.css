@@ -214,6 +214,39 @@ button {
     background-color: var(--color-primary-hover);
 }
 
+.spinner {
+    width: 5rem;
+    height: 5rem;
+    border: 8px solid var(--color-text);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.btn--loading::after {
+    border: 2px solid var(--spinner-track);
+    border-top-color: var(--spinner-arc);
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: var(--spacing-2);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    vertical-align: middle;
+}
+
+.primary-btn {
+    --spinner-track: var(--color-button-primary-track);
+    --spinner-arc: var(--color-text);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: var(--spacing-5);
