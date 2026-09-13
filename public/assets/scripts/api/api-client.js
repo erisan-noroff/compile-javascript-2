@@ -32,6 +32,7 @@ export function apiClient() {
         
         const body = await response.json();
         
+        // The API returns errors in an array.
         if (!response.ok) {
             throw new Error(body.errors?.[0]?.message ?? 'Unexpected error occurred');
         }
