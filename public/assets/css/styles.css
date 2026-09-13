@@ -25,6 +25,7 @@ header {
     padding-inline: var(--spacing-7);
     display: flex;
     justify-content: space-between;
+    background-color: var(--color-background);
 }
 
 .container {
