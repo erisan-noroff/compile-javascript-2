@@ -196,9 +196,10 @@ button {
     background: none;
     border: none;
     padding: 0;
+    color: inherit;
     cursor: pointer;
     font: inherit;
-    color: inherit;
+    font-weight: 600;
     height: 3.125rem;
 }
 
@@ -207,7 +208,6 @@ button {
     color: var(--color-text);
     padding: var(--spacing-3);
     border-radius: var(--radius);
-    font-weight: 600;
 }
 
 .primary-btn:hover {

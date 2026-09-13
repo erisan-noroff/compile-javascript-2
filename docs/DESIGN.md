@@ -53,6 +53,7 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 - **Default:** #2B59C3, Text: #E6EDF3
 - **Hover:** #264EAC
+- **Active:** #204392
 
 #### Secondary
 
@@ -126,16 +127,16 @@ typography, colour palette, spacing, and component specifications for the Compil
 
 **Font:** Inter
 
-|                     | Desktop              | Mobile   |
-|---------------------|----------------------|----------|
-| **Body**            | 1rem                 | 0.875rem |
-| **Post Title**      | 2rem                 | 1.5rem   |
-| **Post Body**       | 1rem                 | 0.875rem |
-| **Post Meta**       | 0.875rem             | 0.875rem |
-| **Primary Buttons** | 1rem, Semibold (600) | 0.875rem |
-| **Tag**             | 0.875rem             | 0.875rem |
-| **Form Label**      | 1rem, Semibold (600) | 0.875rem |
-| **Link**            | 1rem                 | 0.875rem |
+|                | Desktop              | Mobile   |
+|----------------|----------------------|----------|
+| **Body**       | 1rem                 | 0.875rem |
+| **Post Title** | 2rem                 | 1.5rem   |
+| **Post Body**  | 1rem                 | 0.875rem |
+| **Post Meta**  | 0.875rem             | 0.875rem |
+| **Buttons**    | 1rem, Semibold (600) | 0.875rem |
+| **Tag**        | 0.875rem             | 0.875rem |
+| **Form Label** | 1rem, Semibold (600) | 0.875rem |
+| **Link**       | 1rem                 | 0.875rem |
 
 ***
 
