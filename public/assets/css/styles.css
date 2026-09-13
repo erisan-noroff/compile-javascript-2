@@ -179,6 +179,15 @@ h1 {
     color: var(--color-text);
 }
 
+.text-input--error {
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+}
+
+.form-group__error {
+    color: var(--color-danger);
+}
+
 .text-input:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 0;
