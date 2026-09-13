@@ -22,7 +22,7 @@ export function apiClient() {
      * Sends a request to the specified endpoint and returns the response.
      * @param {string} endpoint - API endpoint. Appended to the API base URL.
      * @param {object} options - Fetch options. Method defaults to GET if omitted, plus optional body.
-     * @returns {Promise<void>}
+     * @returns {Promise<object>}
      */
     async function request(endpoint, options = {}) {
         const response = await fetch(`${baseUrl}${endpoint}`, {
