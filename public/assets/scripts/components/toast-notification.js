@@ -75,13 +75,13 @@ function displayToast(type, title, message) {
     toastText.append(toastTitle);
 
     const toastMessage = document.createElement('p');
-    toastMessage.classList.add('toast__message', 'text-secondary');
+    toastMessage.classList.add('toast__body');
     toastMessage.innerText = message;
     toastText.append(toastMessage);
 
     const toastCloseBtn = document.createElement('button');
     toastCloseBtn.id = 'close-toast';
-    toastCloseBtn.classList.add('text-secondary');
+    toastCloseBtn.classList.add('toast__close');
     toastContainer.append(toastCloseBtn);
     const toastCloseIcon = document.createElement('span');
     toastCloseIcon.className = 'material-icons';
