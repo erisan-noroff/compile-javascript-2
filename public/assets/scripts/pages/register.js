@@ -68,7 +68,7 @@ function addSubmitEventListener() {
         const api = apiClient();
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            await new Promise(resolve => setTimeout(resolve, 3000));
             const response = await api.post('/auth/register', {name: username, email: email, password: password});
             if (!response) ToastNotification.apiDataLoadError();
         } catch (ex) {
