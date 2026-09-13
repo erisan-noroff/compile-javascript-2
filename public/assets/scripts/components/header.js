@@ -27,7 +27,7 @@ function navigationLinks() {
     profileItem.append(profileLink);
 
     const signOutItem = document.createElement('li');
-    const signOutBtn = Button('sign out', 'profile-menu__item', 'sign-out-btn');
+    const signOutBtn = Button('sign out', 'profile-menu__item');
     signOutItem.append(signOutBtn);
     
     signOutBtn.addEventListener('click', () => {
