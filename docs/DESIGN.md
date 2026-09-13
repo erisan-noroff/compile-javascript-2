@@ -89,7 +89,7 @@ typography, colour palette, spacing, and component specifications for the Compil
 - **Error:** #DC2626
 - **Usage:** Form validation errors, failed API requests
 
-## Input
+### Input
 
 - **Background:** #010409
 - **Border:** #E6EDF3, 15% opacity, 1px
