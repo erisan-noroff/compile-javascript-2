@@ -111,6 +111,7 @@ header {
 
 .profile-menu__item:hover {
     color: var(--color-accent);
+    text-decoration: underline;
 }
 
 .material-icons {
