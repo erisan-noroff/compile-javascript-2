@@ -4,10 +4,11 @@
  * @param {string} input.id
  * @param {string} input.label
  * @param {string} input.placeholder
+ * @param {boolean} input.required
  * @param {AutoFill} input.autocomplete - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete
  * @returns {HTMLDivElement} the form group div element.
  */
-export function createTextInput({ id, label, placeholder = '', type = 'text', autocomplete}) {
+export function createTextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete}) {
     const formGroupElement = document.createElement('div');
     formGroupElement.className = 'form-group';
     
@@ -19,6 +20,7 @@ export function createTextInput({ id, label, placeholder = '', type = 'text', au
     inputElement.type = type;
     inputElement.id = id;
     inputElement.placeholder = placeholder;
+    inputElement.required = required;
     inputElement.autocomplete = autocomplete;
     inputElement.className = 'text-input';
     
