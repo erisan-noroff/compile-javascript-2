@@ -210,6 +210,9 @@ button {
     font: inherit;
     font-weight: 600;
     height: 3.125rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .primary-btn {
