@@ -33,7 +33,7 @@ export const ToastNotification = {
     /**
      * Display API data load error toast message
      */
-    apiDataLoadError() {
+    apiGenericError() {
         displayToast('error', 'Server error', 'Something went wrong. Please refresh the page.');
     }
 }
