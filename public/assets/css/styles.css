@@ -141,7 +141,7 @@ h1 {
     font-family: var(--font-display), monospace;
 }
 
-.logo, h1, label, button {
+.logo, h1, button {
     text-transform: capitalize;
 }
 
