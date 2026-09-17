@@ -10,23 +10,23 @@ function init() {
         redirectToHomepage();
         return;
     }
-    
+
     const form = document.querySelector('form.stack');
     const FormFields = [
         {
             id: 'email',
-            label: 'email',
+            label: 'Email',
             type: 'email',
             placeholder: 'john.doe@stud.noroff.no',
             required: true,
             autocomplete: 'email'
         },
         {
-            id: 'username', label: 'username', placeholder: 'CompileRuleZ', required: true, autocomplete: 'username'
+            id: 'username', label: 'Username', placeholder: 'CompileRuleZ', required: true, autocomplete: 'username'
         },
         {
             id: 'password',
-            label: 'password',
+            label: 'Password',
             placeholder: 'Enter your password',
             type: 'password',
             required: true,
@@ -34,11 +34,23 @@ function init() {
         },
         {
             id: 'confirm-password',
-            label: 'confirm password',
+            label: 'Confirm Password',
             placeholder: 'Re-enter your password',
             type: 'password',
             required: true,
             autocomplete: 'new-password'
+        },
+        {
+            id: 'avatar',
+            label: 'Profile Image URL (optional)',
+            placeholder: 'https://image.example.com/image.png',
+            type: 'text'
+        },
+        {
+            id: 'banner',
+            label: 'Profile Banner URL (optional)',
+            placeholder: 'https://image.example.com/image.png',
+            type: 'text'
         }
     ];
 
@@ -62,11 +74,13 @@ function addSubmitEventListener() {
 
     form.addEventListener('submit', async(e) => {
         const isValid = formValidation(e);
-        if (!isValid) return;
-        
+         if (!isValid) return;
+
         const email = document.getElementById('email').value;
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
+        const avatar = document.getElementById('avatar').value;
+        const banner = document.getElementById('banner').value;
 
         const submitBtn = form.querySelector('#register-btn');
         setButtonLoading(submitBtn, true);
@@ -75,7 +89,10 @@ function addSubmitEventListener() {
 
         try {
             await new Promise(resolve => setTimeout(resolve, 3000));
-            await api.post('/auth/register', {name: username, email: email, password: password});
+            const body = {name: username, email: email, password: password};
+            if (avatar) body.avatar = { url: avatar, alt: ''};
+            if (banner) body.banner = { url: banner, alt: ''};
+            await api.post('/auth/register', body);
             signUpSuccessful();
         } catch (ex) {
             ToastNotification.error('Registration failed', ex.message);
