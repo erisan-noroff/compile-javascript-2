@@ -20,7 +20,7 @@ function init() {
     const FormFields = [
         {
             id: 'email',
-            label: 'email',
+            label: 'Email',
             type: 'email',
             placeholder: 'john.doe@stud.noroff.no',
             required: true,
@@ -28,7 +28,7 @@ function init() {
         },
         {
             id: 'password',
-            label: 'password',
+            label: 'Password',
             placeholder: 'Enter your password',
             type: 'password',
             required: true,
