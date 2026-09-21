@@ -12,14 +12,13 @@ typography and spacing — for the Compile website. Component specifications liv
 
 ### Brand
 
-| Token           | Colour  | Usage                                |
-|-----------------|---------|--------------------------------------|
-| **Primary**     | #2B59C3 | Primary actions                      |
-| Primary hover   | #264EAC |                                      |
-| Primary active  | #204392 |                                      |
-| **Secondary**   | #FFA62B | Highlights, badges                   |
-| **Accent**      | #A2D6F9 | Hover states, tags, small UI details |
-| Accent hover    | #B0DCFA |                                      |
+| Token          | Colour  | Usage                              |
+|----------------|---------|------------------------------------|
+| **Primary**    | #2B59C3 | Primary actions                    |
+| Primary hover  | #264EAC |                                    |
+| Primary active | #204392 |                                    |
+| **Secondary**  | #FFA62B | Badges                             |
+| **Accent**     | #A2D6F9 | Links, menu hover, Following state |
 
 ### Text
 
@@ -59,13 +58,13 @@ typography and spacing — for the Compile website. Component specifications liv
 
 **Font:** JetBrains Mono
 
-|                | Desktop                             | Mobile                            |
-|----------------|-------------------------------------|-----------------------------------|
+|                | Desktop                             | Mobile                             |
+|----------------|-------------------------------------|------------------------------------|
 | **Logo**       | 1.75rem, Bold (700), 0.1em tracking | 1.5rem, Bold (700), 0.1em tracking |
-| **H1**         | 2.5rem                              | 2rem                              |
-| **H2**         | 2rem                                | 1.5rem                            |
-| **H3**         | 1.5rem                              | 1rem                              |
-| **Navigation** | 1.125rem, Semibold (600), uppercase | 1rem, Semibold (600), uppercase   |
+| **H1**         | 2.5rem                              | 2rem                               |
+| **H2**         | 2rem                                | 1.5rem                             |
+| **H3**         | 1.5rem                              | 1rem                               |
+| **Navigation** | 1.125rem, Semibold (600), uppercase | 1rem, Semibold (600), uppercase    |
 
 ### Body
 
