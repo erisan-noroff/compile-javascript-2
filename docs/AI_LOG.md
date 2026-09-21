@@ -10,3 +10,6 @@ Used AI for generating site description in <meta name="description"> tag for reg
 **13/09/2026**
 1. Asked AI to simplify and clean out all component specific items from DESIGN.md.
 2. Used AI for generating site description in <meta name="description"> tag for login.html.
+
+**21/09/2026**
+Brainstorming minor changes to DESIGN.md with AI to find the best usage for the "Accent" colour.
