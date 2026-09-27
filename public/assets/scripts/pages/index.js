@@ -34,6 +34,7 @@ function renderPostCard(post) {
     if (post?.media) {
         const banner = document.createElement('img');
         card.append(banner);
+        banner.className = 'card__media';
         banner.src = post.media.url;
         banner.alt = post.media.alt;
     }

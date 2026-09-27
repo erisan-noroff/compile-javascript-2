@@ -373,7 +373,8 @@ button {
 }
 
 .card--post {
-    width: 50rem;
+    max-width: 50rem;
+    width: 100%;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
@@ -410,7 +411,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
-    padding: var(--spacing-4) var(--spacing-4);
+    padding: var(--spacing-4);
 }
 
 .card--post .card__content {
@@ -425,7 +426,7 @@ button {
 }
 
 .card__footer {
-    align-items: center;
+    /*align-items: center;*/
     display: flex;
     justify-content: space-between;
 }
@@ -489,5 +490,34 @@ button {
 
     h1 {
         font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .card__avatar {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .card__media {
+        aspect-ratio: auto;
+        height: 200px;
+    }
+
+    .card__byline {
+        gap: var(--spacing-2);
+        padding-inline: var(--spacing-3);
+    }
+    
+    .card__content {
+        gap: var(--spacing-3);
+        padding: var(--spacing-3);
+    }
+    
+    .card__footer {
+        flex-direction: column;
+        gap: var(--spacing-2);
     }
 }
