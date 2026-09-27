@@ -141,6 +141,12 @@ h1 {
     font-family: var(--font-display), monospace;
 }
 
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-display), monospace;
+}
+
 .logo, h1, button {
     text-transform: capitalize;
 }
@@ -358,6 +364,86 @@ button {
 .toast__body,
 .toast__close {
     color: var(--color-text-muted);
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.card--post {
+    width: 50rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__media {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+}
+
+.card__byline {
+    align-items: center;
+    display: flex;
+    gap: var(--spacing-2);
+    padding-block: var(--spacing-3);
+    padding-inline: var(--spacing-4);
+}
+
+.card__avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.card__date,
+.card__stats {
+    color: var(--color-text-muted);
+}
+
+.card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    padding: 0 var(--spacing-4) var(--spacing-4);
+}
+
+.card__body {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card__footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__tags {
+    display: flex;
+    gap: var(--spacing-1);
+}
+
+.card__tag {
+    background-color: var(--color-secondary);
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    display: flex;
+    font-size: 0.875rem;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2);
+}
+
+.card__stats {
+    display: flex;
+    gap: var(--spacing-3);
 }
 
 @keyframes spin {
