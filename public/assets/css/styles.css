@@ -148,6 +148,9 @@ h1 {
 .card {
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
+}
+
+.card__content {
     padding: var(--spacing-4);
 }
 
