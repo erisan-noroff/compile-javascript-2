@@ -74,19 +74,19 @@ function renderPostCard(post) {
     content.append(footer);
     footer.className = 'card__footer';
     
-    if (post.tags.length === 0)
-        return;
-    
-    const tags = document.createElement('div');
-    footer.append(tags);
-    tags.className = 'card__tags';
-    
-    for (let i = 0; i < post.tags.length; i++) {
-        const tagElement = document.createElement('div');
-        tagElement.className = 'card__tag';
-        tagElement.textContent = post.tags[i];
-        tags.append(tagElement);
+    if (post.tags.length > 0) {
+        const tags = document.createElement('div');
+        footer.append(tags);
+        tags.className = 'card__tags';
+        
+        for (let i = 0; i < post.tags.length; i++) {
+            const tagElement = document.createElement('div');
+            tagElement.className = 'card__tag';
+            tagElement.textContent = post.tags[i];
+            tags.append(tagElement);
+        }
     }
+    
     
     const stats = document.createElement('div');
     footer.append(stats);
