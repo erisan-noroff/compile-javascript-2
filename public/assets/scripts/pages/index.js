@@ -1,7 +1,7 @@
 import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
-import { Postcard } from '../components/postcard.js';
+import { PostCard } from '../components/postCard.js';
 
 async function init() {
     if (!isAuthenticated()) {
@@ -13,8 +13,8 @@ async function init() {
         const posts = await getPosts();
         const feed = document.querySelector('.feed');
         for (let i = 0; i < posts.length; i++) {
-            const postcard = Postcard(posts[i]);
-            feed.append(postcard);
+            const postCard = PostCard(posts[i]);
+            feed.append(postCard);
         }
     } catch (ex) {
         ToastNotification.error('Loading posts failed', ex.message);
