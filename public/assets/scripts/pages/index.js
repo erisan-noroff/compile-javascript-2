@@ -103,9 +103,6 @@ function renderPostCard(post) {
         stats.append(reactions);
         reactions.textContent = `${post._count.reactions} ${post._count.reactions === 1 ? 'reaction' : 'reactions'}`;
     }
-    
-    const reactions = document.createElement('p');
-    stats.append(reactions);
 }
 
 await init();
