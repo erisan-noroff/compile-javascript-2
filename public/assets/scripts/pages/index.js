@@ -12,6 +12,7 @@ async function init() {
     try {
         const posts = await getPosts();
         const feed = document.querySelector('.feed');
+        console.log(posts[0]);
         for (let i = 0; i < posts.length; i++) {
             const postCard = PostCard(posts[i]);
             feed.append(postCard);

@@ -34,6 +34,14 @@ export function PostCard(post, clamped = false) {
     createdDate.className = 'card__date';
     createdDate.dateTime = post.created;
     createdDate.textContent = formatDateTime(post.created);
+    
+    if (post.created !== post.updated) {
+        const edited = document.createElement('span');
+        edited.className = 'card__date';
+        edited.textContent = ' (edited)';
+        createdDate.title = `Last edited ${formatDateTime(post.updated)}`;
+        byline.append(edited);
+    }
 
     const title = document.createElement('h2');
     content.append(title);
