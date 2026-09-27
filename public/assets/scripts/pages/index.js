@@ -11,7 +11,6 @@ async function init() {
     
     try {
         const posts = await getPosts();
-        console.log(posts[0]);
         for (let i = 0; i < posts.length; i++)
             renderPostCard(posts[i]);
     } catch (ex) {
