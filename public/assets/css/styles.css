@@ -418,7 +418,7 @@ button {
     padding-top: 0;
 }
 
-.card__body {
+.card__body--clamped {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -426,7 +426,7 @@ button {
 }
 
 .card__footer {
-    /*align-items: center;*/
+    align-items: center;
     display: flex;
     justify-content: space-between;
 }
@@ -517,6 +517,7 @@ button {
     }
     
     .card__footer {
+        align-items: flex-start;
         flex-direction: column;
         gap: var(--spacing-2);
     }
