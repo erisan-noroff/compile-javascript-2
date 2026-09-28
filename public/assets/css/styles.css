@@ -277,7 +277,7 @@ button {
 .loading-state__spinner {
     width: 5rem;
     height: 5rem;
-    border: 8px solid var(--color-text);
+    border: 0.5rem solid var(--color-text);
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
