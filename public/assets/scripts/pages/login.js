@@ -1,5 +1,5 @@
 import { isAuthenticated, redirectToHomepage } from '../utils/authentication.js';
-import { createTextInput } from '../components/form-group.js';
+import TextInput from '../components/form-group.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
@@ -36,7 +36,7 @@ function init() {
         }
     ];
 
-    form.append(...FormFields.map(createTextInput));
+    form.append(...FormFields.map(TextInput));
 
     const button = Button('sign in', 'btn primary-btn', 'login-btn', ButtonType.Submit);
     const formRow = document.createElement('div');

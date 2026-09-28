@@ -8,7 +8,7 @@
  * @param {AutoFill} input.autocomplete - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete
  * @returns {HTMLDivElement} the form group div element.
  */
-export function createTextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete}) {
+export default function TextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete}) {
     const formGroupElement = document.createElement('div');
     formGroupElement.className = 'form-group';
     
