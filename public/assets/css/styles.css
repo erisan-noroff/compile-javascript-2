@@ -265,7 +265,16 @@ button {
     background-color: var(--color-primary-hover);
 }
 
-.spinner {
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loading-state__spinner {
     width: 5rem;
     height: 5rem;
     border: 8px solid var(--color-text);
