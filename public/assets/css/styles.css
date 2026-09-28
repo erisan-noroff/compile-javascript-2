@@ -542,4 +542,8 @@ button {
         flex-direction: column;
         gap: var(--spacing-2);
     }
+    
+    .feed {
+        gap: var(--spacing-5);
+    }
 }
