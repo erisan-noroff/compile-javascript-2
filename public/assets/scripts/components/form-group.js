@@ -4,8 +4,8 @@
  * @param {string} input.id
  * @param {string} input.label
  * @param {string} input.placeholder
- * @param {boolean} input.required
- * @param {AutoFill} input.autocomplete - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete
+ * @param {boolean} [input.required]
+ * @param {AutoFill} [input.autocomplete] - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete
  * @returns {HTMLDivElement} the form group div element.
  */
 export default function TextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete}) {
