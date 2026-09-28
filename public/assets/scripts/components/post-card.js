@@ -1,6 +1,6 @@
 import { formatDateTime } from '../utils/format-date-time.js';
 
-export function PostCard(post, clamped = false) {
+export default function PostCard(post, clamped = false) {
     const card = document.createElement('div');
     card.classList.add('card', 'card--post');
 
