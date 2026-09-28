@@ -39,6 +39,11 @@ header {
     gap: var(--spacing-6);
 }
 
+main,
+.container {
+    flex: 1;
+}
+
 .logo {
     font-family: var(--font-display), monospace;
     font-size: 1.75rem;
@@ -260,10 +265,19 @@ button {
     background-color: var(--color-primary-hover);
 }
 
-.spinner {
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loading-state__spinner {
     width: 5rem;
     height: 5rem;
-    border: 8px solid var(--color-text);
+    border: 0.5rem solid var(--color-text);
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -449,6 +463,13 @@ button {
 .card__stats {
     display: flex;
     gap: var(--spacing-3);
+}
+
+.empty-state {
+    color: var(--color-text-muted);
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
 }
 
 @keyframes spin {
