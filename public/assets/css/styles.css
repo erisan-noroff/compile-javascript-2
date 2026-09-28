@@ -39,6 +39,11 @@ header {
     gap: var(--spacing-6);
 }
 
+main,
+.container {
+    flex: 1;
+}
+
 .logo {
     font-family: var(--font-display), monospace;
     font-size: 1.75rem;
