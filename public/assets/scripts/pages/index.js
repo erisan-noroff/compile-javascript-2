@@ -2,7 +2,7 @@ import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import PostCard from '../components/post-card.js';
-import { loadingSpinner, removeLoadingState } from '../components/loading-spinner.js';
+import { LoadingSpinner, removeLoadingSpinner } from '../components/loading-spinner.js';
 import EmptyState from '../components/empty-state.js';
 
 async function init() {
