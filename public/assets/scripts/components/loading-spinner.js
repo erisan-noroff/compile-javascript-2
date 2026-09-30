@@ -1,8 +1,10 @@
-export function loadingSpinner() {
-    const main = document.querySelector('main');
+/**
+ * Returns a loading spinner component
+ * @returns {HTMLDivElement}
+ */
+export function LoadingSpinner() {
     const loadingState = document.createElement('div');
     loadingState.className = 'loading-state';
-    main.append(loadingState);
     
     const text = document.createElement('p');
     text.textContent = 'Fetching data...';
@@ -11,8 +13,10 @@ export function loadingSpinner() {
     const spinner = document.createElement('div');
     spinner.className = 'loading-state__spinner';
     loadingState.append(spinner);
+    
+    return loadingState;
 }
 
-export function removeLoadingState() {
+export function removeLoadingSpinner() {
     document.querySelector('.loading-state')?.remove();
 }
