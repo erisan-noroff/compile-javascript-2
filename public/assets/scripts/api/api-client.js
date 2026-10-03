@@ -37,7 +37,7 @@ export function apiClient() {
             throw new Error(body.errors?.[0]?.message ?? 'Unexpected error occurred');
         }
         
-        return body.data ?? body;
+        return body;
     }
     
     return {

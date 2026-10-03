@@ -1,18 +1,6 @@
 import { isAuthenticated, redirectToSignIn } from '../utils/authentication.js';
 import { Button } from './buttons.js';
-
-/**
- * Renders the specified icon from Material Icons
- * @param iconClass - The Material Icons ligature name, e.g. 'account_circle'.
- * @returns {HTMLSpanElement} the icon element.
- */
-function renderIcon(iconClass) {
-    const icon = document.createElement('span');
-    icon.className = 'material-icons';
-    icon.textContent = iconClass;
-
-    return icon;
-}
+import Icon from './Icon.js';
 
 /**
  * Builds the list items for the profile menu dropdown.
@@ -54,8 +42,8 @@ function createProfileMenu() {
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Profile menu');
 
-    const expandIcon = renderIcon('expand_more');
-    toggle.append(renderIcon('account_circle'), expandIcon);
+    const expandIcon = Icon('expand_more');
+    toggle.append(Icon('account_circle'), expandIcon);
 
     const menuItems = document.createElement('ul');
     menuItems.className = 'profile-menu__items';

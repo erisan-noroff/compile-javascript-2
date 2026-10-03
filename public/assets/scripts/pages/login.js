@@ -77,12 +77,12 @@ function addSubmitEventListener() {
         try {
             await new Promise(resolve => setTimeout(resolve, 3000));
             const response = await api.post('/auth/login', {email: email, password: password});
-            if (!response.accessToken) {
+            if (!response.data.accessToken) {
                 ToastNotification.apiGenericError();
                 return;
             }
             
-            localStorage.setItem('auth_token', response.accessToken);
+            localStorage.setItem('auth_token', response.data.accessToken);
             redirectToHomepage();
         } catch (ex) {
             ToastNotification.error('Login failed', ex.message);

@@ -476,6 +476,47 @@ button {
     max-width: 25rem;
 }
 
+.pagination-controls {
+    display: flex;
+    gap: var(--spacing-2);
+    justify-content: center;
+}
+
+.pagination-btn {
+    background-color: var(--color-surface);
+    display: flex;
+    border: 1px solid var(--color-border);
+    align-items: center;
+    padding: var(--spacing-1) var(--spacing-2);
+}
+
+.pagination-btn > .material-icons {
+    font-size: 1.5rem;
+}
+
+.pagination-btn:hover {
+    color: var(--color-accent);
+}
+
+.pagination-btn:active {
+    background-color: var(--color-input-background);
+    color: var(--color-text);
+}
+
+.pagination-btn:disabled {
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+}
+
+.pagination-btn--current-page {
+    background-color: var(--color-primary);
+    cursor: not-allowed;
+}
+
+.feed:has(.loading-state) .pagination-controls {
+    display: none;
+}
+
 @keyframes spin {
     to {
         transform: rotate(360deg);
@@ -549,5 +590,13 @@ button {
     
     .feed {
         gap: var(--spacing-5);
+    }
+
+    .pagination-btn > .material-icons {
+        font-size: 1rem;
+    }
+    
+    .pagination-btn--desktop-only {
+        display: none;
     }
 }
