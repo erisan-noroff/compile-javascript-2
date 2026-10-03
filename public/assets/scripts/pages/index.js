@@ -37,7 +37,7 @@ async function init() {
 }
 
 /**
- * Fetches posts from the API. Reusable by initial- and search requests
+ * Fetches posts from the API.
  * @param {string} [query=''] Search criteria
  * @param {number} [page=1] Page number
  * @returns {Promise<object>[]} List of posts including author
