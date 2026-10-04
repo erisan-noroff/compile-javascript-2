@@ -135,7 +135,7 @@ function renderPosts(posts, emptyMessage = 'No posts yet') {
 
     const postCards = [];
     for (let i = 0; i < posts.length; i++)
-        postCards.push(PostCard(posts[i], true));
+        postCards.push(PostCard(posts[i]));
 
     updateFeed(...postCards);
 }
