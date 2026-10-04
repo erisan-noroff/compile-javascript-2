@@ -1,7 +1,7 @@
 import { formatDateTime } from '../utils/format-date-time.js';
 
-export default function PostCard(post, clamped = false) {
-    const card = document.createElement('div');
+export default function PostCard(post, singlePostView = false, comments = false) {
+    const card = document.createElement('li');
     card.classList.add('card', 'card--post');
 
     if (post?.media) {
@@ -12,47 +12,33 @@ export default function PostCard(post, clamped = false) {
         banner.alt = post.media.alt;
     }
 
-    const byline = document.createElement('div');
+    const byline = Byline(post.author, post.created, post.updated);
     card.append(byline);
-    byline.className = 'card__byline';
 
     const content = document.createElement('div');
     card.append(content);
     content.className = 'card__content';
-
-    const avatar = document.createElement('img');
-    byline.append(avatar);
-    avatar.className = 'card__avatar';
-    avatar.src = post.author.avatar.url;
-
-    const username = document.createElement('p');
-    byline.append(username);
-    username.textContent = post.author.name;
-
-    const createdDate = document.createElement('time');
-    byline.append(createdDate);
-    createdDate.className = 'card__date';
-    createdDate.dateTime = post.created;
-    createdDate.textContent = formatDateTime(post.created);
     
-    if (post.created !== post.updated) {
-        const edited = document.createElement('span');
-        edited.className = 'card__date';
-        edited.textContent = ' (edited)';
-        createdDate.title = `Last edited ${formatDateTime(post.updated)}`;
-        byline.append(edited);
-    }
-
-    const title = document.createElement('h2');
+    const title = document.createElement(singlePostView ? 'h1' : 'h2');
     content.append(title);
-    title.textContent = post.title;
-
+    title.className = 'card__title';
+    
+    if (singlePostView) {
+        title.textContent = post.title;
+    } else {
+        const link = document.createElement('a');
+        title.append(link);
+        link.className = 'card__link';
+        link.href = `post.html?id=${post.id}`;
+        link.textContent = post.title;
+    }
+    
     const body = document.createElement('p');
     content.append(body);
     body.textContent = post.body;
-    if (clamped)
+    if (!singlePostView)
         body.className = 'card__body--clamp';
-
+    
     const footer = document.createElement('div');
     content.append(footer);
     footer.className = 'card__footer';
@@ -85,6 +71,75 @@ export default function PostCard(post, clamped = false) {
         stats.append(reactions);
         reactions.textContent = `${post._count.reactions} ${post._count.reactions === 1 ? 'reaction' : 'reactions'}`;
     }
-    
+
+    if (comments)
+        renderComments(card, post.comments);
+
     return card;
+}
+
+/**
+ *
+ * @param {object} author Author object from the API response. Contains name and avatar of author. 
+ * @param {string} created ISO-string containing date and time the post or comment was created.
+ * @param {string} [updated = null] ISO-string containing date and time the post was last edited.
+ * Not used by comments.
+ * @returns {HTMLDivElement}
+ */
+function Byline(author, created, updated = null) {
+    const byline = document.createElement('div');
+    byline.className = 'byline';
+
+    const avatar = document.createElement('img');
+    byline.append(avatar);
+    avatar.className = 'byline__avatar';
+    avatar.src = author.avatar.url;
+    avatar.alt = '';
+
+    const username = document.createElement('p');
+    byline.append(username);
+    username.textContent = author.name;
+
+    const createdDate = document.createElement('time');
+    byline.append(createdDate);
+    createdDate.className = 'byline__date';
+    createdDate.dateTime = created;
+    createdDate.textContent = formatDateTime(created);
+
+    if (updated && created !== updated) {
+        const edited = document.createElement('span');
+        edited.className = 'byline__date';
+        edited.textContent = ' (edited)';
+        createdDate.title = `Last edited ${formatDateTime(updated)}`;
+        byline.append(edited);
+    }
+
+    return byline;
+}
+
+function renderComments(card, comments) {
+    if (!comments?.length)
+        return;
+    
+    const commentSection = document.createElement('div');
+    card.append(commentSection);
+    commentSection.className = 'comments';
+    
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Comments';
+    commentSection.append(h2);
+    for (let i = 0; i < comments.length; i++) {
+        const comment = document.createElement('div');
+        comment.className = 'comment';
+        
+        const byline = Byline(comments[i].author, comments[i].created);
+        comment.append(byline);
+        
+        const body = document.createElement('div');
+        body.className = 'comment__body';
+        body.textContent = comments[i].body;
+        comment.append(body);
+        
+        commentSection.append(comment);
+    }
 }

@@ -2,7 +2,7 @@ import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import PostCard from '../components/post-card.js';
-import { LoadingSpinner, removeLoadingSpinner } from '../components/loading-spinner.js';
+import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import EmptyState from '../components/empty-state.js';
 import TextInput from '../components/form-group.js';
 import PaginationControls from '../components/pagination-controls.js';
@@ -17,22 +17,26 @@ async function init() {
     const feed = document.createElement('div');
     feed.className = 'feed';
     main.append(feed);
+    
     const loadingSpinner = LoadingSpinner();
     feed.append(loadingSpinner);
 
     try {
         await loadingTimeout();
+        const response = await getPosts();
 
         const searchField = SearchField();
         searchField.classList.add('feed__search');
         feed.append(searchField);
         addSearchEventListener();
 
-        const response = await getPosts();
-        const paginationControls = PaginationControls(response.meta, pageChangeHandler);
-        feed.append(paginationControls);
+        const feedList = document.createElement('ul');
+        feedList.className = 'feed__list';
+        feed.append(feedList);
         renderPosts(response.data);
 
+        const paginationControls = PaginationControls(response.meta, pageChangeHandler);
+        feed.append(paginationControls);
     } catch (ex) {
         ToastNotification.error('Loading posts failed', ex.message);
     } finally {
@@ -107,15 +111,9 @@ async function pageChangeHandler(pageNumber) {
     }
 }
 
-function loadingTimeout() {
-    return new Promise(resolve => setTimeout(resolve, 2000));
-}
-
 function updateFeed(...children) {
-    const feed = document.querySelector('.feed');
-    const searchField = document.querySelector('.feed__search');
-    const paginationControls = document.querySelector('.pagination-controls');
-    feed.replaceChildren(searchField, ...children, paginationControls);
+    const feedList = document.querySelector('.feed__list');
+    feedList.replaceChildren(...children);
 }
 
 /**

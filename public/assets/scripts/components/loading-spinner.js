@@ -17,6 +17,10 @@ export function LoadingSpinner() {
     return loadingState;
 }
 
+export function loadingTimeout() {
+    return new Promise(resolve => setTimeout(resolve, 2000));
+}
+
 export function removeLoadingSpinner() {
     document.querySelector('.loading-state')?.remove();
 }
