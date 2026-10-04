@@ -2,7 +2,7 @@ import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import PostCard from '../components/post-card.js';
-import { LoadingSpinner, removeLoadingSpinner } from '../components/loading-spinner.js';
+import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import EmptyState from '../components/empty-state.js';
 import TextInput from '../components/form-group.js';
 import PaginationControls from '../components/pagination-controls.js';
@@ -105,10 +105,6 @@ async function pageChangeHandler(pageNumber) {
     } finally {
         removeLoadingSpinner();
     }
-}
-
-function loadingTimeout() {
-    return new Promise(resolve => setTimeout(resolve, 2000));
 }
 
 function updateFeed(...children) {
