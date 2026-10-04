@@ -5,13 +5,14 @@ This document contains a list of sources used for assistance. AI usage is docume
 ## Sources
 
 ### Documentation
-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete
+- [Aria Attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/)
+- [Autocomplete Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete)
 - [Block, Element, Modifier (BEM) naming convention](https://css-tricks.com/bem-101/)
 - [JavaScript HTTP client using factory pattern](https://www.patterns.dev/vanilla/factory-pattern/#a-more-useful-example-an-http-client-factory)
 - [Display toast messages after redirecting to URL](https://stackoverflow.com/questions/44244193/display-toast-messages-after-redirecting-to-url)
 - [Combination of async function + await + setTimeout](https://stackoverflow.com/questions/33289726/combination-of-async-function-await-settimeout)
 - [Showing only X lines](https://css-tricks.com/almanac/properties/l/line-clamp/)
+- [JSDoc](https://jsdoc.app/)
 
 ### My own code and stylesheets from Exam Project 1
 
