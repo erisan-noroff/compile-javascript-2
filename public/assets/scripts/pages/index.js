@@ -17,22 +17,26 @@ async function init() {
     const feed = document.createElement('div');
     feed.className = 'feed';
     main.append(feed);
+    
     const loadingSpinner = LoadingSpinner();
     feed.append(loadingSpinner);
 
     try {
         await loadingTimeout();
+        const response = await getPosts();
 
         const searchField = SearchField();
         searchField.classList.add('feed__search');
         feed.append(searchField);
         addSearchEventListener();
 
-        const response = await getPosts();
-        const paginationControls = PaginationControls(response.meta, pageChangeHandler);
-        feed.append(paginationControls);
+        const feedList = document.createElement('ul');
+        feedList.className = 'feed__list';
+        feed.append(feedList);
         renderPosts(response.data);
 
+        const paginationControls = PaginationControls(response.meta, pageChangeHandler);
+        feed.append(paginationControls);
     } catch (ex) {
         ToastNotification.error('Loading posts failed', ex.message);
     } finally {
@@ -108,10 +112,8 @@ async function pageChangeHandler(pageNumber) {
 }
 
 function updateFeed(...children) {
-    const feed = document.querySelector('.feed');
-    const searchField = document.querySelector('.feed__search');
-    const paginationControls = document.querySelector('.pagination-controls');
-    feed.replaceChildren(searchField, ...children, paginationControls);
+    const feedList = document.querySelector('.feed__list');
+    feedList.replaceChildren(...children);
 }
 
 /**
