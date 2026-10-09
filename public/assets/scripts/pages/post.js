@@ -12,6 +12,10 @@ async function init() {
     }
     
     const main = document.querySelector('main');
+    const homePageLink = document.createElement('a');
+    main.append(homePageLink);
+    homePageLink.textContent = 'Back to the feed';
+    homePageLink.href = 'index.html';
     const singlePost = document.createElement('div');
     main.append(singlePost);
     singlePost.className = 'single-post';

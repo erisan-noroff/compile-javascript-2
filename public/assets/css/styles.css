@@ -39,6 +39,12 @@ header {
     gap: var(--spacing-6);
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+}
+
 main,
 .container {
     flex: 1;
@@ -610,7 +616,7 @@ button {
     h1 {
         font-size: 2rem;
     }
-    
+
     h2 {
         font-size: 1.5rem;
     }
@@ -619,7 +625,7 @@ button {
         width: 1.5rem;
         height: 1.5rem;
     }
-    
+
     .card__media {
         aspect-ratio: auto;
         height: 200px;
@@ -629,18 +635,18 @@ button {
         gap: var(--spacing-2);
         padding-inline: var(--spacing-3);
     }
-    
+
     .card__content {
         gap: var(--spacing-3);
         padding: var(--spacing-3);
     }
-    
+
     .card__footer {
         align-items: flex-start;
         flex-direction: column;
         gap: var(--spacing-2);
     }
-    
+
     .feed {
         gap: var(--spacing-5);
     }
@@ -648,7 +654,7 @@ button {
     .pagination-btn > .material-icons {
         font-size: 1rem;
     }
-    
+
     .pagination-btn--desktop-only {
         display: none;
     }
