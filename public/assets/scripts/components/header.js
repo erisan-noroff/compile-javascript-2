@@ -10,7 +10,7 @@ function navigationLinks() {
     const profileItem = document.createElement('li');
     const profileLink = document.createElement('a');
     profileLink.className = 'profile-menu__item';
-    profileLink.href = '#';
+    profileLink.href = 'profile.html';
     profileLink.textContent = 'View Profile';
     profileItem.append(profileLink);
 
