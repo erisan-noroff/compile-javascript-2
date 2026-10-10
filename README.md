@@ -21,7 +21,7 @@ A social platform where developers share ideas, follow each other, and post abou
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:erisan-noroff/compilse-javascript-2.git
+git clone git@github.com:erisan-noroff/compile-javascript-2.git
 ```
 
 ### Running
