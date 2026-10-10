@@ -1,0 +1,20 @@
+{
+  "name": "compile-javascript-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "type": "module",
+  "scripts": {
+    "prestart": "node ensuring-deps-installed.js",
+    "start": "http-server public -p 3000 -a localhost"
+  },
+  "overrides": {
+    "compression": "^1.8.2"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
