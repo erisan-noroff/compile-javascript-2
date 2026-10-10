@@ -44,11 +44,11 @@ typography and spacing — for the Compile website. Component specifications liv
 
 ### States
 
-| Token       | Colour  | Usage                                         |
-|-------------|---------|-----------------------------------------------|
-| **Success** | #31D962 | Successful post creation, follow confirmation |
-| **Error**   | #F85149 | Form validation errors, failed API requests   |
-| **Focus**   | #2B59C3 | 2px outline on focused inputs                 |
+| Token       | Colour  | Usage                                       |
+|-------------|---------|---------------------------------------------|
+| **Success** | #31D962 | Success toast                               |
+| **Error**   | #F85149 | Form validation errors, failed API requests |
+| **Focus**   | #2B59C3 | 2px outline on focused inputs               |
 
 ***
 
