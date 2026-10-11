@@ -303,7 +303,7 @@ button {
 }
 
 .primary-btn {
-    --spinner-track: var(--color-button-primary-track);
+    --spinner-track: var(--color-button-track);
     --spinner-arc: var(--color-text);
 }
 
