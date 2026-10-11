@@ -538,6 +538,7 @@ button {
 }
 
 .comments {
+    border-top: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
