@@ -3,6 +3,8 @@ import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../compone
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import { Button } from '../components/buttons.js';
+import PaginationControls from '../components/pagination-controls.js';
+import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
 
 async function init() {
     if (!isAuthenticated()) {
