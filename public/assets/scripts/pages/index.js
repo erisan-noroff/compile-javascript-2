@@ -1,11 +1,10 @@
 import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
-import PostCard from '../components/post-card.js';
 import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
-import EmptyState from '../components/empty-state.js';
 import TextInput from '../components/form-group.js';
 import PaginationControls from '../components/pagination-controls.js';
+import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
 
 async function init() {
     if (!isAuthenticated()) {
@@ -86,7 +85,7 @@ function addSearchEventListener() {
                 updateFeed(LoadingSpinner());
                 await loadingTimeout();
                 const response = await getPosts(query);
-                renderResponse(response, 'No matching posts found');
+                renderResponse(response, pageChangeHandler, 'No matching posts found');
             } catch (ex) {
                 ToastNotification.error('Searching for posts failed', ex.message);
             } finally {
@@ -103,43 +102,12 @@ async function pageChangeHandler(pageNumber) {
         updateFeed(LoadingSpinner());
         await loadingTimeout();
         const response = await getPosts(searchInput.value.trim(), pageNumber);
-        renderResponse(response);
+        renderResponse(response, pageChangeHandler);
     } catch (ex) {
         ToastNotification.error('Loading page failed', ex.message);
     } finally {
         removeLoadingSpinner();
     }
-}
-
-function updateFeed(...children) {
-    const feedList = document.querySelector('.feed__list');
-    feedList.replaceChildren(...children);
-}
-
-/**
- * @param response API response passed on to function that renders Post Cards.
- * @param emptyMessage Message that will be shown if there are no posts to be displayed. Differs from initial page load and search.
- */
-function renderResponse(response, emptyMessage) {
-    document.querySelector('.pagination-controls').replaceWith(PaginationControls(response.meta, pageChangeHandler));
-    renderPosts(response.data, emptyMessage);
-}
-
-/**
- * @param {object[]} posts Posts from the API response to render into Post Card components
- * @param {string} [emptyMessage='No posts yet'] Empty state message
- */
-function renderPosts(posts, emptyMessage = 'No posts yet') {
-    if (!posts?.length) {
-        updateFeed(EmptyState(emptyMessage));
-        return;
-    }
-
-    const postCards = [];
-    for (let i = 0; i < posts.length; i++)
-        postCards.push(PostCard(posts[i]));
-
-    updateFeed(...postCards);
 }
 
 await init();
