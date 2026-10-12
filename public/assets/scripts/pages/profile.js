@@ -18,28 +18,35 @@ async function init() {
     homePageLink.textContent = 'Back to the feed';
     homePageLink.href = 'index.html';
 
-    const profile = document.createElement('div');
-    profile.className = 'feed';
-    main.append(profile);
+    const feed = document.createElement('div');
+    feed.className = 'feed';
+    main.append(feed);
 
     const loadingSpinner = LoadingSpinner();
-    profile.append(loadingSpinner);
+    feed.append(loadingSpinner);
 
     try {
         await loadingTimeout();
 
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('name') ?? localStorage.getItem('name');
+        const name = getProfileName();
         const profileInformation = await getProfile(name);
         const ownProfile = profileInformation.data.name === localStorage.getItem('name');
-        const profileCard = ProfileCard(profileInformation.data, {
-            ownProfile, onClick: ownProfile
-                ? () => location.assign('/post/create.html')
-                : (e) => toggleFollow(e.currentTarget, profileInformation.data.name)
-        });
-        profile.replaceChildren(profileCard);
+        const onClick = ownProfile
+            ? () => location.assign('/post/create.html')
+            : (e) => toggleFollow(e.currentTarget, profileInformation.data.name);
+        const profileCard = ProfileCard(profileInformation.data, {ownProfile, onClick});
+        feed.replaceChildren(profileCard);
+
+        const response = await getPosts(name, 1);
+        const feedList = document.createElement('ul');
+        feedList.className = 'feed__list';
+        feed.append(feedList);
+        renderPosts(response.data);
+
+        const paginationControls = PaginationControls(response.meta, pageChangeHandler);
+        feed.append(paginationControls);
     } catch (ex) {
-        ToastNotification.error('Loading post failed', ex.message);
+        ToastNotification.error('Loading profile failed', ex.message);
     } finally {
         removeLoadingSpinner();
     }
@@ -125,7 +132,7 @@ async function toggleFollow(btn, name) {
     const isFollowing = btn.dataset.isFollowing === 'true';
     btn.disabled = true;
     btn.classList.add('btn--loading');
-    
+
     try {
         await loadingTimeout();
         const response = isFollowing ? await unfollowUser(name) : await followUser(name);
@@ -150,6 +157,31 @@ async function followUser(name) {
 async function unfollowUser(name) {
     const api = apiClient();
     return await api.put(`/social/profiles/${name}/unfollow`);
+}
+
+async function getPosts(name, page = 1) {
+    const api = apiClient();
+    const params = new URLSearchParams({_author: 'true', limit: '25', page: page.toString()});
+
+    return await api.get(`/social/profiles/${name}/posts?${params}`);
+}
+
+function getProfileName() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('name') ?? localStorage.getItem('name');
+}
+
+async function pageChangeHandler(pageNumber) {
+    try {
+        updateFeed(LoadingSpinner());
+        await loadingTimeout();
+        const response = await getPosts(getProfileName(), pageNumber);
+        renderResponse(response, pageChangeHandler);
+    } catch (ex) {
+        ToastNotification.error('Loading page failed', ex.message);
+    } finally {
+        removeLoadingSpinner();
+    }
 }
 
 await init();
