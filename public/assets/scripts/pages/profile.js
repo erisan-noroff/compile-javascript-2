@@ -95,11 +95,11 @@ function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
 
     const followersCount = document.createElement('p');
     stats.append(followersCount);
-    followersCount.textContent = `${profileInformation._count.posts} followers`;
+    followersCount.textContent = `${profileInformation._count.followers} followers`;
 
     const followingCount = document.createElement('p');
     stats.append(followingCount);
-    followingCount.textContent = `${profileInformation._count.posts} following`;
+    followingCount.textContent = `${profileInformation._count.following} following`;
 
     let actionBtn;
     if (ownProfile) {
