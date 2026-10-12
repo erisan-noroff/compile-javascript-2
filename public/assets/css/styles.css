@@ -407,16 +407,6 @@ button {
     padding-inline: 0;
 }
 
-.post-card {
-    position: relative;
-}
-
-.post-card__link::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-}
-
 .post-card__banner {
     aspect-ratio: 2/1;
     object-fit: cover;
@@ -429,6 +419,17 @@ button {
     gap: var(--spacing-2);
     padding-block: var(--spacing-3);
     padding-inline: var(--spacing-4);
+}
+
+.byline__link {
+    align-items: center;
+    color: var(--color-text);
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.byline__link:hover {
+    color: var(--color-accent);
 }
 
 .byline__avatar {

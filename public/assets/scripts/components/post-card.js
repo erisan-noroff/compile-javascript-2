@@ -90,15 +90,19 @@ export default function PostCard(post, singlePostView = false, comments = false)
 function Byline(author, created, updated = null) {
     const byline = document.createElement('div');
     byline.className = 'byline';
+    const link = document.createElement('a');
+    link.className = 'byline__link';
+    link.href = `profile.html?name=${author.name}`;
+    byline.append(link);
 
     const avatar = document.createElement('img');
-    byline.append(avatar);
+    link.append(avatar);
     avatar.className = 'byline__avatar';
     avatar.src = author.avatar.url;
     avatar.alt = '';
 
-    const username = document.createElement('p');
-    byline.append(username);
+    const username = document.createElement('span');
+    link.append(username);
     username.textContent = author.name;
 
     const createdDate = document.createElement('time');
