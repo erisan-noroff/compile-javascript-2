@@ -534,6 +534,12 @@ button {
     cursor: not-allowed;
 }
 
+.pagination-btn--page-num {
+    aspect-ratio: 1/1;
+    justify-content: center;
+    width: 2rem;
+}
+
 .feed:has(.loading-state) .pagination-controls {
     display: none;
 }
@@ -741,6 +747,14 @@ button {
     }
 
     .pagination-btn--desktop-only {
+        display: none;
+    }
+
+    .pagination-btn--page-num {
+        width:1.5rem;
+    }
+
+    .pagination-btn__label {
         display: none;
     }
 }
