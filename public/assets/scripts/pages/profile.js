@@ -135,7 +135,6 @@ async function toggleFollow(btn, name) {
     try {
         await loadingTimeout();
         const response = isFollowing ? await unfollowUser(name) : await followUser(name);
-        btn.dataset.isFollowing = (!isFollowing).toString();
         const isNowFollowing = !isFollowing;
         btn.dataset.isFollowing = isNowFollowing.toString();
         btn.textContent = isNowFollowing ? 'Unfollow' : 'Follow';
