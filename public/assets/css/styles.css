@@ -174,7 +174,7 @@ h2 {
     gap: var(--spacing-4);
 }
 
-.auth-card {
+.form-card {
     display: grid;
     gap: var(--spacing-4);
     margin-inline: auto;
@@ -182,8 +182,8 @@ h2 {
     padding: var(--spacing-4);
 }
 
-.auth-card h1,
-.auth-card p {
+.form-card h1,
+.form-card p {
     text-align: center;
 }
 
@@ -699,7 +699,7 @@ button {
         padding-inline: var(--spacing-3);
     }
 
-    .auth-card,
+    .form-card,
     .post-card__content {
         gap: var(--spacing-3);
         padding: var(--spacing-3);
