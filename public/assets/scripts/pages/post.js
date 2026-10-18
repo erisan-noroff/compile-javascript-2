@@ -1,4 +1,4 @@
-import { isAuthenticated, redirectToSignIn } from '../utils/authentication.js';
+import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
@@ -7,7 +7,7 @@ import PostCard from '../components/post-card.js';
 
 async function init() {
     if (!isAuthenticated()) {
-        redirectToSignIn();
+        redirectToSignUp();
         return;
     }
     
