@@ -381,7 +381,8 @@ button {
 }
 
 .toast__body,
-.toast__close {
+.toast__close,
+.byline__date {
     color: var(--color-text-muted);
 }
 
@@ -439,11 +440,6 @@ button {
     flex-shrink: 0;
 }
 
-.byline__date,
-.post-card__stats {
-    color: var(--color-text-muted);
-}
-
 .post-card__content {
     display: flex;
     flex-direction: column;
@@ -481,6 +477,7 @@ button {
 }
 
 .post-card__stats {
+    color: var(--color-text-muted);
     display: flex;
     gap: var(--spacing-3);
 }
