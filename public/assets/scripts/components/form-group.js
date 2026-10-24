@@ -28,3 +28,34 @@ export function TextInput({ id, label, placeholder = '', type = 'text', required
     
     return formGroupElement;
 }
+
+/**
+ * Creates a form group with textarea input and corresponding label
+ * @param {object} input
+ * @param {string} input.id
+ * @param {string} input.label
+ * @param {string} input.placeholder
+ * @param {number|null} input.maxLength
+ * @param {boolean} [input.required]
+ * @returns {HTMLDivElement} the form group div element.
+ */
+export function TextArea({ id, label, placeholder = '', maxLength = null, required = false}) {
+    const formGroupElement = document.createElement('div');
+    formGroupElement.className = 'form-group';
+
+    const labelElement = document.createElement('label');
+    labelElement.htmlFor = id;
+    labelElement.textContent = label;
+
+    const textAreaElement = document.createElement('textarea');
+    textAreaElement.id = id;
+    textAreaElement.placeholder = placeholder;
+    textAreaElement.required = required;
+    textAreaElement.classList.add('text-input', 'textarea-input');
+    if (maxLength)
+        textAreaElement.maxLength = maxLength;
+
+    formGroupElement.append(labelElement, textAreaElement);
+
+    return formGroupElement;
+}
