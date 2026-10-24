@@ -10,6 +10,11 @@ async function init() {
         redirectToSignUp();
         return;
     }
+
+    if (sessionStorage.getItem('showPostCreatedSuccess')) {
+        ToastNotification.success('Post Created', 'Post created successfully.');
+        sessionStorage.removeItem('showPostCreatedSuccess');
+    }
     
     const main = document.querySelector('main');
     const homePageLink = document.createElement('a');
