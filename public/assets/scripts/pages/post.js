@@ -46,7 +46,7 @@ async function getPost(id) {
         throw new Error('Cannot find a matching post.');
     
     const api = apiClient();
-    const params = new URLSearchParams({_author: 'true', _reactions: 'true', _comments: 'true', id: id});
+    const params = new URLSearchParams({_author: 'true', _reactions: 'true', _comments: 'true'});
     return await api.get(`/social/posts/${id}?${params}`);
 }
 
