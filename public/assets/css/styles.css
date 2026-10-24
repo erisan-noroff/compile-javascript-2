@@ -213,11 +213,18 @@ input[type="checkbox"] {
 
 .text-input {
     background: var(--color-input-background);
-    padding-inline: var(--spacing-3);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    height: 2.5rem;
     color: var(--color-text);
+    font: inherit;
+    height: 2.5rem;
+    padding-inline: var(--spacing-3);
+    padding-block: var(--spacing-2);
+}
+
+.textarea-input {
+    height: 7.5rem;
+    resize: none;
 }
 
 .text-input--error {
@@ -633,6 +640,73 @@ button {
     background-color: var(--color-surface);
     border-color: var(--color-accent-hover);
     color: var(--color-accent-hover);
+}
+
+.post-form__tags {
+    align-items: center;
+    background-color: var(--color-input-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: text;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    min-height: 2.5rem;
+    padding-block: var(--spacing-2);
+    padding-inline: var(--spacing-3);
+}
+
+.post-form__tags:focus-within {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0;
+}
+
+.post-form__tags-field {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    flex: 1;
+    font: inherit;
+    min-width: 5ch;
+    outline: none;
+    padding: 0;
+}
+
+.post-form__tags-field::placeholder {
+    color: var(--color-text-muted);
+}
+
+.post-form__tag {
+    background-color: var(--color-surface);
+    font-size: 0.875rem;
+    display: flex;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2);
+}
+
+.post-form__tag-icon {
+    background-color: var(--color-text-muted);
+    border-radius: 50%;
+    color: var(--color-input-background);
+    display: flex;
+    height: 1rem;
+    justify-content: center;
+    position: relative;
+}
+
+.post-form__tag-icon::after {
+    content: '';
+    inset: -8px;
+    position: absolute;
+}
+
+.post-form__tag-icon .material-icons {
+    font-size: 1rem;
+}
+
+.post-form__tag-helper {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
 }
 
 @keyframes spin {
