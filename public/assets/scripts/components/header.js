@@ -85,5 +85,16 @@ logo.href = 'index.html';
 logo.ariaLabel = 'Compile home page';
 header.append(logo);
 
-if (isAuthenticated())
-    header.append(createProfileMenu());
+if (isAuthenticated()) {
+    const profileActions = document.createElement('div');
+    profileActions.className = 'profile-actions';
+    header.append(profileActions);
+    const createPostLink = document.createElement('a');
+    createPostLink.className = 'create-post-link';
+    createPostLink.href = 'create-post.html';
+    createPostLink.setAttribute('aria-label', 'Create post');
+    createPostLink.title = 'Create post';
+    createPostLink.append(Icon('create'));
+    profileActions.append(createPostLink);
+    profileActions.append(createProfileMenu());
+}

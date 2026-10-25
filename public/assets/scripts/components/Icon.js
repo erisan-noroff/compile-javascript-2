@@ -7,6 +7,7 @@ export default function Icon(iconClass) {
     const icon = document.createElement('span');
     icon.className = 'material-icons';
     icon.textContent = iconClass;
+    icon.setAttribute('aria-hidden', 'true');
 
     return icon;
 }

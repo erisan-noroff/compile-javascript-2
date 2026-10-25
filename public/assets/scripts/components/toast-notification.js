@@ -1,3 +1,5 @@
+import Icon from './Icon.js';
+
 const TOAST_TYPES = {
     success: {
         id: 'toast-success',
@@ -59,9 +61,7 @@ function displayToast(type, title, message) {
     const toastIconContainer = document.createElement('span');
     toastIconContainer.classList.add('toast__icon', `${TOAST_TYPES[type].modifier}`);
 
-    const toastIcon = document.createElement('span');
-    toastIcon.className = 'material-icons';
-    toastIcon.textContent = TOAST_TYPES[type].icon;
+    const toastIcon = Icon(TOAST_TYPES[type].icon);
     toastIconContainer.append(toastIcon);
     toastContent.append(toastIconContainer);
 
@@ -84,10 +84,7 @@ function displayToast(type, title, message) {
     toastCloseBtn.classList.add('toast__close');
     toastCloseBtn.ariaLabel = 'Dismiss notification';
     toastContainer.append(toastCloseBtn);
-    const toastCloseIcon = document.createElement('span');
-    toastCloseIcon.className = 'material-icons';
-    toastCloseIcon.textContent = 'close';
-    toastCloseIcon.ariaHidden = 'true';
+    const toastCloseIcon = Icon('close');
     toastCloseBtn.append(toastCloseIcon);
     addCloseBtnEventListener(type);
 

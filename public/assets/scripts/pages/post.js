@@ -1,4 +1,4 @@
-import { isAuthenticated, redirectToSignIn } from '../utils/authentication.js';
+import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
@@ -7,8 +7,13 @@ import PostCard from '../components/post-card.js';
 
 async function init() {
     if (!isAuthenticated()) {
-        redirectToSignIn();
+        redirectToSignUp();
         return;
+    }
+
+    if (sessionStorage.getItem('showPostCreatedSuccess')) {
+        ToastNotification.success('Post Created', 'Post created successfully.');
+        sessionStorage.removeItem('showPostCreatedSuccess');
     }
     
     const main = document.querySelector('main');
@@ -46,7 +51,7 @@ async function getPost(id) {
         throw new Error('Cannot find a matching post.');
     
     const api = apiClient();
-    const params = new URLSearchParams({_author: 'true', _reactions: 'true', _comments: 'true', id: id});
+    const params = new URLSearchParams({_author: 'true', _reactions: 'true', _comments: 'true'});
     return await api.get(`/social/posts/${id}?${params}`);
 }
 

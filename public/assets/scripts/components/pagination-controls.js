@@ -83,7 +83,6 @@ function PaginationButton(meta, icon, text, ariaLabel, desktopOnly = false) {
     paginationBtn.setAttribute('aria-label', ariaLabel);
     
     const previousPageIcon = Icon(icon);
-    previousPageIcon.ariaHidden = 'true';
     paginationBtn.append(previousPageIcon);
     
     const previousPageBtnLabel = document.createElement('span');

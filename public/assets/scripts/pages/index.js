@@ -2,7 +2,7 @@ import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
-import TextInput from '../components/form-group.js';
+import { TextInput } from '../components/form-group.js';
 import PaginationControls from '../components/pagination-controls.js';
 import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
 
