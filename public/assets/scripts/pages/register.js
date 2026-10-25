@@ -66,7 +66,7 @@ function init() {
 // Redirect user to login.html and display a success Toast Notification
 function signUpSuccessful() {
     setPendingToast('success', 'Account Created', 'Sign in to get started.');
-    location.replace('login.html');
+    window.location.replace('login.html');
 }
 
 function addSubmitEventListener() {
