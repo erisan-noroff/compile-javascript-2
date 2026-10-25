@@ -631,6 +631,7 @@ button {
 .secondary-btn {
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
+    font-weight: 600;
     padding: var(--spacing-3);
     --spinner-track: var(--color-button-track);
     --spinner-arc: var(--color-text);
