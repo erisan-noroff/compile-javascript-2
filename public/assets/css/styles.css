@@ -716,6 +716,10 @@ button {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding-inline: var(--spacing-5);
+    }
+    
     .container {
         padding: var(--spacing-5);
         gap: var(--spacing-5);
