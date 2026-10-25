@@ -9,7 +9,7 @@
  * @param {string} [input.value]
  * @returns {HTMLDivElement} the form group div element.
  */
-export function TextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete = 'off', value}) {
+export function TextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete = 'off', value = ''}) {
     const formGroupElement = document.createElement('div');
     formGroupElement.className = 'form-group';
     
@@ -42,7 +42,7 @@ export function TextInput({ id, label, placeholder = '', type = 'text', required
  * @param {string} [input.value]
  * @returns {HTMLDivElement} the form group div element.
  */
-export function TextArea({ id, label, placeholder = '', maxLength = null, required = false, value}) {
+export function TextArea({ id, label, placeholder = '', maxLength = null, required = false, value= ''}) {
     const formGroupElement = document.createElement('div');
     formGroupElement.className = 'form-group';
 

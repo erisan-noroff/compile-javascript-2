@@ -10,7 +10,7 @@ export default function PostForm(post={}) {
         label: 'Title',
         placeholder: 'Share what you\'re building',
         required: true,
-        value: post.title ?? ''
+        value: post.title
     };
 
     const content = {
@@ -19,21 +19,21 @@ export default function PostForm(post={}) {
         placeholder: 'We’re eager to hear more about it',
         maxLength: 280,
         required: true,
-        value: post.body ?? ''
+        value: post.body
     };
 
     const banner = {
         id: 'banner',
         label: 'Banner Image URL (optional)',
         placeholder: 'https://image.example.com/image.png',
-        value: post.media?.url ?? ''
+        value: post.media?.url
     };
     
     form.append(
         TextInput(title),
         TextArea(content),
         TextInput(banner),
-        TagsInput()
+        TagsInput(post.tags ?? [])
     );
     
     return form;
