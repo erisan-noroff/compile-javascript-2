@@ -6,9 +6,10 @@
  * @param {string} input.placeholder
  * @param {boolean} [input.required]
  * @param {AutoFill} [input.autocomplete] - https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete
+ * @param {string} [input.value]
  * @returns {HTMLDivElement} the form group div element.
  */
-export function TextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete = 'off'}) {
+export function TextInput({ id, label, placeholder = '', type = 'text', required = false, autocomplete = 'off', value}) {
     const formGroupElement = document.createElement('div');
     formGroupElement.className = 'form-group';
     
@@ -22,6 +23,7 @@ export function TextInput({ id, label, placeholder = '', type = 'text', required
     inputElement.placeholder = placeholder;
     inputElement.required = required;
     inputElement.autocomplete = autocomplete;
+    inputElement.value = value;
     inputElement.className = 'text-input';
     
     formGroupElement.append(labelElement, inputElement);
@@ -37,9 +39,10 @@ export function TextInput({ id, label, placeholder = '', type = 'text', required
  * @param {string} input.placeholder
  * @param {number|null} input.maxLength
  * @param {boolean} [input.required]
+ * @param {string} [input.value]
  * @returns {HTMLDivElement} the form group div element.
  */
-export function TextArea({ id, label, placeholder = '', maxLength = null, required = false}) {
+export function TextArea({ id, label, placeholder = '', maxLength = null, required = false, value}) {
     const formGroupElement = document.createElement('div');
     formGroupElement.className = 'form-group';
 
@@ -51,6 +54,7 @@ export function TextArea({ id, label, placeholder = '', maxLength = null, requir
     textAreaElement.id = id;
     textAreaElement.placeholder = placeholder;
     textAreaElement.required = required;
+    textAreaElement.value = value;
     textAreaElement.classList.add('text-input', 'textarea-input');
     if (maxLength)
         textAreaElement.maxLength = maxLength;
