@@ -65,6 +65,20 @@ main,
     text-decoration: none;
 }
 
+.profile-actions {
+    align-items: center;
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.create-post-link {
+    color: var(--color-text);
+}
+
+.create-post-link:hover {
+    color: var(--color-accent);
+}
+
 .profile-menu {
     position: relative;
 }
