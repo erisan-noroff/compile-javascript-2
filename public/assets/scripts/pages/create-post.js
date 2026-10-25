@@ -6,6 +6,7 @@ import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { loadingTimeout } from '../components/loading-spinner.js';
 import { TagsInput, getTags } from '../components/tags-input.js';
+import { setPendingToast } from '../utils/pending-toast.js';
 
 function init() {
     if (!isAuthenticated()) {
@@ -75,7 +76,7 @@ function addSubmitEventListener() {
                 body.media = { url: banner, alt: '' }
             
             const response = await api.post('/social/posts', body);
-            sessionStorage.setItem('showPostCreatedSuccess', 'true');
+            setPendingToast('success', 'Post Created', 'Post created successfully.');
             window.location.replace(`/post.html?id=${response.data.id}`);
         } catch (ex) {
             ToastNotification.error('Failed to create post', ex.message);

@@ -4,6 +4,7 @@ import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import EmptyState from '../components/empty-state.js';
 import PostCard from '../components/post-card.js';
+import { showPendingToast } from '../utils/pending-toast.js';
 
 async function init() {
     if (!isAuthenticated()) {
@@ -11,10 +12,7 @@ async function init() {
         return;
     }
 
-    if (sessionStorage.getItem('showPostCreatedSuccess')) {
-        ToastNotification.success('Post Created', 'Post created successfully.');
-        sessionStorage.removeItem('showPostCreatedSuccess');
-    }
+    showPendingToast();
     
     const main = document.querySelector('main');
     const homePageLink = document.createElement('a');

@@ -4,6 +4,7 @@ import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import formValidation from '../utils/form-validation.js';
+import { setPendingToast } from '../utils/pending-toast.js';
 
 function init() {
     if (isAuthenticated()) {
@@ -64,8 +65,8 @@ function init() {
 
 // Redirect user to login.html and display a success Toast Notification
 function signUpSuccessful() {
-    sessionStorage.setItem('showSignUpSuccess', 'true');
-    location.replace(new URL('login.html', location.href));
+    setPendingToast('success', 'Account Created', 'Sign in to get started.');
+    location.replace('login.html');
 }
 
 function addSubmitEventListener() {
