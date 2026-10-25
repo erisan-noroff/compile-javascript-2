@@ -817,7 +817,8 @@ button {
         gap: var(--spacing-4);
     }
 
-    .pagination-btn > .material-icons {
+    .pagination-btn > .material-icons,
+    .toast__icon .material-icons {
         font-size: 1rem;
     }
 
