@@ -41,7 +41,7 @@ function addSubmitEventListener() {
         const api = apiClient();
 
         try {
-            loadingTimeout();
+            await loadingTimeout();
             const body = {
                 title: title,
                 body: content,
