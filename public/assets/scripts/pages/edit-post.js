@@ -1,4 +1,4 @@
-import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
+import { isAuthenticated, isCurrentUser, redirectToSignUp } from '../utils/authentication.js';
 import { loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
@@ -19,7 +19,7 @@ async function init() {
     
     try {
         const response = await getPost(id);
-        if (!isUsersOwnPost(response.data.author.name)) {
+        if (!isCurrentUser(response.data.author.name)) {
             setPendingToast('error', 'Access Denied', 'You can only edit your own posts');
             window.location.replace('index.html');
             return;
@@ -37,10 +37,6 @@ async function init() {
     }
     
     addSubmitEventListener();
-}
-
-function isUsersOwnPost(postAuthor) {
-    return postAuthor === localStorage.getItem('name');
 }
 
 async function getPost(id) {

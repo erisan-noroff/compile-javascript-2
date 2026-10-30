@@ -27,3 +27,10 @@ export function redirectToSignIn() {
 export function redirectToHomepage() {
     window.location.replace('index.html');
 }
+
+/**
+ * Checks whether the current username matches the signed in user
+ */
+export function isCurrentUser(name) {
+    return name === localStorage.getItem('name');
+}
