@@ -12,7 +12,7 @@ export default function PostCard(post, singlePostView = false, comments = false)
         banner.alt = post.media.alt;
     }
 
-    const byline = Byline(post.author, post.created, post.updated);
+    const byline = Byline(post);
     card.append(byline);
 
     const content = document.createElement('div');
@@ -81,41 +81,38 @@ export default function PostCard(post, singlePostView = false, comments = false)
 
 /**
  *
- * @param {object} author Author object from the API response. Contains name and avatar of author.
- * @param {string} created ISO-string containing date and time the post or comment was created.
- * @param {string} [updated = null] ISO-string containing date and time the post was last edited.
- * Not used by comments.
+ * @param {object} post Post object from the API response.
  * @returns {HTMLDivElement}
  */
-function Byline(author, created, updated = null) {
+function Byline(post) {
     const byline = document.createElement('div');
     byline.className = 'byline';
     const link = document.createElement('a');
     link.className = 'byline__link';
-    link.href = `profile.html?name=${author.name}`;
+    link.href = `profile.html?name=${post.author.name}`;
     byline.append(link);
 
     const avatar = document.createElement('img');
     link.append(avatar);
     avatar.className = 'byline__avatar';
-    avatar.src = author.avatar.url;
+    avatar.src = post.author.avatar.url;
     avatar.alt = '';
 
     const username = document.createElement('span');
     link.append(username);
-    username.textContent = author.name;
+    username.textContent = post.author.name;
 
     const createdDate = document.createElement('time');
     byline.append(createdDate);
     createdDate.className = 'byline__date';
-    createdDate.dateTime = created;
-    createdDate.textContent = formatDateTime(created);
+    createdDate.dateTime = post.created;
+    createdDate.textContent = formatDateTime(post.created);
 
-    if (updated && created !== updated) {
+    if (post.updated && post.created !== post.updated) {
         const edited = document.createElement('span');
         edited.className = 'byline__date';
         edited.textContent = ' (edited)';
-        createdDate.title = `Last edited ${formatDateTime(updated)}`;
+        createdDate.title = `Last edited ${formatDateTime(post.updated)}`;
         byline.append(edited);
     }
 
@@ -137,7 +134,7 @@ function renderComments(card, comments) {
         const comment = document.createElement('div');
         comment.className = 'comment';
 
-        const byline = Byline(comments[i].author, comments[i].created);
+        const byline = Byline(comments[i]);
         comment.append(byline);
 
         const body = document.createElement('div');
