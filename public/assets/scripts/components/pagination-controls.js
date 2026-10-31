@@ -1,5 +1,5 @@
 import { Button } from './buttons.js';
-import Icon from './Icon.js';
+import Icon from './icon.js';
 
 /**
  * @typedef {object} meta

@@ -1,4 +1,4 @@
-import Icon from './Icon.js';
+import Icon from './icon.js';
 
 const TOAST_TYPES = {
     success: {
