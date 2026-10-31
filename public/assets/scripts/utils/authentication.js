@@ -11,19 +11,26 @@ export function isAuthenticated() {
  * Redirects the user to the registration page. Called on every page's init() function.
  */
 export function redirectToSignUp() {
-    location.replace(new URL('register.html', location.href));
+    window.location.replace('register.html');
 }
 
 /**
  * Redirects the user to the sign in page. Called on sign out.
  */
 export function redirectToSignIn() {
-    location.replace(new URL('login.html', location.href));
+    window.location.replace('login.html');
 }
 
 /**
  * Redirects the user to the home page. Called on successful log in or if the user is already logged in and tries to access log in page.
  */
 export function redirectToHomepage() {
-    location.replace(new URL('index.html', location.href));
+    window.location.replace('index.html');
+}
+
+/**
+ * Checks whether the current username matches the signed in user
+ */
+export function isCurrentUser(name) {
+    return name === localStorage.getItem('name');
 }

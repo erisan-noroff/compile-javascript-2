@@ -19,12 +19,15 @@ export function TagsInput(initialTags = []) {
     const inputElement = document.createElement('input');
     inputElement.type = 'text';
     inputElement.id = 'tags';
-    const placeholderValue = 'typescript css react';
-    inputElement.placeholder = placeholderValue;
     inputElement.className = 'post-form__tags-field';
-    inputElement.ariaDescribedBy = 'tags-helper';
-
+    inputElement.setAttribute('aria-describedby', 'tags-helper');
+    const placeholderValue = 'typescript css react';
     tagsElement.append(inputElement);
+    
+    for (let i = 0; i < initialTags.length; i++)
+        addTag(initialTags[i]);
+    
+    inputElement.placeholder = initialTags.length ? '' : placeholderValue;
     formGroupElement.append(labelElement, helperText, tagsElement);
 
     tagsElement.addEventListener('click', (e) => {
@@ -67,9 +70,6 @@ export function TagsInput(initialTags = []) {
             updatePlaceholder();
         }
     });
-
-    for (let i = 0; i < initialTags.length; i++)
-        addTag(initialTags[i]);
 
     return formGroupElement;
 }

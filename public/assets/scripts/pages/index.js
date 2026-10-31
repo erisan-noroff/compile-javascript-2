@@ -5,6 +5,7 @@ import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../compone
 import { TextInput } from '../components/form-group.js';
 import PaginationControls from '../components/pagination-controls.js';
 import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
+import { showPendingToast } from '../utils/pending-toast.js';
 
 async function init() {
     if (!isAuthenticated()) {
@@ -12,6 +13,8 @@ async function init() {
         return;
     }
 
+    showPendingToast();
+    
     const main = document.querySelector('main');
     const feed = document.createElement('div');
     feed.className = 'feed';

@@ -4,17 +4,15 @@ import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import formValidation from '../utils/form-validation.js';
+import { showPendingToast } from '../utils/pending-toast.js';
 
 function init() {
     if (isAuthenticated()) {
         redirectToHomepage();
         return;
     }
-    
-    if (sessionStorage.getItem('showSignUpSuccess')) {
-        ToastNotification.success('Account Created', 'Sign in to get started.');
-        sessionStorage.removeItem('showSignUpSuccess');
-    }
+
+    showPendingToast();
     
     const form = document.querySelector('form.stack');
     const FormFields = [
