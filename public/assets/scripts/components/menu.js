@@ -2,9 +2,11 @@ import { Button } from './buttons.js';
 
 /**
  * Reusable Menu component with navigation links and/or buttons.
- * @param {toggleLabel} string Value for aria-label (accessibility).
- * @param {toggleIcon} string Icon to be displayed for opening/closing the menu. 
- * @returns {HTMLDivElement} the menu element with menu items that are showns on toggle.
+ * @param {string} toggleLabel Value for aria-label (accessibility).
+ * @param {string} toggleIcon Icon to be displayed for opening/closing the menu.
+ * @param {Object} items Menu Item(s) to be rendered. Use an array when defining multiple menu items.
+ * Each passed to {@link MenuItem}.
+ * @returns {HTMLDivElement} the menu element with menu items that are shows on toggle.
  */
 export default function Menu({toggleLabel, toggleIcon, items}) {
     const menu = document.createElement('div');
@@ -50,6 +52,14 @@ export default function Menu({toggleLabel, toggleIcon, items}) {
     return menu;
 }
 
+/**
+ * 
+ * @param {string} label Text to be displayed
+ * @param {string} [url] URL for links. Specifying a URL renders a link instead of a button.
+ * @param {string} modifier Modifier styling for class menu__item--<modifier>
+ * @param {Object} onClick Function to trigger when a user clicks the button.
+ * @returns {HTMLLIElement} List menu item with link or button.
+ */
 export function MenuItem({label, url, modifier, onClick}) {
     const menuItem = document.createElement('li');
     const actionItem = document.createElement(url ? 'a' : 'button');
