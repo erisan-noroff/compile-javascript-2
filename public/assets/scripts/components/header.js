@@ -1,81 +1,29 @@
 import { isAuthenticated, redirectToSignIn } from '../utils/authentication.js';
-import { Button } from './buttons.js';
-import Icon from './Icon.js';
-
-/**
- * Builds the list items for the profile menu dropdown.
- * @returns {HTMLLIElement[]} the list items, in display order.
- */
-function navigationLinks() {
-    const profileItem = document.createElement('li');
-    const profileLink = document.createElement('a');
-    profileLink.className = 'profile-menu__item';
-    profileLink.href = 'profile.html';
-    profileLink.textContent = 'View Profile';
-    profileItem.append(profileLink);
-
-    const signOutItem = document.createElement('li');
-    const signOutBtn = Button('sign out', 'profile-menu__item');
-    signOutItem.append(signOutBtn);
-    
-    signOutBtn.addEventListener('click', () => {
-       localStorage.removeItem('auth_token');
-       redirectToSignIn();
-    });
-
-    return [profileItem, signOutItem];
-}
+import Icon from './icon.js';
+import Menu from './menu.js';
 
 const header = document.querySelector('header');
 
 /**
- * Builds the profile menu. Menu closes on the chevron, outside click or on Escape key.
+ * Builds the profile menu with navigation links.
  * @returns {HTMLDivElement} the menu element.
  */
 function createProfileMenu() {
-    const profileMenu = document.createElement('div');
-    profileMenu.className = 'profile-menu';
-
-    const toggle = document.createElement('button');
-    toggle.className = 'profile-menu__toggle';
-    toggle.type = 'button';
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Profile menu');
-
-    const expandIcon = Icon('expand_more');
-    toggle.append(Icon('account_circle'), expandIcon);
-
-    const menuItems = document.createElement('ul');
-    menuItems.className = 'profile-menu__items';
-    menuItems.hidden = true;
-    menuItems.append(...navigationLinks());
-
-    profileMenu.append(toggle, menuItems);
-
-    function setMenuOpen(isOpen) {
-        profileMenu.classList.toggle('is-open', isOpen);
-        menuItems.hidden = !isOpen;
-        toggle.setAttribute('aria-expanded', isOpen.toString());
-        expandIcon.textContent = isOpen ? 'expand_less' : 'expand_more';
-    }
-
-    toggle.addEventListener('click', () => {
-        setMenuOpen(menuItems.hidden);
+    return Menu({
+            variant: 'profile',
+            toggleLabel: 'Profile menu',
+            toggleIcon: Icon('account_circle'),
+            items: [
+                { label: 'View Profile', url: 'profile.html' },
+                {
+                    label: 'Sign Out',
+                    onClick: () => {
+                        localStorage.removeItem('auth_token');
+                        redirectToSignIn();
+                }
+            }
+        ]
     });
-
-    document.addEventListener('click', (event) => {
-        if (!profileMenu.contains(event.target)) {
-            setMenuOpen(false);
-        }
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            setMenuOpen(false);
-        }
-    });
-
-    return profileMenu;
 }
 
 const logo = document.createElement('a');
