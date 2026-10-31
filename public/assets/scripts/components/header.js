@@ -10,7 +10,6 @@ const header = document.querySelector('header');
  */
 function createProfileMenu() {
     return Menu({
-            variant: 'profile',
             toggleLabel: 'Profile menu',
             toggleIcon: Icon('account_circle'),
             items: [
