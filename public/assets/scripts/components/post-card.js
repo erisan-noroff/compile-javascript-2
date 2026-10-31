@@ -1,4 +1,7 @@
-import { formatDateTime } from '../utils/format-date-time.js';
+import { formatDateTime, formatShortDate } from '../utils/format-date-time.js';
+import { isCurrentUser } from '../utils/authentication.js';
+import Menu from './menu.js';
+import Icon from './icon.js';
 
 export default function PostCard(post, singlePostView = false, comments = false) {
     const card = document.createElement(singlePostView ? 'article' : 'li');
@@ -103,17 +106,35 @@ function Byline(post) {
     username.textContent = post.author.name;
 
     const createdDate = document.createElement('time');
-    byline.append(createdDate);
     createdDate.className = 'byline__date';
     createdDate.dateTime = post.created;
-    createdDate.textContent = formatDateTime(post.created);
+
+    const fullDate = document.createElement('span');
+    fullDate.className = 'byline__date-full';
+    fullDate.textContent = formatDateTime(post.created);
+
+    const shortDate = document.createElement('span');
+    shortDate.className = 'byline__date-short';
+    shortDate.textContent = formatShortDate(post.created);
+
+    createdDate.append(fullDate, shortDate);
+    byline.append(createdDate);
 
     if (post.updated && post.created !== post.updated) {
         const edited = document.createElement('span');
         edited.className = 'byline__date';
         edited.textContent = ' (edited)';
-        createdDate.title = `Last edited ${formatDateTime(post.updated)}`;
+        edited.title = `Last edited ${formatDateTime(post.updated)}`;
         byline.append(edited);
+    }
+
+    if (isCurrentUser(post.author.name)) {
+        const menu = Menu({
+                toggleLabel: 'Post actions menu',
+                toggleIcon: Icon('more_horiz'), items: [{ label: 'Edit', url: `edit-post.html?id=${post.id}` }]
+            });
+        
+        byline.append(menu);
     }
 
     return byline;
