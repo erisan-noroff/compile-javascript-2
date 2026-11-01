@@ -802,6 +802,10 @@ button {
         padding: var(--spacing-5);
         gap: var(--spacing-5);
     }
+
+    .pagination-btn__label {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -912,9 +916,5 @@ button {
 
     .pagination-btn--page-num {
         width: 1.5rem;
-    }
-
-    .pagination-btn__label {
-        display: none;
     }
 }
