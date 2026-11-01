@@ -103,9 +103,8 @@ main,
     border-radius: var(--radius);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-3);
     list-style: none;
-    padding: var(--spacing-3);
+    padding-inline: 0;
     position: absolute;
     right: 0;
     top: calc(100% + var(--spacing-2));
@@ -119,16 +118,21 @@ main,
 
 .menu__item {
     color: var(--color-text);
+    display: block;
     font-family: var(--font-display), monospace;
     font-size: 1.125rem;
     font-weight: 600;
+    padding: var(--spacing-3);
+    text-align: left;
     text-decoration: none;
     text-transform: uppercase;
+    width: 100%;
 }
 
-.menu__item:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
+.menu__item:hover,
+.menu__item:focus-visible {
+    background-color: var(--color-border);
+    outline: none;
 }
 
 .material-icons {
