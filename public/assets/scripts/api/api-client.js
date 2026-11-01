@@ -30,6 +30,9 @@ export function apiClient() {
             headers: buildRequestHeaders()
         });
         
+        if (response.status === 204)
+            return null;
+        
         const body = await response.json();
         
         // The API returns errors in an array.

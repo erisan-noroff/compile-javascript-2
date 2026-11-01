@@ -32,7 +32,7 @@ async function init() {
         const profileInformation = await getProfile(name);
         const ownProfile = profileInformation.data.name === localStorage.getItem('name');
         const onClick = ownProfile
-            ? () => location.assign('/post/create.html')
+            ? () => location.assign('post-create.html')
             : (e) => toggleFollow(e.currentTarget, profileInformation.data.name);
         const profileCard = ProfileCard(profileInformation.data, {ownProfile, onClick});
         feed.replaceChildren(profileCard);

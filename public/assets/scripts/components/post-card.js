@@ -2,9 +2,13 @@ import { formatDateTime, formatShortDate } from '../utils/format-date-time.js';
 import { isCurrentUser } from '../utils/authentication.js';
 import Menu from './menu.js';
 import Icon from './icon.js';
+import openDeletePostConfirmation from './delete-post-confirmation.js';
 
 export default function PostCard(post, singlePostView = false, comments = false) {
     const card = document.createElement(singlePostView ? 'article' : 'li');
+    if (!singlePostView)
+        card.id = `post-${post.id}`; 
+            
     card.classList.add('card', 'post-card');
 
     if (post?.media) {
@@ -131,7 +135,19 @@ function Byline(post) {
     if (isCurrentUser(post.author.name)) {
         const menu = Menu({
                 toggleLabel: 'Post actions menu',
-                toggleIcon: Icon('more_horiz'), items: [{ label: 'Edit', url: `edit-post.html?id=${post.id}` }]
+                toggleIcon: Icon('more_horiz'), items: [
+                    {
+                        label: 'Edit',
+                        url: `edit-post.html?id=${post.id}`
+                    },
+                    {
+                        label: 'Delete',
+                        modifier: 'delete',
+                        onClick: () => {
+                            openDeletePostConfirmation(post.id);
+                        }
+                    }
+                ]
             });
         
         byline.append(menu);
