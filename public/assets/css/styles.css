@@ -756,6 +756,37 @@ button {
     font-size: 0.875rem;
 }
 
+.confirmation-modal[open] {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3);
+}
+
+.confirmation-modal__row {
+    align-items: center;
+    display: flex;
+    gap: var(--spacing-2);
+    justify-content: space-between;
+}
+
+.toast__close,
+.confirmation-modal__close {
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: right;
+    width: 2.75rem;
+}
+
+.toast__close .material-icons,
+.confirmation-modal__close .material-icons {
+    font-size: 1.5rem;
+}
+
 @keyframes spin {
     to {
         transform: rotate(360deg);
