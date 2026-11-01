@@ -799,10 +799,6 @@ button {
     .logo {
         font-size: 1.5rem;
     }
-
-    .menu__items {
-        padding: var(--spacing-2);
-    }
     
     .menu__item {
         font-size: 1rem;
