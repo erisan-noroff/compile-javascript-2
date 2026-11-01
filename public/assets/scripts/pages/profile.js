@@ -1,4 +1,4 @@
-import { getStoredName, isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
+import { getStoredName, isAuthenticated, isCurrentUser, redirectToSignUp } from '../utils/authentication.js';
 import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
