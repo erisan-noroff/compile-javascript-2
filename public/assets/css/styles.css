@@ -135,6 +135,16 @@ main,
     outline: none;
 }
 
+.menu__item--delete {
+    color: var(--color-danger);
+}
+
+.menu__item--delete:hover,
+.menu__item--delete:focus-visible {
+    background-color: var(--color-danger);
+    color: var(--color-surface);
+}
+
 .material-icons {
     font-size: 2rem;
 }
