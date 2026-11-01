@@ -562,10 +562,6 @@ button {
     padding: var(--spacing-1) var(--spacing-2);
 }
 
-.pagination-btn > .material-icons {
-    font-size: 1.5rem;
-}
-
 .pagination-btn:hover {
     color: var(--color-accent);
 }
@@ -784,7 +780,8 @@ button {
 }
 
 .toast__close .material-icons,
-.confirmation-modal__close .material-icons {
+.confirmation-modal__close .material-icons,
+.pagination-btn .material-icons {
     font-size: 1.5rem;
 }
 
@@ -798,10 +795,14 @@ button {
     header {
         padding-inline: var(--spacing-5);
     }
-    
+
     .container {
         padding: var(--spacing-5);
         gap: var(--spacing-5);
+    }
+
+    .pagination-btn__label {
+        display: none;
     }
 }
 
@@ -831,7 +832,7 @@ button {
     .logo {
         font-size: 1.5rem;
     }
-    
+
     .menu__item {
         font-size: 1rem;
     }
@@ -887,7 +888,7 @@ button {
     .profile-card__action {
         width: 100%;
     }
-    
+
     .profile-card__details {
         gap: var(--spacing-3);
     }
@@ -901,8 +902,28 @@ button {
     .feed {
         gap: var(--spacing-4);
     }
+    
+    .pagination-controls {
+        gap: var(--spacing-4);
+    }
 
-    .pagination-btn > .material-icons,
+    .pagination-btn {
+        justify-content: center;
+        height: 1.5rem;
+        position: relative;
+        width: 1.5rem;
+    }
+    
+    .pagination-btn::after {
+        content: '';
+        inset: -0.625rem;
+        position: absolute;
+    }
+    
+    .pagination-btn .material-icons {
+        font-size: 0.75rem;
+    }
+
     .toast__icon .material-icons {
         font-size: 1rem;
     }
@@ -912,10 +933,6 @@ button {
     }
 
     .pagination-btn--page-num {
-        width:1.5rem;
-    }
-
-    .pagination-btn__label {
-        display: none;
+        width: 1.5rem;
     }
 }
