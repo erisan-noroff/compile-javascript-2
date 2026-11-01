@@ -66,6 +66,7 @@ function addSubmitEventListener() {
         
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
+        const rememberMeIsChecked = document.getElementById('remember-me').checked;
 
         const submitBtn = form.querySelector('#login-btn');
         setButtonLoading(submitBtn, true);
@@ -80,8 +81,14 @@ function addSubmitEventListener() {
                 return;
             }
             
-            localStorage.setItem('auth_token', response.data.accessToken);
-            localStorage.setItem('name', response.data.name);
+            if (rememberMeIsChecked) {
+                localStorage.setItem('auth_token', response.data.accessToken);
+                localStorage.setItem('name', response.data.name);
+            } else {
+                sessionStorage.setItem('auth_token', response.data.accessToken);
+                sessionStorage.setItem('name', response.data.name);
+            }
+            
             redirectToHomepage();
         } catch (ex) {
             ToastNotification.error('Login failed', ex.message);
