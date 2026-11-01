@@ -8,11 +8,12 @@
     --color-button-track: rgba(230, 237, 243, 0.25);
     --color-primary: #2B59C3;
     --color-primary-hover: #264EAC;
-    --color-secondary: #FFA62B;
-    --color-secondary-hover: #FFB144;
+    --color-primary-active: #204392;
+    --color-tags: #FFA62B;
     --color-accent: #A2D6F9;
     --color-success: #31D962;
     --color-danger: #F85149;
+    --color-danger-active: #DF4942;
     --font-display: "JetBrains Mono";
     --font-body: "Inter";
     --spacing-1: 0.25rem;

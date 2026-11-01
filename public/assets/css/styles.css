@@ -145,6 +145,10 @@ main,
     color: var(--color-surface);
 }
 
+.menu__item--delete:active {
+    background-color: var(--color-danger-active);
+}
+
 .material-icons {
     font-size: 2rem;
 }
@@ -295,6 +299,10 @@ button {
 
 .primary-btn:hover {
     background-color: var(--color-primary-hover);
+}
+
+.primary-btn:active {
+    background-color: var(--color-primary-active);
 }
 
 .loading-state {
@@ -522,7 +530,7 @@ button {
 }
 
 .post-card__tag {
-    background-color: var(--color-secondary);
+    background-color: var(--color-tags);
     border-radius: var(--radius);
     color: var(--color-surface);
     display: flex;
@@ -684,6 +692,10 @@ button {
 .secondary-btn:focus-visible {
     background-color: var(--color-surface);
     border-color: var(--color-text-muted);
+}
+
+.secondary-btn:active {
+    background-color: var(--color-input-background);
 }
 
 .post-form__tags {
