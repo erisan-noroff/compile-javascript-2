@@ -201,7 +201,8 @@ h2 {
     padding: var(--spacing-4);
 }
 
-.form-card__header {
+.form-card__header,
+.form-card__footer {
     text-align: center;
 }
 
