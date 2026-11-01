@@ -17,7 +17,8 @@ function createProfileMenu() {
                 {
                     label: 'Sign Out',
                     onClick: () => {
-                        localStorage.removeItem('auth_token');
+                        localStorage.clear();
+                        sessionStorage.clear();
                         redirectToSignIn();
                 }
             }
