@@ -1,3 +1,13 @@
+/** Returns the authentication token for the signed in user from local or session storage. */
+export function getStoredToken() {
+    return localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
+}
+
+/** Returns the signed in username from local or session storage. */
+export function getStoredName() {
+    return localStorage.getItem('name') || sessionStorage.getItem('name');
+}
+
 /**
  * Checks whether the user is currently authenticated.
  * @returns {boolean} True if a valid auth token exists in localStorage.
