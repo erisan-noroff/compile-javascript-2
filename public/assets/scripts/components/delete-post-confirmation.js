@@ -53,7 +53,6 @@ export default function openDeletePostConfirmation(postId) {
 }
 
 async function deletePost(postId) {
-    console.log(postId);
     if (!postId || isNaN(postId))
         return;
 
