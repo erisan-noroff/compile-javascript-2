@@ -683,10 +683,10 @@ button {
     --spinner-arc: var(--color-text);
 }
 
-.secondary-btn:hover {
+.secondary-btn:hover,
+.secondary-btn:focus-visible {
     background-color: var(--color-surface);
-    border-color: var(--color-accent-hover);
-    color: var(--color-accent-hover);
+    border-color: var(--color-text-muted);
 }
 
 .post-form__tags {
