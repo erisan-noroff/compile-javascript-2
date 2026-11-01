@@ -901,8 +901,28 @@ button {
     .feed {
         gap: var(--spacing-4);
     }
+    
+    .pagination-controls {
+        gap: var(--spacing-4);
+    }
 
-    .pagination-btn > .material-icons,
+    .pagination-btn {
+        justify-content: center;
+        height: 1.5rem;
+        position: relative;
+        width: 1.5rem;
+    }
+    
+    .pagination-btn::after {
+        content: '';
+        inset: -0.625rem;
+        position: absolute;
+    }
+    
+    .pagination-btn .material-icons {
+        font-size: 0.75rem;
+    }
+
     .toast__icon .material-icons {
         font-size: 1rem;
     }
