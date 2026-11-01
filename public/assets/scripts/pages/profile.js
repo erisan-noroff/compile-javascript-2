@@ -30,7 +30,7 @@ async function init() {
 
         const name = getProfileName();
         const profileInformation = await getProfile(name);
-        const ownProfile = profileInformation.data.name === getStoredName();
+        const ownProfile = isCurrentUser(profileInformation.data.name);
         const onClick = ownProfile
             ? () => location.assign('post-create.html')
             : (e) => toggleFollow(e.currentTarget, profileInformation.data.name);
