@@ -561,10 +561,6 @@ button {
     padding: var(--spacing-1) var(--spacing-2);
 }
 
-.pagination-btn > .material-icons {
-    font-size: 1.5rem;
-}
-
 .pagination-btn:hover {
     color: var(--color-accent);
 }
@@ -783,7 +779,8 @@ button {
 }
 
 .toast__close .material-icons,
-.confirmation-modal__close .material-icons {
+.confirmation-modal__close .material-icons,
+.pagination-btn .material-icons {
     font-size: 1.5rem;
 }
 
