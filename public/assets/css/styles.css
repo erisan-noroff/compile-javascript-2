@@ -384,7 +384,7 @@ button {
     font-weight: 600;
 }
 
-.toast-wrapper > button {
+.toast__close {
     all: unset;
     cursor: pointer;
     position: absolute;
