@@ -1,4 +1,4 @@
-import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
+import { getStoredName, isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
 import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
@@ -30,7 +30,7 @@ async function init() {
 
         const name = getProfileName();
         const profileInformation = await getProfile(name);
-        const ownProfile = profileInformation.data.name === localStorage.getItem('name');
+        const ownProfile = isCurrentUser(profileInformation.data.name);
         const onClick = ownProfile
             ? () => location.assign('post-create.html')
             : (e) => toggleFollow(e.currentTarget, profileInformation.data.name);
@@ -106,8 +106,7 @@ function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
         actionBtn = Button('Create Post', 'btn primary-btn profile-card__action', 'create-post');
         content.append(actionBtn);
     } else {
-        const followingState = profileInformation.followers.some(
-            follower => follower.name === localStorage.getItem('name'));
+        const followingState = profileInformation.followers.some(follower => isCurrentUser(follower.name));
         actionBtn = Button(followingState ? 'Unfollow' : 'Follow', 'btn secondary-btn profile-card__action', 'toggle-follow');
         actionBtn.dataset.isFollowing = followingState.toString();
         content.append(actionBtn);
@@ -166,7 +165,7 @@ async function getPosts(name, page = 1) {
 
 function getProfileName() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('name') ?? localStorage.getItem('name');
+    return params.get('name') || getStoredName();
 }
 
 async function pageChangeHandler(pageNumber) {

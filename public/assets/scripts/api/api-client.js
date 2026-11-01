@@ -1,5 +1,5 @@
 import { API_KEY } from '../utils/config.js';
-import { isAuthenticated } from '../utils/authentication.js';
+import { getStoredToken, isAuthenticated } from '../utils/authentication.js';
 
 export function apiClient() {
     const baseUrl = 'https://v2.api.noroff.dev';
@@ -10,10 +10,8 @@ export function apiClient() {
             'X-Noroff-API-Key': API_KEY
         };
 
-        if (isAuthenticated()) {
-            const token = localStorage.getItem('auth_token');
-            headers.Authorization = `Bearer ${token}`;
-        }
+        if (isAuthenticated())
+            headers.Authorization = `Bearer ${getStoredToken()}`;
 
         return headers;
     }
