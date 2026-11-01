@@ -149,7 +149,6 @@ a,
 a:hover,
 .link-btn:hover {
     color: var(--color-text);
-    text-decoration: underline;
 }
 
 h1 {
