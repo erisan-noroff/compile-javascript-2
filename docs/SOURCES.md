@@ -29,5 +29,5 @@ These have been used as templates and modified for general improvements and to m
 - [Spinner keyframes](https://github.com/erisan-noroff/apex-electronics-examproj-1/blob/main/public/assets/css/main.css#L872)
 
 ## Design
-Design is heavily inspired by my [Apex Electronics (Exam Project 1)](https://www.figma.com/design/KmBjHsfZTtBqj10pjfM1EX/Apex-Electronics?node-id=0-1) design.
+Design is heavily inspired by my [Apex Electronics (Exam Project 1)](https://www.figma.com/design/KmBjHsfZTtBqj10pjfM1EX/Apex-Electronics?m=auto&t=NfF7Cp5Z2jaLmj8G-1) design.
 Toasts, sign in- and out layouts and spinner components are taken from here.
