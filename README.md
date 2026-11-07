@@ -19,10 +19,12 @@ A social platform where developers share ideas, follow each other, and post abou
 ### Installing
 
 1. Clone the repo:
-
 ```bash
 git clone git@github.com:erisan-noroff/compile-javascript-2.git
 ```
+2. Make a copy of `config.js.example` in `public/assets/scripts/utils` and name it `config.js`.
+3. Add your Noroff API key to the newly created `config.js`.
+See [Noroff API documentation](https://docs.noroff.dev/docs/v2/auth/api-key) for how to create one.
 
 ### Running
 
