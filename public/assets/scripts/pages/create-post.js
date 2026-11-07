@@ -17,7 +17,7 @@ function init() {
     const formCard = document.querySelector('.form-card');
     const form = PostForm();
     formCard.append(form);
-    const button = Button('Create Post', 'btn primary-btn', 'post-create-btn', ButtonType.Submit);
+    const button = Button('Create Post', 'btn btn--primary', 'post-create-btn', ButtonType.Submit);
     form.append(button);
     
     addSubmitEventListener();

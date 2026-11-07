@@ -102,7 +102,7 @@ function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
 
     let actionBtn;
     if (ownProfile) {
-        actionBtn = Button('Create Post', 'btn primary-btn profile-card__action', 'create-post');
+        actionBtn = Button('Create Post', 'btn btn--primary profile-card__action', 'create-post');
         content.append(actionBtn);
     } else {
         const followingState = profileInformation.followers.some(follower => isCurrentUser(follower.name));

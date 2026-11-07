@@ -37,7 +37,7 @@ function init() {
 
     form.append(...formFields.map(TextInput));
 
-    const button = Button('sign in', 'btn primary-btn', 'login-btn', ButtonType.Submit);
+    const button = Button('sign in', 'btn btn--primary', 'login-btn', ButtonType.Submit);
     const formRow = document.createElement('div');
     formRow.className = 'form-row';
 

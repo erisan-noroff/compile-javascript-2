@@ -28,7 +28,7 @@ async function init() {
         const formCard = document.querySelector('.form-card');
         const form = PostForm(response.data);
         formCard.append(form);
-        const button = Button('Save Changes', 'btn primary-btn', 'post-edit-save-btn', ButtonType.Submit);
+        const button = Button('Save Changes', 'btn btn--primary', 'post-edit-save-btn', ButtonType.Submit);
         form.append(button);
     } catch (ex) {
         ToastNotification.error('Loading post failed', ex.message);

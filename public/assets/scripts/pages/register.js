@@ -58,7 +58,7 @@ function init() {
 
     form.append(...formFields.map(TextInput));
 
-    const button = Button('register account', 'btn primary-btn', 'register-btn', ButtonType.Submit);
+    const button = Button('register account', 'btn btn--primary', 'register-btn', ButtonType.Submit);
     form.append(button);
 
     addSubmitEventListener();
