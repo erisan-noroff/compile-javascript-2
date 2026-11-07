@@ -4,7 +4,7 @@ import Menu from './menu.js';
 import Icon from './icon.js';
 import openDeletePostConfirmation from './delete-post-confirmation.js';
 
-export default function PostCard(post, singlePostView = false, comments = false) {
+export default function PostCard(post, singlePostView = false, showComments = false) {
     const card = document.createElement(singlePostView ? 'article' : 'li');
     if (!singlePostView)
         card.id = `post-${post.id}`; 
@@ -80,7 +80,7 @@ export default function PostCard(post, singlePostView = false, comments = false)
         reactions.textContent = `${post._count.reactions} ${post._count.reactions === 1 ? 'reaction' : 'reactions'}`;
     }
 
-    if (comments)
+    if (showComments)
         renderComments(card, post.comments);
 
     return card;
