@@ -45,18 +45,18 @@ function displayToast(type, title, message) {
     removeToastIfAlreadyExists();
 
     const main = document.querySelector('main');
-    const toastContainer = document.createElement('div');
-    toastContainer.classList.add('toast-wrapper');
-    toastContainer.id = TOAST_TYPES[type].id;
-    main.prepend(toastContainer);
+    const toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.id = TOAST_TYPES[type].id;
+    main.prepend(toast);
 
     const toastIndicator = document.createElement('span');
     toastIndicator.classList.add('toast__indicator', `${TOAST_TYPES[type].modifier}`);
-    toastContainer.append(toastIndicator);
+    toast.append(toastIndicator);
 
     const toastContent = document.createElement('div');
     toastContent.classList.add('toast__content');
-    toastContainer.append(toastContent);
+    toast.append(toastContent);
 
     const toastIconContainer = document.createElement('span');
     toastIconContainer.classList.add('toast__icon', `${TOAST_TYPES[type].modifier}`);
@@ -83,7 +83,7 @@ function displayToast(type, title, message) {
     toastCloseBtn.id = 'close-toast';
     toastCloseBtn.classList.add('toast__close');
     toastCloseBtn.ariaLabel = 'Dismiss notification';
-    toastContainer.append(toastCloseBtn);
+    toast.append(toastCloseBtn);
     const toastCloseIcon = Icon('close');
     toastCloseBtn.append(toastCloseIcon);
     addCloseBtnEventListener(type);
@@ -91,13 +91,13 @@ function displayToast(type, title, message) {
     // Hovering or focusing the notification resets the timer of 5 seconds before it gets dismissed.
     let timer;
     const pauseTimer = () => clearTimeout(timer);
-    const resumeTimer = () => { timer = setTimeout(() => toastContainer.remove(), 5000); };
+    const resumeTimer = () => { timer = setTimeout(() => toast.remove(), 5000); };
     resumeTimer();
     
-    toastContainer.addEventListener('mouseenter', pauseTimer);
-    toastContainer.addEventListener('focusin', pauseTimer);
-    toastContainer.addEventListener('mouseleave', resumeTimer);
-    toastContainer.addEventListener('focusout', resumeTimer);
+    toast.addEventListener('mouseenter', pauseTimer);
+    toast.addEventListener('focusin', pauseTimer);
+    toast.addEventListener('mouseleave', resumeTimer);
+    toast.addEventListener('focusout', resumeTimer);
 }
 
 function addCloseBtnEventListener(type) {

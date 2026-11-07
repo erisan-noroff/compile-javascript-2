@@ -353,7 +353,7 @@ button {
     color: var(--color-background);
 }
 
-.toast-wrapper {
+.toast {
     display: flex;
     width: 22rem;
     min-height: 5rem;
