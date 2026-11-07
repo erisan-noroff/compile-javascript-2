@@ -60,7 +60,7 @@ export default function Menu({toggleLabel, toggleIcon, items}) {
  * @param {EventListener} onClick Function to trigger when a user clicks the button.
  * @returns {HTMLLIElement} List menu item with link or button.
  */
-export function MenuItem({label, url, modifier, onClick}) {
+function MenuItem({label, url, modifier, onClick}) {
     const menuItem = document.createElement('li');
     const actionItem = document.createElement(url ? 'a' : 'button');
     actionItem.className = modifier ? `menu__item menu__item--${modifier}` : 'menu__item';

@@ -21,19 +21,19 @@ export default function PaginationControls(meta, pageChangeHandler) {
     const paginationControls = document.createElement('div');
     paginationControls.className = 'pagination-controls';
     
-    const firstPageBtn = PaginationButton(meta, 'first_page', 'First', 'First page', true);
+    const firstPageBtn = PaginationButton('first_page', 'First', 'First page', true);
     firstPageBtn.disabled = !!meta.isFirstPage;
     firstPageBtn.dataset.pageNumber = '1';
     
-    const previousPageBtn = PaginationButton(meta, 'chevron_left', 'Back', 'Previous page');
+    const previousPageBtn = PaginationButton('chevron_left', 'Back', 'Previous page');
     previousPageBtn.disabled = !!meta.isFirstPage;
     previousPageBtn.dataset.pageNumber = meta.previousPage;
     
-    const nextPageBtn = PaginationButton(meta, 'chevron_right', 'Next', 'Next page');
+    const nextPageBtn = PaginationButton('chevron_right', 'Next', 'Next page');
     nextPageBtn.disabled = !!meta.isLastPage;
     nextPageBtn.dataset.pageNumber = meta.nextPage;
     
-    const lastPageBtn = PaginationButton(meta, 'last_page', 'Last', 'Last page', true);
+    const lastPageBtn = PaginationButton('last_page', 'Last', 'Last page', true);
     lastPageBtn.disabled = !!meta.isLastPage;
     lastPageBtn.dataset.pageNumber = meta.pageCount.toString();
     
@@ -77,7 +77,7 @@ export default function PaginationControls(meta, pageChangeHandler) {
     return paginationControls;
 }
 
-function PaginationButton(meta, icon, text, ariaLabel, desktopOnly = false) {
+function PaginationButton(icon, text, ariaLabel, desktopOnly = false) {
     const paginationBtn = Button('', 'pagination-btn');
     paginationBtn.classList.toggle('pagination-btn--desktop-only', desktopOnly);
     paginationBtn.setAttribute('aria-label', ariaLabel);
