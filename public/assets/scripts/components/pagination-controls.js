@@ -82,13 +82,13 @@ function PaginationButton(icon, text, ariaLabel, desktopOnly = false) {
     paginationBtn.classList.toggle('pagination-btn--desktop-only', desktopOnly);
     paginationBtn.setAttribute('aria-label', ariaLabel);
     
-    const previousPageIcon = Icon(icon);
-    paginationBtn.append(previousPageIcon);
+    const pageBtnIcon = Icon(icon);
+    paginationBtn.append(pageBtnIcon);
     
-    const previousPageBtnLabel = document.createElement('span');
-    previousPageBtnLabel.className = 'pagination-btn__label';
-    previousPageBtnLabel.textContent = text;
-    paginationBtn.append(previousPageBtnLabel);
+    const pageBtnLabel = document.createElement('span');
+    pageBtnLabel.className = 'pagination-btn__label';
+    pageBtnLabel.textContent = text;
+    paginationBtn.append(pageBtnLabel);
     
     return paginationBtn;
 }
