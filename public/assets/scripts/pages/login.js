@@ -16,7 +16,7 @@ function init() {
     showPendingToast();
     
     const form = document.querySelector('form.stack');
-    const FormFields = [
+    const formFields = [
         {
             id: 'email',
             label: 'Email',
@@ -35,7 +35,7 @@ function init() {
         }
     ];
 
-    form.append(...FormFields.map(TextInput));
+    form.append(...formFields.map(TextInput));
 
     const button = Button('sign in', 'btn primary-btn', 'login-btn', ButtonType.Submit);
     const formRow = document.createElement('div');
