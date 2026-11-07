@@ -1,4 +1,4 @@
-import { isAuthenticated, redirectToHomepage } from '../utils/authentication.js';
+import { isAuthenticated, redirectToHomepage, redirectToSignIn } from '../utils/authentication.js';
 import { TextInput } from '../components/form-group.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
@@ -66,7 +66,7 @@ function init() {
 // Redirect user to login.html and display a success Toast Notification
 function signUpSuccessful() {
     setPendingToast('success', 'Account Created', 'Sign in to get started.');
-    window.location.replace('login.html');
+    redirectToSignIn();
 }
 
 function addSubmitEventListener() {
