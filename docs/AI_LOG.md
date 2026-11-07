@@ -23,7 +23,9 @@ I recalled having done a change to api-client.js that was suddenly missing. AI a
 which I recovered at the same time.
 
 **04/10/2026**
-Used AI for generating site description in <meta name="description"> tag for post.html.
+1. Used AI for generating site description in <meta name="description"> tag for post.html.
+2. Brainstormed with AI on how to make Pagination Controls a reusable component. AI suggested using a callback. 
+I implemented this myself, based on a few examples from AI.
 
 **10/10/2026**
 Used AI for generating site description in <meta name="description"> tag for profile.html.
