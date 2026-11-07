@@ -5,6 +5,7 @@ import { ToastNotification } from '../components/toast-notification.js';
 import EmptyState from '../components/empty-state.js';
 import PostCard from '../components/post-card.js';
 import { showPendingToast } from '../utils/pending-toast.js';
+import BackToFeedLink from '../components/back-to-the-feed.js';
 
 async function init() {
     if (!isAuthenticated()) {
@@ -15,10 +16,8 @@ async function init() {
     showPendingToast();
     
     const main = document.querySelector('main');
-    const homePageLink = document.createElement('a');
+    const homePageLink = BackToFeedLink();
     main.append(homePageLink);
-    homePageLink.textContent = 'Back to the feed';
-    homePageLink.href = 'index.html';
     const singlePost = document.createElement('div');
     main.append(singlePost);
     singlePost.className = 'single-post';
