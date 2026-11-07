@@ -5,9 +5,9 @@ import { setPendingToast } from '../utils/pending-toast.js';
 import { ToastNotification } from './toast-notification.js';
 import { redirectToHomepage } from '../utils/authentication.js';
 
-let modal;
+let modalInstance;
 
-function deletePostConfirmation() {
+function DeletePostConfirmation() {
     const modal = document.createElement('dialog');
     modal.className = 'confirmation-modal';
 
@@ -44,13 +44,13 @@ function deletePostConfirmation() {
 }
 
 export default function openDeletePostConfirmation(postId) {
-    if (!modal) {
-        modal = deletePostConfirmation();
-        document.body.append(modal);
+    if (!modalInstance) {
+        modalInstance = DeletePostConfirmation();
+        document.body.append(modalInstance);
     }
 
-    modal.dataset.postId = postId;
-    modal.showModal();
+    modalInstance.dataset.postId = postId;
+    modalInstance.showModal();
 }
 
 async function deletePost(postId) {
