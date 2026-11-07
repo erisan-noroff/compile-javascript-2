@@ -5,6 +5,7 @@ import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import formValidation from '../utils/form-validation.js';
 import { setPendingToast } from '../utils/pending-toast.js';
+import { loadingTimeout } from '../components/loading-spinner.js';
 
 function init() {
     if (isAuthenticated()) {
@@ -89,7 +90,7 @@ function addSubmitEventListener() {
         const api = apiClient();
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 3000));
+            await loadingTimeout();
             const body = {name: username, email: email, password: password};
             if (avatar) body.avatar = { url: avatar, alt: ''};
             if (banner) body.banner = { url: banner, alt: ''};
