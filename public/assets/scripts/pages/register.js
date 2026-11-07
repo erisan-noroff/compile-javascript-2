@@ -14,7 +14,7 @@ function init() {
     }
 
     const form = document.querySelector('form.stack');
-    const FormFields = [
+    const formFields = [
         {
             id: 'email',
             label: 'Email',
@@ -56,7 +56,7 @@ function init() {
         }
     ];
 
-    form.append(...FormFields.map(TextInput));
+    form.append(...formFields.map(TextInput));
 
     const button = Button('register account', 'btn primary-btn', 'register-btn', ButtonType.Submit);
     form.append(button);
