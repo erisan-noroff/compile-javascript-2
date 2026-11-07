@@ -1,0 +1,2 @@
+// You must generate a Noroff API key: https://docs.noroff.dev/docs/v2/auth/api-key
+export const API_KEY = '';
