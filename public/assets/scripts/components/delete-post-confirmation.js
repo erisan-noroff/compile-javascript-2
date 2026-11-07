@@ -31,7 +31,7 @@ function DeletePostConfirmation() {
     cancelBtn.autofocus = true;
     cancelBtn.addEventListener('click', () => modal.close());
 
-    const confirmationBtn = Button('Delete', 'btn danger-btn');
+    const confirmationBtn = Button('Delete', 'btn btn--danger');
     confirmationBtn.addEventListener('click', async() => {
         modal.close();
         await deletePost(modal.dataset.postId);
