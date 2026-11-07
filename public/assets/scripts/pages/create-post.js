@@ -53,7 +53,7 @@ function addSubmitEventListener() {
             
             const response = await api.post('/social/posts', body);
             setPendingToast('success', 'Post Created', 'Post created successfully.');
-            window.location.replace(`/post.html?id=${response.data.id}`);
+            window.location.replace(`post.html?id=${response.data.id}`);
         } catch (ex) {
             ToastNotification.error('Failed to create post', ex.message);
         } finally {
