@@ -2,7 +2,7 @@ import { getStoredName, isAuthenticated, isCurrentUser, redirectToSignUp } from 
 import { LoadingSpinner, loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
-import { Button } from '../components/buttons.js';
+import { Button, setButtonLoading } from '../components/buttons.js';
 import PaginationControls from '../components/pagination-controls.js';
 import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
 import BackToFeedLink from '../components/back-to-the-feed.js';
@@ -127,8 +127,7 @@ async function getProfile(name) {
 
 async function toggleFollow(btn, name) {
     const isFollowing = btn.dataset.isFollowing === 'true';
-    btn.disabled = true;
-    btn.classList.add('btn--loading');
+    setButtonLoading(btn, true);
 
     try {
         await loadingTimeout();
@@ -140,8 +139,7 @@ async function toggleFollow(btn, name) {
     } catch (ex) {
         ToastNotification.error('Toggling following state failed', ex.message);
     } finally {
-        btn.disabled = false;
-        btn.classList.remove('btn--loading');
+        setButtonLoading(btn, false);
     }
 }
 
