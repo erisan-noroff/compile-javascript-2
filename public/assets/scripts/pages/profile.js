@@ -106,7 +106,7 @@ function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
         content.append(actionBtn);
     } else {
         const followingState = profileInformation.followers.some(follower => isCurrentUser(follower.name));
-        actionBtn = Button(followingState ? 'Unfollow' : 'Follow', 'btn secondary-btn profile-card__action', 'toggle-follow');
+        actionBtn = Button(followingState ? 'Unfollow' : 'Follow', 'btn btn--secondary profile-card__action', 'toggle-follow');
         actionBtn.dataset.isFollowing = followingState.toString();
         content.append(actionBtn);
     }

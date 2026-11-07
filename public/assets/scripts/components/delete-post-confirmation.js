@@ -27,7 +27,7 @@ function DeletePostConfirmation() {
     closeBtn.addEventListener('click', () => modal.close());
     header.append(closeBtn);
 
-    const cancelBtn = Button('Cancel', 'btn secondary-btn');
+    const cancelBtn = Button('Cancel', 'btn btn--secondary');
     cancelBtn.autofocus = true;
     cancelBtn.addEventListener('click', () => modal.close());
 
