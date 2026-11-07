@@ -5,7 +5,7 @@
  * @param {Event} e - Form submit event
  * @returns {boolean} True if all inputs pass validation
  */
-export default function formValidation(e) {
+export default function validateForm(e) {
     e.preventDefault();
     let isValid = true;
 

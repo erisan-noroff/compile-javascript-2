@@ -1,5 +1,5 @@
 import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
-import formValidation from '../utils/form-validation.js';
+import validateForm from '../utils/validate-form.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
@@ -28,7 +28,7 @@ function addSubmitEventListener() {
     if (!form) return;
 
     form.addEventListener('submit', async(e) => {
-        const isValid = formValidation(e);
+        const isValid = validateForm(e);
         if (!isValid) return;
 
         const title = document.getElementById('title').value;

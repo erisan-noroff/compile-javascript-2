@@ -3,7 +3,7 @@ import { loadingTimeout, removeLoadingSpinner } from '../components/loading-spin
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import { setPendingToast } from '../utils/pending-toast.js';
-import formValidation from '../utils/form-validation.js';
+import validateForm from '../utils/validate-form.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { getTags } from '../components/tags-input.js';
 import PostForm from '../components/post-form.js';
@@ -55,7 +55,7 @@ function addSubmitEventListener() {
     if (!form) return;
 
     form.addEventListener('submit', async(e) => {
-        const isValid = formValidation(e);
+        const isValid = validateForm(e);
         if (!isValid) return;
 
         const title = document.getElementById('title').value;
