@@ -5,7 +5,7 @@ import { apiClient } from '../api/api-client.js';
 import { Button, setButtonLoading } from '../components/buttons.js';
 import PaginationControls from '../components/pagination-controls.js';
 import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
-import BackToFeedLink from '../components/back-to-the-feed.js';
+import BackToFeedLink from '../components/back-to-the-feed-link.js';
 
 async function init() {
     if (!isAuthenticated()) {

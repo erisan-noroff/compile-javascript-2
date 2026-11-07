@@ -5,7 +5,7 @@ import { ToastNotification } from '../components/toast-notification.js';
 import EmptyState from '../components/empty-state.js';
 import PostCard from '../components/post-card.js';
 import { showPendingToast } from '../utils/pending-toast.js';
-import BackToFeedLink from '../components/back-to-the-feed.js';
+import BackToFeedLink from '../components/back-to-the-feed-link.js';
 
 async function init() {
     if (!isAuthenticated()) {
