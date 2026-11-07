@@ -46,12 +46,12 @@ function displayToast(type, title, message) {
 
     const main = document.querySelector('main');
     const toast = document.createElement('div');
-    toast.classList.add('toast');
+    toast.classList.add('toast', `${TOAST_TYPES[type].modifier}`);
     toast.id = TOAST_TYPES[type].id;
     main.prepend(toast);
 
     const toastIndicator = document.createElement('span');
-    toastIndicator.classList.add('toast__indicator', `${TOAST_TYPES[type].modifier}`);
+    toastIndicator.classList.add('toast__indicator');
     toast.append(toastIndicator);
 
     const toastContent = document.createElement('div');
@@ -59,7 +59,7 @@ function displayToast(type, title, message) {
     toast.append(toastContent);
 
     const toastIconContainer = document.createElement('span');
-    toastIconContainer.classList.add('toast__icon', `${TOAST_TYPES[type].modifier}`);
+    toastIconContainer.classList.add('toast__icon');
 
     const toastIcon = Icon(TOAST_TYPES[type].icon);
     toastIconContainer.append(toastIcon);

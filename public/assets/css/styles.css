@@ -388,11 +388,13 @@ button {
     flex-shrink: 0;
 }
 
-.toast--success {
+.toast--success .toast__indicator,
+.toast--success .toast__icon {
     background-color: var(--color-success);
 }
 
-.toast--danger {
+.toast--danger .toast__indicator,
+.toast--danger .toast__icon {
     background-color: var(--color-danger);
 }
 
@@ -410,14 +412,6 @@ button {
 
 .toast__icon .material-icons {
     font-size: 1rem;
-}
-
-.toast__icon.toast--success {
-    background-color: var(--color-success);
-}
-
-.toast__icon.toast--danger {
-    background-color: var(--color-danger);
 }
 
 .toast__content {
