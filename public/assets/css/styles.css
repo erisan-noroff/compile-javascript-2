@@ -290,19 +290,54 @@ button {
     justify-content: center;
 }
 
-.primary-btn {
+.btn--primary {
     background-color: var(--color-primary);
     color: var(--color-text);
     padding: var(--spacing-3);
     border-radius: var(--radius);
 }
 
-.primary-btn:hover {
+.btn--primary:hover {
     background-color: var(--color-primary-hover);
 }
 
-.primary-btn:active {
+.btn--primary:active {
     background-color: var(--color-primary-active);
+}
+
+.btn--primary {
+    --spinner-track: var(--color-button-track);
+    --spinner-arc: var(--color-text);
+}
+
+.btn--secondary {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--spacing-3);
+    --spinner-track: var(--color-button-track);
+    --spinner-arc: var(--color-text);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+    background-color: var(--color-surface);
+    border-color: var(--color-text-muted);
+}
+
+.btn--secondary:active {
+    background-color: var(--color-input-background);
+}
+
+.btn--danger {
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+    padding: var(--spacing-3);
+}
+
+.btn--danger:hover,
+.btn--danger:focus-visible {
+    background-color: var(--color-danger);
+    color: var(--color-background);
 }
 
 .loading-state {
@@ -334,23 +369,6 @@ button {
     border-radius: 50%;
     animation: spin 1s linear infinite;
     vertical-align: middle;
-}
-
-.primary-btn {
-    --spinner-track: var(--color-button-track);
-    --spinner-arc: var(--color-text);
-}
-
-.danger-btn {
-    border: 1px solid var(--color-danger);
-    color: var(--color-danger);
-    padding: var(--spacing-3);
-}
-
-.danger-btn:hover,
-.danger-btn:focus-visible {
-    background-color: var(--color-danger);
-    color: var(--color-background);
 }
 
 .toast {
@@ -678,24 +696,6 @@ button {
 
 .profile-card__action {
     grid-area: action;
-}
-
-.secondary-btn {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    padding: var(--spacing-3);
-    --spinner-track: var(--color-button-track);
-    --spinner-arc: var(--color-text);
-}
-
-.secondary-btn:hover,
-.secondary-btn:focus-visible {
-    background-color: var(--color-surface);
-    border-color: var(--color-text-muted);
-}
-
-.secondary-btn:active {
-    background-color: var(--color-input-background);
 }
 
 .post-form__tags {
