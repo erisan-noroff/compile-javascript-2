@@ -1,4 +1,4 @@
-import { isAuthenticated, isCurrentUser, redirectToSignUp } from '../utils/authentication.js';
+import { isAuthenticated, isCurrentUser, redirectToHomepage, redirectToSignUp } from '../utils/authentication.js';
 import { loadingTimeout, removeLoadingSpinner } from '../components/loading-spinner.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
@@ -21,7 +21,7 @@ async function init() {
         const response = await getPost(id);
         if (!isCurrentUser(response.data.author.name)) {
             setPendingToast('error', 'Access Denied', 'You can only edit your own posts');
-            window.location.replace('index.html');
+            redirectToHomepage();
             return;
         }
         
@@ -42,7 +42,7 @@ async function init() {
 async function getPost(id) {
     if (!id || isNaN(id)) {
         setPendingToast('error', 'Post not found', 'Cannot find a matching post.');
-        window.location.replace('index.html');
+        redirectToHomepage();
     }
 
     const api = apiClient();

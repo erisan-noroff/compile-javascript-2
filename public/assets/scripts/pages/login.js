@@ -5,6 +5,7 @@ import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import formValidation from '../utils/form-validation.js';
 import { showPendingToast } from '../utils/pending-toast.js';
+import { loadingTimeout } from '../components/loading-spinner.js';
 
 function init() {
     if (isAuthenticated()) {
@@ -74,7 +75,7 @@ function addSubmitEventListener() {
         const api = apiClient();
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 3000));
+            await loadingTimeout();
             const response = await api.post('/auth/login', {email: email, password: password});
             if (!response.data?.accessToken || !response.data?.name) {
                 ToastNotification.apiGenericError();

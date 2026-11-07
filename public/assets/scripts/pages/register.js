@@ -1,10 +1,11 @@
-import { isAuthenticated, redirectToHomepage } from '../utils/authentication.js';
+import { isAuthenticated, redirectToHomepage, redirectToSignIn } from '../utils/authentication.js';
 import { TextInput } from '../components/form-group.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import formValidation from '../utils/form-validation.js';
 import { setPendingToast } from '../utils/pending-toast.js';
+import { loadingTimeout } from '../components/loading-spinner.js';
 
 function init() {
     if (isAuthenticated()) {
@@ -66,7 +67,7 @@ function init() {
 // Redirect user to login.html and display a success Toast Notification
 function signUpSuccessful() {
     setPendingToast('success', 'Account Created', 'Sign in to get started.');
-    window.location.replace('login.html');
+    redirectToSignIn();
 }
 
 function addSubmitEventListener() {
@@ -89,7 +90,7 @@ function addSubmitEventListener() {
         const api = apiClient();
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 3000));
+            await loadingTimeout();
             const body = {name: username, email: email, password: password};
             if (avatar) body.avatar = { url: avatar, alt: ''};
             if (banner) body.banner = { url: banner, alt: ''};
