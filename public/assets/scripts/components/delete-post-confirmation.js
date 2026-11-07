@@ -3,6 +3,7 @@ import Icon from './icon.js';
 import { apiClient } from '../api/api-client.js';
 import { setPendingToast } from '../utils/pending-toast.js';
 import { ToastNotification } from './toast-notification.js';
+import { redirectToHomepage } from '../utils/authentication.js';
 
 let modal;
 
@@ -63,7 +64,7 @@ async function deletePost(postId) {
         const card = document.getElementById(`post-${postId}`);
         if (!card) {
             setPendingToast('success', 'Post deleted', 'Your post has been successfully deleted');
-            window.location.replace('index.html');
+            redirectToHomepage();
         } else {
             card.remove();
             ToastNotification.success('Post deleted', 'Your post has been successfully deleted');
