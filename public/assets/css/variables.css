@@ -1,21 +1,22 @@
 :root {
-    --color-text: #E6EDF3;
-    --color-text-muted: rgba(230, 237, 243, 0.7);
+    --color-accent: #A2D6F9;
     --color-background: #0D1117;
-    --color-surface: #161B22;
-    --color-input-background: #010409;
     --color-border: rgba(230, 237, 243, 0.15);
     --color-button-track: rgba(230, 237, 243, 0.25);
-    --color-primary: #2B59C3;
-    --color-primary-hover: #264EAC;
-    --color-primary-active: #204392;
-    --color-tags: #FFA62B;
-    --color-accent: #A2D6F9;
-    --color-success: #31D962;
     --color-danger: #F85149;
     --color-danger-active: #DF4942;
-    --font-display: "JetBrains Mono";
+    --color-input-background: #010409;
+    --color-primary: #2B59C3;
+    --color-primary-active: #204392;
+    --color-primary-hover: #264EAC;
+    --color-success: #31D962;
+    --color-surface: #161B22;
+    --color-tags: #FFA62B;
+    --color-text: #E6EDF3;
+    --color-text-muted: rgba(230, 237, 243, 0.7);
     --font-body: "Inter";
+    --font-display: "JetBrains Mono";
+    --radius-size: 0.25rem;
     --spacing-1: 0.25rem;
     --spacing-2: 0.5rem;
     --spacing-3: 1rem;
@@ -23,7 +24,6 @@
     --spacing-5: 2rem;
     --spacing-6: 3rem;
     --spacing-7: 4rem;
-    --radius-size: 0.25rem;
 }
 
 @font-face {
