@@ -29,11 +29,11 @@ async function init() {
 
         const name = getProfileName();
         const profileInformation = await getProfile(name);
-        const ownProfile = isCurrentUser(profileInformation.data.name);
-        const onClick = ownProfile
+        const isOwnProfile = isCurrentUser(profileInformation.data.name);
+        const onClick = isOwnProfile
             ? () => location.assign('create-post.html')
             : (e) => toggleFollow(e.currentTarget, profileInformation.data.name);
-        const profileCard = ProfileCard(profileInformation.data, {ownProfile, onClick});
+        const profileCard = ProfileCard(profileInformation.data, {isOwnProfile, onClick});
         feed.replaceChildren(profileCard);
 
         const response = await getPosts(name, 1);
@@ -51,7 +51,7 @@ async function init() {
     }
 }
 
-function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
+function ProfileCard(profileInformation, {isOwnProfile = false, onClick}) {
     const card = document.createElement('div');
     card.className = 'card profile-card';
 
@@ -101,7 +101,7 @@ function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
     followingCount.textContent = `${profileInformation._count.following} following`;
 
     let actionButton;
-    if (ownProfile) {
+    if (isOwnProfile) {
         actionButton = Button('Create Post', 'button button--primary profile-card__action', 'create-post');
         content.append(actionButton);
     } else {
