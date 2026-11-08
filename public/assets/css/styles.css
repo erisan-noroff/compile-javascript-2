@@ -12,7 +12,6 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--font-body), sans-serif;
-    font-size: 1rem;
     min-height: 100vh;
     overflow-wrap: break-word;
 }
