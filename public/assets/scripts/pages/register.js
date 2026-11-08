@@ -64,12 +64,6 @@ function init() {
     addSubmitEventListener();
 }
 
-// Redirect user to login.html and display a success Toast Notification
-function signUpSuccessful() {
-    setPendingToast('success', 'Account Created', 'Sign in to get started.');
-    redirectToSignIn();
-}
-
 function addSubmitEventListener() {
     const form = document.querySelector('form');
     if (!form) return;
@@ -95,7 +89,8 @@ function addSubmitEventListener() {
             if (avatar) body.avatar = { url: avatar, alt: ''};
             if (banner) body.banner = { url: banner, alt: ''};
             await api.post('/auth/register', body);
-            signUpSuccessful();
+            setPendingToast('success', 'Account Created', 'Sign in to get started.');
+            redirectToSignIn();
         } catch (ex) {
             ToastNotification.error('Registration failed', ex.message);
         } finally {
