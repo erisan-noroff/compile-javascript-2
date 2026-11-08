@@ -14,6 +14,7 @@ body {
     font-family: var(--font-body), sans-serif;
     font-size: 1rem;
     min-height: 100vh;
+    overflow-wrap: break-word;
 }
 
 button {
@@ -418,6 +419,12 @@ a:hover, .link-button:hover {
     top: var(--spacing-2);
 }
 
+.toast__close::after {
+    content: '';
+    inset: -0.5rem;
+    position: absolute;
+}
+
 .toast__icon {
     align-items: center;
     border-radius: 50%;
@@ -766,12 +773,16 @@ a:hover, .link-button:hover {
     justify-content: space-between;
 }
 
+
+.confirmation-modal__close {
+    width: 2.75rem;
+}
+
 .toast__close,
 .confirmation-modal__close {
     aspect-ratio: 1/1;
     display: flex;
     justify-content: right;
-    width: 2.75rem;
 }
 
 .toast__close .material-icons,
