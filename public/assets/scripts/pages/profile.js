@@ -102,11 +102,11 @@ function ProfileCard(profileInformation, {isOwnProfile = false, onClick}) {
 
     let actionButton;
     if (isOwnProfile) {
-        actionButton = Button('Create Post', 'button button--primary profile-card__action', 'create-post');
+        actionButton = Button('Create Post', 'button button--primary profile-card__action');
         content.append(actionButton);
     } else {
         const isFollowing = profileInformation.followers.some(follower => isCurrentUser(follower.name));
-        actionButton = Button(isFollowing ? 'Unfollow' : 'Follow', 'button button--secondary profile-card__action', 'toggle-follow');
+        actionButton = Button(isFollowing ? 'Unfollow' : 'Follow', 'button button--secondary profile-card__action');
         actionButton.dataset.isFollowing = isFollowing.toString();
         content.append(actionButton);
     }
