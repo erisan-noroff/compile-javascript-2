@@ -159,13 +159,13 @@ footer {
 }
 
 a,
-.link-btn {
+.link-button {
     color: var(--color-accent);
     text-decoration: none;
 }
 
 a:hover,
-.link-btn:hover {
+.link-button:hover {
     color: var(--color-text);
 }
 
@@ -282,7 +282,7 @@ button {
     font: inherit;
 }
 
-.btn {
+.button {
     font-weight: 600;
     height: 3.125rem;
     display: inline-flex;
@@ -290,7 +290,7 @@ button {
     justify-content: center;
 }
 
-.btn--primary {
+.button--primary {
     background-color: var(--color-primary);
     color: var(--color-text);
     padding: var(--spacing-3);
@@ -299,15 +299,15 @@ button {
     --spinner-arc: var(--color-text);
 }
 
-.btn--primary:hover {
+.button--primary:hover {
     background-color: var(--color-primary-hover);
 }
 
-.btn--primary:active {
+.button--primary:active {
     background-color: var(--color-primary-active);
 }
 
-.btn--secondary {
+.button--secondary {
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: var(--spacing-3);
@@ -315,24 +315,24 @@ button {
     --spinner-arc: var(--color-text);
 }
 
-.btn--secondary:hover,
-.btn--secondary:focus-visible {
+.button--secondary:hover,
+.button--secondary:focus-visible {
     background-color: var(--color-surface);
     border-color: var(--color-text-muted);
 }
 
-.btn--secondary:active {
+.button--secondary:active {
     background-color: var(--color-input-background);
 }
 
-.btn--danger {
+.button--danger {
     border: 1px solid var(--color-danger);
     color: var(--color-danger);
     padding: var(--spacing-3);
 }
 
-.btn--danger:hover,
-.btn--danger:focus-visible {
+.button--danger:hover,
+.button--danger:focus-visible {
     background-color: var(--color-danger);
     color: var(--color-background);
 }
@@ -355,7 +355,7 @@ button {
     animation: spin 1s linear infinite;
 }
 
-.btn--loading::after {
+.button--loading::after {
     border: 2px solid var(--spinner-track);
     border-top-color: var(--spinner-arc);
     content: '';
@@ -571,7 +571,7 @@ button {
     justify-content: center;
 }
 
-.pagination-btn {
+.pagination-button {
     align-items: center;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -579,26 +579,26 @@ button {
     padding: var(--spacing-1) var(--spacing-2);
 }
 
-.pagination-btn:hover {
+.pagination-button:hover {
     color: var(--color-accent);
 }
 
-.pagination-btn:active {
+.pagination-button:active {
     background-color: var(--color-input-background);
     color: var(--color-text);
 }
 
-.pagination-btn:disabled {
+.pagination-button:disabled {
     color: var(--color-text-muted);
     cursor: not-allowed;
 }
 
-.pagination-btn--current-page {
+.pagination-button--current-page {
     background-color: var(--color-primary);
     cursor: not-allowed;
 }
 
-.pagination-btn--page-num {
+.pagination-button--page-num {
     aspect-ratio: 1/1;
     justify-content: center;
     width: 2rem;
@@ -784,7 +784,7 @@ button {
 
 .toast__close .material-icons,
 .confirmation-modal__close .material-icons,
-.pagination-btn .material-icons {
+.pagination-button .material-icons {
     font-size: 1.5rem;
 }
 
@@ -910,20 +910,20 @@ button {
         gap: var(--spacing-4);
     }
 
-    .pagination-btn {
+    .pagination-button {
         justify-content: center;
         height: 1.5rem;
         position: relative;
         width: 1.5rem;
     }
     
-    .pagination-btn::after {
+    .pagination-button::after {
         content: '';
         inset: -0.625rem;
         position: absolute;
     }
     
-    .pagination-btn .material-icons {
+    .pagination-button .material-icons {
         font-size: 0.75rem;
     }
 
@@ -931,11 +931,11 @@ button {
         font-size: 1rem;
     }
 
-    .pagination-btn--desktop-only {
+    .pagination-button--desktop-only {
         display: none;
     }
 
-    .pagination-btn--page-num {
+    .pagination-button--page-num {
         width: 1.5rem;
     }
 }

@@ -79,14 +79,14 @@ function displayToast(type, title, message) {
     toastMessage.innerText = message;
     toastText.append(toastMessage);
 
-    const toastCloseBtn = document.createElement('button');
-    toastCloseBtn.id = 'close-toast';
-    toastCloseBtn.classList.add('toast__close');
-    toastCloseBtn.ariaLabel = 'Dismiss notification';
-    toast.append(toastCloseBtn);
+    const toastCloseButton = document.createElement('button');
+    toastCloseButton.id = 'close-toast';
+    toastCloseButton.classList.add('toast__close');
+    toastCloseButton.ariaLabel = 'Dismiss notification';
+    toast.append(toastCloseButton);
     const toastCloseIcon = Icon('close');
-    toastCloseBtn.append(toastCloseIcon);
-    addCloseBtnEventListener(type);
+    toastCloseButton.append(toastCloseIcon);
+    addCloseButtonEventListener(type);
 
     // Hovering or focusing the notification resets the timer of 5 seconds before it gets dismissed.
     let timer;
@@ -100,10 +100,10 @@ function displayToast(type, title, message) {
     toast.addEventListener('focusout', resumeTimer);
 }
 
-function addCloseBtnEventListener(type) {
-    const closeToastBtn = document.getElementById('close-toast');
-    if (closeToastBtn) {
-        closeToastBtn.addEventListener('click', () => {
+function addCloseButtonEventListener(type) {
+    const closeToastButton = document.getElementById('close-toast');
+    if (closeToastButton) {
+        closeToastButton.addEventListener('click', () => {
             document.getElementById(TOAST_TYPES[type].id)?.remove();
         });
     }

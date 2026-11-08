@@ -21,23 +21,23 @@ function DeletePostConfirmation() {
     const actions = document.createElement('div');
     actions.className = 'confirmation-modal__row';
 
-    const closeBtn = Button('', 'confirmation-modal__close');
-    closeBtn.setAttribute('aria-label', 'Close');
-    closeBtn.append(Icon('close'));
-    closeBtn.addEventListener('click', () => modal.close());
-    header.append(closeBtn);
+    const closeButton = Button('', 'confirmation-modal__close');
+    closeButton.setAttribute('aria-label', 'Close');
+    closeButton.append(Icon('close'));
+    closeButton.addEventListener('click', () => modal.close());
+    header.append(closeButton);
 
-    const cancelBtn = Button('Cancel', 'btn btn--secondary');
-    cancelBtn.autofocus = true;
-    cancelBtn.addEventListener('click', () => modal.close());
+    const cancelButton = Button('Cancel', 'button button--secondary');
+    cancelButton.autofocus = true;
+    cancelButton.addEventListener('click', () => modal.close());
 
-    const confirmationBtn = Button('Delete', 'btn btn--danger');
-    confirmationBtn.addEventListener('click', async() => {
+    const confirmationButton = Button('Delete', 'button button--danger');
+    confirmationButton.addEventListener('click', async() => {
         modal.close();
         await deletePost(modal.dataset.postId);
     });
 
-    actions.append(cancelBtn, confirmationBtn);
+    actions.append(cancelButton, confirmationButton);
     modal.append(header, actions);
 
     return modal;

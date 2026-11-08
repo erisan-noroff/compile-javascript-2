@@ -37,7 +37,7 @@ function init() {
 
     form.append(...formFields.map(TextInput));
 
-    const button = Button('sign in', 'btn btn--primary', 'login-btn', ButtonType.Submit);
+    const button = Button('sign in', 'button button--primary', 'login-button', ButtonType.Submit);
     const formRow = document.createElement('div');
     formRow.className = 'form-row';
 
@@ -69,8 +69,8 @@ function addSubmitEventListener() {
         const password = document.getElementById('password').value;
         const rememberMeIsChecked = document.getElementById('remember-me').checked;
 
-        const submitBtn = form.querySelector('#login-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#login-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -94,7 +94,7 @@ function addSubmitEventListener() {
         } catch (ex) {
             ToastNotification.error('Login failed', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }
@@ -103,7 +103,7 @@ function addForgotPasswordButton() {
     const formRow = document.querySelector('.form-row');
     if (!formRow) return;
 
-    const forgotPasswordButton = Button('Forgot password?', 'link-btn');
+    const forgotPasswordButton = Button('Forgot password?', 'link-button');
     formRow.append(forgotPasswordButton);
 
     forgotPasswordButton.addEventListener('click', () => {

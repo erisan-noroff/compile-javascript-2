@@ -21,21 +21,21 @@ export default function PaginationControls(meta, pageChangeHandler) {
     const paginationControls = document.createElement('div');
     paginationControls.className = 'pagination-controls';
     
-    const firstPageBtn = PaginationButton('first_page', 'First', 'First page', true);
-    firstPageBtn.disabled = !!meta.isFirstPage;
-    firstPageBtn.dataset.pageNumber = '1';
+    const firstPageButton = PaginationButton('first_page', 'First', 'First page', true);
+    firstPageButton.disabled = !!meta.isFirstPage;
+    firstPageButton.dataset.pageNumber = '1';
     
-    const previousPageBtn = PaginationButton('chevron_left', 'Back', 'Previous page');
-    previousPageBtn.disabled = !!meta.isFirstPage;
-    previousPageBtn.dataset.pageNumber = meta.previousPage;
+    const previousPageButton = PaginationButton('chevron_left', 'Back', 'Previous page');
+    previousPageButton.disabled = !!meta.isFirstPage;
+    previousPageButton.dataset.pageNumber = meta.previousPage;
     
-    const nextPageBtn = PaginationButton('chevron_right', 'Next', 'Next page');
-    nextPageBtn.disabled = !!meta.isLastPage;
-    nextPageBtn.dataset.pageNumber = meta.nextPage;
+    const nextPageButton = PaginationButton('chevron_right', 'Next', 'Next page');
+    nextPageButton.disabled = !!meta.isLastPage;
+    nextPageButton.dataset.pageNumber = meta.nextPage;
     
-    const lastPageBtn = PaginationButton('last_page', 'Last', 'Last page', true);
-    lastPageBtn.disabled = !!meta.isLastPage;
-    lastPageBtn.dataset.pageNumber = meta.pageCount.toString();
+    const lastPageButton = PaginationButton('last_page', 'Last', 'Last page', true);
+    lastPageButton.disabled = !!meta.isLastPage;
+    lastPageButton.dataset.pageNumber = meta.pageCount.toString();
     
     let start = Math.max(1, meta.currentPage - 2);
     let end = start + 4;
@@ -48,47 +48,47 @@ export default function PaginationControls(meta, pageChangeHandler) {
     const paginationButtons = [];
     for (let i = start; i <= end; i++) {
         const pageNumberString = i.toString();
-        const pageBtn = Button(pageNumberString, 'pagination-btn pagination-btn--page-num');
-        pageBtn.dataset.pageNumber = pageNumberString;
+        const pageButton = Button(pageNumberString, 'pagination-button pagination-button--page-num');
+        pageButton.dataset.pageNumber = pageNumberString;
 
         if (meta.currentPage === i) {
-            pageBtn.classList.add('pagination-btn--current-page');
-            pageBtn.setAttribute('aria-current', 'page');
+            pageButton.classList.add('pagination-button--current-page');
+            pageButton.setAttribute('aria-current', 'page');
         }
 
-        paginationButtons.push(pageBtn);
+        paginationButtons.push(pageButton);
     }
 
     paginationControls.addEventListener('click', async(e) => {
-        const pageBtn = e.target.closest('.pagination-btn');
-        if (!pageBtn)
+        const pageButton = e.target.closest('.pagination-button');
+        if (!pageButton)
             return;
 
-        const pageNumber = pageBtn.dataset.pageNumber;
-        paginationControls.querySelector('.pagination-btn--current-page')?.classList.remove('pagination-btn--current-page');
-        paginationControls.querySelector(`.pagination-btn--page-num[data-page-number="${pageNumber}"]`)?.classList.add('pagination-btn--current-page');
+        const pageNumber = pageButton.dataset.pageNumber;
+        paginationControls.querySelector('.pagination-button--current-page')?.classList.remove('pagination-button--current-page');
+        paginationControls.querySelector(`.pagination-button--page-num[data-page-number="${pageNumber}"]`)?.classList.add('pagination-button--current-page');
         window.scrollTo({top: 0});
 
         pageChangeHandler(Number(pageNumber));
     });
 
-    paginationControls.append(firstPageBtn, previousPageBtn, ...paginationButtons, nextPageBtn, lastPageBtn);
+    paginationControls.append(firstPageButton, previousPageButton, ...paginationButtons, nextPageButton, lastPageButton);
 
     return paginationControls;
 }
 
 function PaginationButton(icon, text, ariaLabel, desktopOnly = false) {
-    const paginationBtn = Button('', 'pagination-btn');
-    paginationBtn.classList.toggle('pagination-btn--desktop-only', desktopOnly);
-    paginationBtn.setAttribute('aria-label', ariaLabel);
+    const paginationButton = Button('', 'pagination-button');
+    paginationButton.classList.toggle('pagination-button--desktop-only', desktopOnly);
+    paginationButton.setAttribute('aria-label', ariaLabel);
     
-    const pageBtnIcon = Icon(icon);
-    paginationBtn.append(pageBtnIcon);
+    const pageButtonIcon = Icon(icon);
+    paginationButton.append(pageButtonIcon);
     
-    const pageBtnLabel = document.createElement('span');
-    pageBtnLabel.className = 'pagination-btn__label';
-    pageBtnLabel.textContent = text;
-    paginationBtn.append(pageBtnLabel);
+    const pageButtonLabel = document.createElement('span');
+    pageButtonLabel.className = 'pagination-btn__label';
+    pageButtonLabel.textContent = text;
+    paginationButton.append(pageButtonLabel);
     
-    return paginationBtn;
+    return paginationButton;
 }

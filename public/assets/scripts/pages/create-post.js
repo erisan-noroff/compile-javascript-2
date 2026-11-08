@@ -17,7 +17,7 @@ function init() {
     const formCard = document.querySelector('.form-card');
     const form = PostForm();
     formCard.append(form);
-    const button = Button('Create Post', 'btn btn--primary', 'post-create-btn', ButtonType.Submit);
+    const button = Button('Create Post', 'button button--primary', 'post-create-button', ButtonType.Submit);
     form.append(button);
     
     addSubmitEventListener();
@@ -35,8 +35,8 @@ function addSubmitEventListener() {
         const content = document.getElementById('content').value;
         const banner = document.getElementById('banner').value;
         
-        const submitBtn = form.querySelector('#post-create-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#post-create-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -57,7 +57,7 @@ function addSubmitEventListener() {
         } catch (ex) {
             ToastNotification.error('Failed to create post', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }

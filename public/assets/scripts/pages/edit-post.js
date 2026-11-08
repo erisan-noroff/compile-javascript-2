@@ -28,7 +28,7 @@ async function init() {
         const formCard = document.querySelector('.form-card');
         const form = PostForm(response.data);
         formCard.append(form);
-        const button = Button('Save Changes', 'btn btn--primary', 'post-edit-save-btn', ButtonType.Submit);
+        const button = Button('Save Changes', 'button button--primary', 'post-edit-save-button', ButtonType.Submit);
         form.append(button);
     } catch (ex) {
         ToastNotification.error('Loading post failed', ex.message);
@@ -62,8 +62,8 @@ function addSubmitEventListener() {
         const content = document.getElementById('content').value;
         const banner = document.getElementById('banner').value;
 
-        const submitBtn = form.querySelector('#post-edit-save-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#post-edit-save-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -86,7 +86,7 @@ function addSubmitEventListener() {
         } catch (ex) {
             ToastNotification.error('Failed to update post', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }

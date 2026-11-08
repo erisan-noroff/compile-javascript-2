@@ -58,7 +58,7 @@ function init() {
 
     form.append(...formFields.map(TextInput));
 
-    const button = Button('register account', 'btn btn--primary', 'register-btn', ButtonType.Submit);
+    const button = Button('register account', 'button button--primary', 'register-button', ButtonType.Submit);
     form.append(button);
 
     addSubmitEventListener();
@@ -84,8 +84,8 @@ function addSubmitEventListener() {
         const avatar = document.getElementById('avatar').value;
         const banner = document.getElementById('banner').value;
 
-        const submitBtn = form.querySelector('#register-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#register-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -99,7 +99,7 @@ function addSubmitEventListener() {
         } catch (ex) {
             ToastNotification.error('Registration failed', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }

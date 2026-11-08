@@ -100,18 +100,18 @@ function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
     stats.append(followingCount);
     followingCount.textContent = `${profileInformation._count.following} following`;
 
-    let actionBtn;
+    let actionButton;
     if (ownProfile) {
-        actionBtn = Button('Create Post', 'btn btn--primary profile-card__action', 'create-post');
-        content.append(actionBtn);
+        actionButton = Button('Create Post', 'button button--primary profile-card__action', 'create-post');
+        content.append(actionButton);
     } else {
         const followingState = profileInformation.followers.some(follower => isCurrentUser(follower.name));
-        actionBtn = Button(followingState ? 'Unfollow' : 'Follow', 'btn btn--secondary profile-card__action', 'toggle-follow');
-        actionBtn.dataset.isFollowing = followingState.toString();
-        content.append(actionBtn);
+        actionButton = Button(followingState ? 'Unfollow' : 'Follow', 'button button--secondary profile-card__action', 'toggle-follow');
+        actionButton.dataset.isFollowing = followingState.toString();
+        content.append(actionButton);
     }
 
-    actionBtn.addEventListener('click', onClick);
+    actionButton.addEventListener('click', onClick);
 
     return card;
 }
@@ -125,21 +125,21 @@ async function getProfile(name) {
     return await api.get(`/social/profiles/${name}?${params}`);
 }
 
-async function toggleFollow(btn, name) {
-    const isFollowing = btn.dataset.isFollowing === 'true';
-    setButtonLoading(btn, true);
+async function toggleFollow(button, name) {
+    const isFollowing = button.dataset.isFollowing === 'true';
+    setButtonLoading(button, true);
 
     try {
         await loadingTimeout();
         const response = isFollowing ? await unfollowUser(name) : await followUser(name);
         const isNowFollowing = !isFollowing;
-        btn.dataset.isFollowing = isNowFollowing.toString();
-        btn.textContent = isNowFollowing ? 'Unfollow' : 'Follow';
+        button.dataset.isFollowing = isNowFollowing.toString();
+        button.textContent = isNowFollowing ? 'Unfollow' : 'Follow';
         return response;
     } catch (ex) {
         ToastNotification.error('Toggling following state failed', ex.message);
     } finally {
-        setButtonLoading(btn, false);
+        setButtonLoading(button, false);
     }
 }
 
