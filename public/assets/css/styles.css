@@ -411,8 +411,6 @@ a:hover, .link-button:hover {
 }
 
 .toast__close {
-    all: unset;
-    cursor: pointer;
     position: absolute;
     right: var(--spacing-2);
     top: var(--spacing-2);
@@ -432,7 +430,6 @@ a:hover, .link-button:hover {
     flex-shrink: 0;
     height: 1.5rem;
     justify-content: center;
-    overflow: hidden;
     width: 1.5rem;
 }
 
