@@ -5,7 +5,7 @@ import { apiClient } from '../api/api-client.js';
 import { Button, setButtonLoading } from '../components/buttons.js';
 import PaginationControls from '../components/pagination-controls.js';
 import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
-import BackToFeedLink from '../components/back-to-the-feed-link.js';
+import BackToHomeLink from '../components/back-to-home-link.js';
 
 async function init() {
     if (!isAuthenticated()) {
@@ -14,7 +14,7 @@ async function init() {
     }
 
     const main = document.querySelector('main');
-    const homePageLink = BackToFeedLink();
+    const homePageLink = BackToHomeLink();
     main.append(homePageLink);
 
     const feed = document.createElement('div');
