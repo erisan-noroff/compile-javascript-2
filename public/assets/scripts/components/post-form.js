@@ -1,4 +1,4 @@
-import { TextArea, TextInput } from './form-group.js';
+import { TextArea, TextInput } from './text-inputs.js';
 import { TagsInput } from './tags-input.js';
 
 export default function PostForm(post={}) {

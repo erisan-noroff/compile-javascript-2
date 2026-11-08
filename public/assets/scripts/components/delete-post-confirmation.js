@@ -5,9 +5,9 @@ import { setPendingToast } from '../utils/pending-toast.js';
 import { ToastNotification } from './toast-notification.js';
 import { redirectToHomepage } from '../utils/authentication.js';
 
-let modal;
+let modalInstance;
 
-function deletePostConfirmation() {
+function DeletePostConfirmation() {
     const modal = document.createElement('dialog');
     modal.className = 'confirmation-modal';
 
@@ -21,36 +21,36 @@ function deletePostConfirmation() {
     const actions = document.createElement('div');
     actions.className = 'confirmation-modal__row';
 
-    const closeBtn = Button('', 'confirmation-modal__close');
-    closeBtn.setAttribute('aria-label', 'Close');
-    closeBtn.append(Icon('close'));
-    closeBtn.addEventListener('click', () => modal.close());
-    header.append(closeBtn);
+    const closeButton = Button('', 'confirmation-modal__close');
+    closeButton.setAttribute('aria-label', 'Close');
+    closeButton.append(Icon('close'));
+    closeButton.addEventListener('click', () => modal.close());
+    header.append(closeButton);
 
-    const cancelBtn = Button('Cancel', 'btn secondary-btn');
-    cancelBtn.autofocus = true;
-    cancelBtn.addEventListener('click', () => modal.close());
+    const cancelButton = Button('Cancel', 'button button--secondary');
+    cancelButton.autofocus = true;
+    cancelButton.addEventListener('click', () => modal.close());
 
-    const confirmationBtn = Button('Delete', 'btn danger-btn');
-    confirmationBtn.addEventListener('click', async() => {
+    const confirmationButton = Button('Delete', 'button button--danger');
+    confirmationButton.addEventListener('click', async() => {
         modal.close();
         await deletePost(modal.dataset.postId);
     });
 
-    actions.append(cancelBtn, confirmationBtn);
+    actions.append(cancelButton, confirmationButton);
     modal.append(header, actions);
 
     return modal;
 }
 
 export default function openDeletePostConfirmation(postId) {
-    if (!modal) {
-        modal = deletePostConfirmation();
-        document.body.append(modal);
+    if (!modalInstance) {
+        modalInstance = DeletePostConfirmation();
+        document.body.append(modalInstance);
     }
 
-    modal.dataset.postId = postId;
-    modal.showModal();
+    modalInstance.dataset.postId = postId;
+    modalInstance.showModal();
 }
 
 async function deletePost(postId) {

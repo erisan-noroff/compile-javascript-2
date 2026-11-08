@@ -1,5 +1,5 @@
 import { isAuthenticated, redirectToSignUp } from '../utils/authentication.js';
-import formValidation from '../utils/form-validation.js';
+import validateForm from '../utils/validate-form.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { apiClient } from '../api/api-client.js';
 import { ToastNotification } from '../components/toast-notification.js';
@@ -17,7 +17,7 @@ function init() {
     const formCard = document.querySelector('.form-card');
     const form = PostForm();
     formCard.append(form);
-    const button = Button('Create Post', 'btn primary-btn', 'post-create-btn', ButtonType.Submit);
+    const button = Button('Create Post', 'button button--primary', 'post-create-button', ButtonType.Submit);
     form.append(button);
     
     addSubmitEventListener();
@@ -28,15 +28,15 @@ function addSubmitEventListener() {
     if (!form) return;
 
     form.addEventListener('submit', async(e) => {
-        const isValid = formValidation(e);
+        const isValid = validateForm(e);
         if (!isValid) return;
 
         const title = document.getElementById('title').value;
         const content = document.getElementById('content').value;
         const banner = document.getElementById('banner').value;
         
-        const submitBtn = form.querySelector('#post-create-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#post-create-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -57,7 +57,7 @@ function addSubmitEventListener() {
         } catch (ex) {
             ToastNotification.error('Failed to create post', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }

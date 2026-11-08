@@ -3,7 +3,7 @@ import { loadingTimeout, removeLoadingSpinner } from '../components/loading-spin
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
 import { setPendingToast } from '../utils/pending-toast.js';
-import formValidation from '../utils/form-validation.js';
+import validateForm from '../utils/validate-form.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { getTags } from '../components/tags-input.js';
 import PostForm from '../components/post-form.js';
@@ -28,7 +28,7 @@ async function init() {
         const formCard = document.querySelector('.form-card');
         const form = PostForm(response.data);
         formCard.append(form);
-        const button = Button('Save Changes', 'btn primary-btn', 'post-edit-save-btn', ButtonType.Submit);
+        const button = Button('Save Changes', 'button button--primary', 'post-edit-save-button', ButtonType.Submit);
         form.append(button);
     } catch (ex) {
         ToastNotification.error('Loading post failed', ex.message);
@@ -55,15 +55,15 @@ function addSubmitEventListener() {
     if (!form) return;
 
     form.addEventListener('submit', async(e) => {
-        const isValid = formValidation(e);
+        const isValid = validateForm(e);
         if (!isValid) return;
 
         const title = document.getElementById('title').value;
         const content = document.getElementById('content').value;
         const banner = document.getElementById('banner').value;
 
-        const submitBtn = form.querySelector('#post-edit-save-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#post-edit-save-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -86,7 +86,7 @@ function addSubmitEventListener() {
         } catch (ex) {
             ToastNotification.error('Failed to update post', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }

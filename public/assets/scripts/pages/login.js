@@ -1,9 +1,9 @@
 import { isAuthenticated, redirectToHomepage } from '../utils/authentication.js';
-import { TextInput } from '../components/form-group.js';
+import { TextInput } from '../components/text-inputs.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
-import formValidation from '../utils/form-validation.js';
+import validateForm from '../utils/validate-form.js';
 import { showPendingToast } from '../utils/pending-toast.js';
 import { loadingTimeout } from '../components/loading-spinner.js';
 
@@ -16,7 +16,7 @@ function init() {
     showPendingToast();
     
     const form = document.querySelector('form.stack');
-    const FormFields = [
+    const formFields = [
         {
             id: 'email',
             label: 'Email',
@@ -35,9 +35,9 @@ function init() {
         }
     ];
 
-    form.append(...FormFields.map(TextInput));
+    form.append(...formFields.map(TextInput));
 
-    const button = Button('sign in', 'btn primary-btn', 'login-btn', ButtonType.Submit);
+    const button = Button('sign in', 'button button--primary', 'login-button', ButtonType.Submit);
     const formRow = document.createElement('div');
     formRow.className = 'form-row';
 
@@ -62,15 +62,15 @@ function addSubmitEventListener() {
     if (!form) return;
 
     form.addEventListener('submit', async(e) => {
-        const isValid = formValidation(e);
+        const isValid = validateForm(e);
         if (!isValid) return;
         
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const rememberMeIsChecked = document.getElementById('remember-me').checked;
 
-        const submitBtn = form.querySelector('#login-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#login-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -94,7 +94,7 @@ function addSubmitEventListener() {
         } catch (ex) {
             ToastNotification.error('Login failed', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }
@@ -103,7 +103,7 @@ function addForgotPasswordButton() {
     const formRow = document.querySelector('.form-row');
     if (!formRow) return;
 
-    const forgotPasswordButton = Button('Forgot password?', 'link-btn');
+    const forgotPasswordButton = Button('Forgot password?', 'link-button');
     formRow.append(forgotPasswordButton);
 
     forgotPasswordButton.addEventListener('click', () => {

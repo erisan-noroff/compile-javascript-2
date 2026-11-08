@@ -100,7 +100,7 @@ main,
 .menu__items {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-size);
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -159,13 +159,13 @@ footer {
 }
 
 a,
-.link-btn {
+.link-button {
     color: var(--color-accent);
     text-decoration: none;
 }
 
 a:hover,
-.link-btn:hover {
+.link-button:hover {
     color: var(--color-text);
 }
 
@@ -188,7 +188,7 @@ h2 {
 .card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-size);
 }
 
 .stack {
@@ -238,7 +238,7 @@ input[type="checkbox"] {
 .text-input {
     background: var(--color-input-background);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-size);
     color: var(--color-text);
     font: inherit;
     height: 2.5rem;
@@ -246,7 +246,7 @@ input[type="checkbox"] {
     padding-block: var(--spacing-2);
 }
 
-.textarea-input {
+.text-input--textarea {
     height: 10rem;
     resize: none;
 }
@@ -282,7 +282,7 @@ button {
     font: inherit;
 }
 
-.btn {
+.button {
     font-weight: 600;
     height: 3.125rem;
     display: inline-flex;
@@ -290,19 +290,51 @@ button {
     justify-content: center;
 }
 
-.primary-btn {
+.button--primary {
     background-color: var(--color-primary);
     color: var(--color-text);
     padding: var(--spacing-3);
-    border-radius: var(--radius);
+    border-radius: var(--radius-size);
+    --spinner-track: var(--color-button-track);
+    --spinner-arc: var(--color-text);
 }
 
-.primary-btn:hover {
+.button--primary:hover {
     background-color: var(--color-primary-hover);
 }
 
-.primary-btn:active {
+.button--primary:active {
     background-color: var(--color-primary-active);
+}
+
+.button--secondary {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-size);
+    padding: var(--spacing-3);
+    --spinner-track: var(--color-button-track);
+    --spinner-arc: var(--color-text);
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible {
+    background-color: var(--color-surface);
+    border-color: var(--color-text-muted);
+}
+
+.button--secondary:active {
+    background-color: var(--color-input-background);
+}
+
+.button--danger {
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+    padding: var(--spacing-3);
+}
+
+.button--danger:hover,
+.button--danger:focus-visible {
+    background-color: var(--color-danger);
+    color: var(--color-background);
 }
 
 .loading-state {
@@ -323,7 +355,7 @@ button {
     animation: spin 1s linear infinite;
 }
 
-.btn--loading::after {
+.button--loading::after {
     border: 2px solid var(--spinner-track);
     border-top-color: var(--spinner-arc);
     content: '';
@@ -336,24 +368,7 @@ button {
     vertical-align: middle;
 }
 
-.primary-btn {
-    --spinner-track: var(--color-button-track);
-    --spinner-arc: var(--color-text);
-}
-
-.danger-btn {
-    border: 1px solid var(--color-danger);
-    color: var(--color-danger);
-    padding: var(--spacing-3);
-}
-
-.danger-btn:hover,
-.danger-btn:focus-visible {
-    background-color: var(--color-danger);
-    color: var(--color-background);
-}
-
-.toast-wrapper {
+.toast {
     display: flex;
     width: 22rem;
     min-height: 5rem;
@@ -370,11 +385,13 @@ button {
     flex-shrink: 0;
 }
 
-.toast--success {
+.toast--success .toast__indicator,
+.toast--success .toast__icon {
     background-color: var(--color-success);
 }
 
-.toast--danger {
+.toast--danger .toast__indicator,
+.toast--danger .toast__icon {
     background-color: var(--color-danger);
 }
 
@@ -392,14 +409,6 @@ button {
 
 .toast__icon .material-icons {
     font-size: 1rem;
-}
-
-.toast__icon.toast--success {
-    background-color: var(--color-success);
-}
-
-.toast__icon.toast--danger {
-    background-color: var(--color-danger);
 }
 
 .toast__content {
@@ -531,7 +540,7 @@ button {
 
 .post-card__tag {
     background-color: var(--color-tags);
-    border-radius: var(--radius);
+    border-radius: var(--radius-size);
     color: var(--color-surface);
     display: flex;
     font-size: 0.875rem;
@@ -562,7 +571,7 @@ button {
     justify-content: center;
 }
 
-.pagination-btn {
+.pagination-button {
     align-items: center;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -570,26 +579,26 @@ button {
     padding: var(--spacing-1) var(--spacing-2);
 }
 
-.pagination-btn:hover {
+.pagination-button:hover {
     color: var(--color-accent);
 }
 
-.pagination-btn:active {
+.pagination-button:active {
     background-color: var(--color-input-background);
     color: var(--color-text);
 }
 
-.pagination-btn:disabled {
+.pagination-button:disabled {
     color: var(--color-text-muted);
     cursor: not-allowed;
 }
 
-.pagination-btn--current-page {
+.pagination-button--current-page {
     background-color: var(--color-primary);
     cursor: not-allowed;
 }
 
-.pagination-btn--page-num {
+.pagination-button--page-num {
     aspect-ratio: 1/1;
     justify-content: center;
     width: 2rem;
@@ -680,29 +689,11 @@ button {
     grid-area: action;
 }
 
-.secondary-btn {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    padding: var(--spacing-3);
-    --spinner-track: var(--color-button-track);
-    --spinner-arc: var(--color-text);
-}
-
-.secondary-btn:hover,
-.secondary-btn:focus-visible {
-    background-color: var(--color-surface);
-    border-color: var(--color-text-muted);
-}
-
-.secondary-btn:active {
-    background-color: var(--color-input-background);
-}
-
 .post-form__tags {
     align-items: center;
     background-color: var(--color-input-background);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-size);
     cursor: text;
     display: flex;
     flex-wrap: wrap;
@@ -793,7 +784,7 @@ button {
 
 .toast__close .material-icons,
 .confirmation-modal__close .material-icons,
-.pagination-btn .material-icons {
+.pagination-button .material-icons {
     font-size: 1.5rem;
 }
 
@@ -813,7 +804,7 @@ button {
         gap: var(--spacing-5);
     }
 
-    .pagination-btn__label {
+    .pagination-button__label {
         display: none;
     }
 }
@@ -919,20 +910,20 @@ button {
         gap: var(--spacing-4);
     }
 
-    .pagination-btn {
+    .pagination-button {
         justify-content: center;
         height: 1.5rem;
         position: relative;
         width: 1.5rem;
     }
     
-    .pagination-btn::after {
+    .pagination-button::after {
         content: '';
         inset: -0.625rem;
         position: absolute;
     }
     
-    .pagination-btn .material-icons {
+    .pagination-button .material-icons {
         font-size: 0.75rem;
     }
 
@@ -940,11 +931,11 @@ button {
         font-size: 1rem;
     }
 
-    .pagination-btn--desktop-only {
+    .pagination-button--desktop-only {
         display: none;
     }
 
-    .pagination-btn--page-num {
+    .pagination-button--page-num {
         width: 1.5rem;
     }
 }

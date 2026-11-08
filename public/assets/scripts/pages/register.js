@@ -1,9 +1,9 @@
 import { isAuthenticated, redirectToHomepage, redirectToSignIn } from '../utils/authentication.js';
-import { TextInput } from '../components/form-group.js';
+import { TextInput } from '../components/text-inputs.js';
 import { Button, ButtonType, setButtonLoading } from '../components/buttons.js';
 import { ToastNotification } from '../components/toast-notification.js';
 import { apiClient } from '../api/api-client.js';
-import formValidation from '../utils/form-validation.js';
+import validateForm from '../utils/validate-form.js';
 import { setPendingToast } from '../utils/pending-toast.js';
 import { loadingTimeout } from '../components/loading-spinner.js';
 
@@ -14,7 +14,7 @@ function init() {
     }
 
     const form = document.querySelector('form.stack');
-    const FormFields = [
+    const formFields = [
         {
             id: 'email',
             label: 'Email',
@@ -56,18 +56,12 @@ function init() {
         }
     ];
 
-    form.append(...FormFields.map(TextInput));
+    form.append(...formFields.map(TextInput));
 
-    const button = Button('register account', 'btn primary-btn', 'register-btn', ButtonType.Submit);
+    const button = Button('register account', 'button button--primary', 'register-button', ButtonType.Submit);
     form.append(button);
 
     addSubmitEventListener();
-}
-
-// Redirect user to login.html and display a success Toast Notification
-function signUpSuccessful() {
-    setPendingToast('success', 'Account Created', 'Sign in to get started.');
-    redirectToSignIn();
 }
 
 function addSubmitEventListener() {
@@ -75,8 +69,8 @@ function addSubmitEventListener() {
     if (!form) return;
 
     form.addEventListener('submit', async(e) => {
-        const isValid = formValidation(e);
-         if (!isValid) return;
+        const isValid = validateForm(e);
+        if (!isValid) return;
 
         const email = document.getElementById('email').value;
         const username = document.getElementById('username').value;
@@ -84,8 +78,8 @@ function addSubmitEventListener() {
         const avatar = document.getElementById('avatar').value;
         const banner = document.getElementById('banner').value;
 
-        const submitBtn = form.querySelector('#register-btn');
-        setButtonLoading(submitBtn, true);
+        const submitButton = form.querySelector('#register-button');
+        setButtonLoading(submitButton, true);
 
         const api = apiClient();
 
@@ -95,11 +89,12 @@ function addSubmitEventListener() {
             if (avatar) body.avatar = { url: avatar, alt: ''};
             if (banner) body.banner = { url: banner, alt: ''};
             await api.post('/auth/register', body);
-            signUpSuccessful();
+            setPendingToast('success', 'Account Created', 'Sign in to get started.');
+            redirectToSignIn();
         } catch (ex) {
             ToastNotification.error('Registration failed', ex.message);
         } finally {
-            setButtonLoading(submitBtn, false);
+            setButtonLoading(submitButton, false);
         }
     });
 }

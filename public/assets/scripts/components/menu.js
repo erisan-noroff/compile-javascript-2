@@ -12,25 +12,25 @@ export default function Menu({toggleLabel, toggleIcon, items}) {
     const menu = document.createElement('div');
     menu.className = 'menu';
     
-    const toggleBtn = Button('', `menu__toggle`);
-    toggleBtn.setAttribute('aria-expanded', 'false');
-    toggleBtn.setAttribute('aria-label', toggleLabel);
-    toggleBtn.append(toggleIcon);
+    const toggleButton = Button('', `menu__toggle`);
+    toggleButton.setAttribute('aria-expanded', 'false');
+    toggleButton.setAttribute('aria-label', toggleLabel);
+    toggleButton.append(toggleIcon);
     
     const menuItems = document.createElement('ul');
     menuItems.className = 'menu__items';
     menuItems.hidden = true;
     menuItems.append(...items.map(MenuItem));
     
-    menu.append(toggleBtn, menuItems);
+    menu.append(toggleButton, menuItems);
     
     function setIsOpen(isOpen) {
         menu.classList.toggle('is-open', isOpen);
         menuItems.hidden = !isOpen;
-        toggleBtn.setAttribute('aria-expanded', isOpen.toString());
+        toggleButton.setAttribute('aria-expanded', isOpen.toString());
     }
 
-    toggleBtn.addEventListener('click', () => {
+    toggleButton.addEventListener('click', () => {
         setIsOpen(menuItems.hidden)
     });
     

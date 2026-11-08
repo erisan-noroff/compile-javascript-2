@@ -5,7 +5,7 @@ import { apiClient } from '../api/api-client.js';
 import { Button, setButtonLoading } from '../components/buttons.js';
 import PaginationControls from '../components/pagination-controls.js';
 import { renderPosts, renderResponse, updateFeed } from '../utils/feed.js';
-import BackToFeedLink from '../components/back-to-the-feed.js';
+import BackToHomeLink from '../components/back-to-home-link.js';
 
 async function init() {
     if (!isAuthenticated()) {
@@ -14,7 +14,7 @@ async function init() {
     }
 
     const main = document.querySelector('main');
-    const homePageLink = BackToFeedLink();
+    const homePageLink = BackToHomeLink();
     main.append(homePageLink);
 
     const feed = document.createElement('div');
@@ -29,11 +29,11 @@ async function init() {
 
         const name = getProfileName();
         const profileInformation = await getProfile(name);
-        const ownProfile = isCurrentUser(profileInformation.data.name);
-        const onClick = ownProfile
+        const isOwnProfile = isCurrentUser(profileInformation.data.name);
+        const onClick = isOwnProfile
             ? () => location.assign('create-post.html')
             : (e) => toggleFollow(e.currentTarget, profileInformation.data.name);
-        const profileCard = ProfileCard(profileInformation.data, {ownProfile, onClick});
+        const profileCard = ProfileCard(profileInformation.data, {isOwnProfile, onClick});
         feed.replaceChildren(profileCard);
 
         const response = await getPosts(name, 1);
@@ -51,7 +51,7 @@ async function init() {
     }
 }
 
-function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
+function ProfileCard(profileInformation, {isOwnProfile = false, onClick}) {
     const card = document.createElement('div');
     card.className = 'card profile-card';
 
@@ -100,18 +100,18 @@ function ProfileCard(profileInformation, {ownProfile = false, onClick}) {
     stats.append(followingCount);
     followingCount.textContent = `${profileInformation._count.following} following`;
 
-    let actionBtn;
-    if (ownProfile) {
-        actionBtn = Button('Create Post', 'btn primary-btn profile-card__action', 'create-post');
-        content.append(actionBtn);
+    let actionButton;
+    if (isOwnProfile) {
+        actionButton = Button('Create Post', 'button button--primary profile-card__action', 'create-post');
+        content.append(actionButton);
     } else {
-        const followingState = profileInformation.followers.some(follower => isCurrentUser(follower.name));
-        actionBtn = Button(followingState ? 'Unfollow' : 'Follow', 'btn secondary-btn profile-card__action', 'toggle-follow');
-        actionBtn.dataset.isFollowing = followingState.toString();
-        content.append(actionBtn);
+        const isFollowing = profileInformation.followers.some(follower => isCurrentUser(follower.name));
+        actionButton = Button(isFollowing ? 'Unfollow' : 'Follow', 'button button--secondary profile-card__action', 'toggle-follow');
+        actionButton.dataset.isFollowing = isFollowing.toString();
+        content.append(actionButton);
     }
 
-    actionBtn.addEventListener('click', onClick);
+    actionButton.addEventListener('click', onClick);
 
     return card;
 }
@@ -125,21 +125,21 @@ async function getProfile(name) {
     return await api.get(`/social/profiles/${name}?${params}`);
 }
 
-async function toggleFollow(btn, name) {
-    const isFollowing = btn.dataset.isFollowing === 'true';
-    setButtonLoading(btn, true);
+async function toggleFollow(button, name) {
+    const isFollowing = button.dataset.isFollowing === 'true';
+    setButtonLoading(button, true);
 
     try {
         await loadingTimeout();
         const response = isFollowing ? await unfollowUser(name) : await followUser(name);
         const isNowFollowing = !isFollowing;
-        btn.dataset.isFollowing = isNowFollowing.toString();
-        btn.textContent = isNowFollowing ? 'Unfollow' : 'Follow';
+        button.dataset.isFollowing = isNowFollowing.toString();
+        button.textContent = isNowFollowing ? 'Unfollow' : 'Follow';
         return response;
     } catch (ex) {
         ToastNotification.error('Toggling following state failed', ex.message);
     } finally {
-        setButtonLoading(btn, false);
+        setButtonLoading(button, false);
     }
 }
 

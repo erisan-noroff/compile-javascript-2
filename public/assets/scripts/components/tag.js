@@ -7,11 +7,11 @@ export default function Tag(tag) {
     tagElement.dataset.tag = tag;
     tagElement.textContent = tag;
     
-    const close = Button('', 'post-form__tag-icon');
-    close.ariaLabel = `Remove tag ${tag}`;
+    const closeButton = Button('', 'post-form__tag-icon');
+    closeButton.ariaLabel = `Remove tag ${tag}`;
     const icon = Icon('close');
-    close.append(icon);
-    tagElement.append(close);
+    closeButton.append(icon);
+    tagElement.append(closeButton);
     
     return tagElement;
 }

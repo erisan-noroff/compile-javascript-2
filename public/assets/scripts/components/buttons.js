@@ -27,5 +27,5 @@ export function setButtonLoading(button, isLoading) {
     if (!button) return;
     
     button.disabled = isLoading;
-    button.classList.toggle('btn--loading', isLoading);
+    button.classList.toggle('button--loading', isLoading);
 }
