@@ -55,7 +55,7 @@ export function TextArea({ id, label, placeholder = '', maxLength = null, requir
     textAreaElement.placeholder = placeholder;
     textAreaElement.required = required;
     textAreaElement.value = value;
-    textAreaElement.classList.add('text-input', 'textarea-input');
+    textAreaElement.classList.add('text-input', 'text-input--textarea');
     if (maxLength)
         textAreaElement.maxLength = maxLength;
 

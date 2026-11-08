@@ -246,7 +246,7 @@ input[type="checkbox"] {
     padding-block: var(--spacing-2);
 }
 
-.textarea-input {
+.text-input--textarea {
     height: 10rem;
     resize: none;
 }
