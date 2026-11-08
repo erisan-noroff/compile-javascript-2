@@ -86,7 +86,7 @@ function PaginationButton(icon, text, ariaLabel, desktopOnly = false) {
     paginationButton.append(pageButtonIcon);
     
     const pageButtonLabel = document.createElement('span');
-    pageButtonLabel.className = 'pagination-btn__label';
+    pageButtonLabel.className = 'pagination-button__label';
     pageButtonLabel.textContent = text;
     paginationButton.append(pageButtonLabel);
     

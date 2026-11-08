@@ -804,7 +804,7 @@ button {
         gap: var(--spacing-5);
     }
 
-    .pagination-btn__label {
+    .pagination-button__label {
         display: none;
     }
 }
