@@ -32,8 +32,6 @@ async function init() {
         form.append(button);
     } catch (ex) {
         ToastNotification.error('Loading post failed', ex.message);
-    } finally {
-        removeLoadingSpinner();
     }
     
     addSubmitEventListener();

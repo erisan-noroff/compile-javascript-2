@@ -25,7 +25,6 @@ export default function Menu({toggleLabel, toggleIcon, items}) {
     menu.append(toggleButton, menuItems);
     
     function setIsOpen(isOpen) {
-        menu.classList.toggle('is-open', isOpen);
         menuItems.hidden = !isOpen;
         toggleButton.setAttribute('aria-expanded', isOpen.toString());
     }

@@ -4,14 +4,12 @@ const TOAST_TYPES = {
     success: {
         id: 'toast-success',
         modifier: 'toast--success',
-        icon: 'check',
-        altText: 'success alert'
+        icon: 'check'
     },
     error: {
         id: 'toast-error',
         modifier: 'toast--danger',
-        icon: 'close',
-        altText: 'error alert'
+        icon: 'close'
     }
 }
 
@@ -80,13 +78,14 @@ function displayToast(type, title, message) {
     toastText.append(toastMessage);
 
     const toastCloseButton = document.createElement('button');
-    toastCloseButton.id = 'close-toast';
     toastCloseButton.classList.add('toast__close');
     toastCloseButton.ariaLabel = 'Dismiss notification';
     toast.append(toastCloseButton);
     const toastCloseIcon = Icon('close');
     toastCloseButton.append(toastCloseIcon);
-    addCloseButtonEventListener(type);
+    toastCloseButton.addEventListener('click', () => {
+        document.getElementById(TOAST_TYPES[type].id).remove();
+    });
 
     // Hovering or focusing the notification resets the timer of 5 seconds before it gets dismissed.
     let timer;
@@ -98,15 +97,6 @@ function displayToast(type, title, message) {
     toast.addEventListener('focusin', pauseTimer);
     toast.addEventListener('mouseleave', resumeTimer);
     toast.addEventListener('focusout', resumeTimer);
-}
-
-function addCloseButtonEventListener(type) {
-    const closeToastButton = document.getElementById('close-toast');
-    if (closeToastButton) {
-        closeToastButton.addEventListener('click', () => {
-            document.getElementById(TOAST_TYPES[type].id)?.remove();
-        });
-    }
 }
 
 function removeToastIfAlreadyExists() {
