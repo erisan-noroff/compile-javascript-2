@@ -90,7 +90,7 @@ function displayToast(type, title, message) {
     // Hovering or focusing the notification resets the timer of 5 seconds before it gets dismissed.
     let timer;
     const pauseTimer = () => clearTimeout(timer);
-    const resumeTimer = () => {}; // TEMP: never auto-dismiss. Do not commit.
+    const resumeTimer = () => { timer = setTimeout(() => toast.remove(), 5000); };
     resumeTimer();
     
     toast.addEventListener('mouseenter', pauseTimer);
