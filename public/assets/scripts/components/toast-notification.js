@@ -4,14 +4,12 @@ const TOAST_TYPES = {
     success: {
         id: 'toast-success',
         modifier: 'toast--success',
-        icon: 'check',
-        altText: 'success alert'
+        icon: 'check'
     },
     error: {
         id: 'toast-error',
         modifier: 'toast--danger',
-        icon: 'close',
-        altText: 'error alert'
+        icon: 'close'
     }
 }
 
