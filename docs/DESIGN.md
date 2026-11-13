@@ -4,36 +4,34 @@ All developers must adhere to these design specifications when implementing the 
 made by the UX/UI team and approved by the Product Owner. This document outlines the design tokens — colour palette,
 typography and spacing — for the Compile website. Component specifications live in Figma.
 
-**Root font size:** 16px.
-
 ***
 
 ## Colour Palette
 
 ### Brand
 
-| Token          | Colour  | Usage           |
-|----------------|---------|-----------------|
-| **Primary**    | #2B59C3 | Primary actions |
-| Primary hover  | #264EAC |                 |
-| Primary active | #204392 |                 |
-| **Secondary**  | #FFA62B | Badges          |
-| **Accent**     | #A2D6F9 | Links           |
+| Token          | Colour  | Usage                                                              |
+|----------------|---------|--------------------------------------------------------------------|
+| **Primary**    | #2B59C3 | Primary actions, focus outline, selected state, loading indicators |
+| Primary hover  | #264EAC |                                                                    |
+| Primary active | #204392 |                                                                    |
+| **Secondary**  | #FFA62B | Badges                                                             |
+| **Accent**     | #A2D6F9 | Links, hovers                                                      |
 
 ### Text
 
-| Token    | Colour              | Usage                                                      |
-|----------|---------------------|------------------------------------------------------------|
-| **Text** | #E6EDF3             | Headings, post titles, body text                           |
-| Muted    | #E6EDF3 70% opacity | Timestamps, author metadata, placeholders, follower counts |
+| Token    | Colour              | Usage                                         |
+|----------|---------------------|-----------------------------------------------|
+| **Text** | #E6EDF3             | Headings, post titles, body text              |
+| Muted    | #E6EDF3 70% opacity | Secondary text, placeholders, disabled states |
 
 ### Background
 
-| Token       | Colour  | Usage                                   |
-|-------------|---------|-----------------------------------------|
-| **Page**    | #0D1117 | Page background                         |
-| **Surface** | #161B22 | Post cards, profile page header, panels |
-| **Input**   | #010409 | Input fields                            |
+| Token       | Colour  | Usage                |
+|-------------|---------|----------------------|
+| **Page**    | #0D1117 | Page background      |
+| **Surface** | #161B22 | Cards, menus, toasts |
+| **Input**   | #010409 | Input fields         |
 
 ### Borders
 
@@ -44,11 +42,13 @@ typography and spacing — for the Compile website. Component specifications liv
 
 ### States
 
-| Token       | Colour  | Usage                                       |
-|-------------|---------|---------------------------------------------|
-| **Success** | #31D962 | Success toast                               |
-| **Error**   | #F85149 | Form validation errors, failed API requests |
-| **Focus**   | #2B59C3 | 2px outline on focused inputs               |
+| Token         | Colour              | Usage                                                |
+|---------------|---------------------|------------------------------------------------------|
+| **Success**   | #31D962             | Success toast                                        |
+| **Danger**    | #F85149             | Errors, delete actions                               |
+| Danger hover  | #F85149             | Fill on hover, text using parent's background colour |
+| Danger active | #DF4942             |                                                      |
+| Spinner track | #E6EDF3 25% opacity | Spinner track on buttons                             |
 
 ***
 
@@ -63,8 +63,8 @@ typography and spacing — for the Compile website. Component specifications liv
 | **Logo**       | 1.75rem, Bold (700), 0.1em tracking | 1.5rem, Bold (700), 0.1em tracking |
 | **H1**         | 2.5rem                              | 2rem                               |
 | **H2**         | 2rem                                | 1.5rem                             |
-| **H3**         | 1.5rem                              | 1rem                               |
 | **Navigation** | 1.125rem, Semibold (600), uppercase | 1rem, Semibold (600), uppercase    |
+| **Post title** | H1 in single post view, H2 in feed  | H1 in single post view, H2 in feed |
 
 ### Body
 
@@ -73,7 +73,6 @@ typography and spacing — for the Compile website. Component specifications liv
 |                | Desktop              | Mobile                   |
 |----------------|----------------------|--------------------------|
 | **Body**       | 1rem                 | 0.875rem                 |
-| **Post title** | 2rem                 | 1.5rem                   |
 | **Post body**  | 1rem                 | 0.875rem                 |
 | **Post meta**  | 0.875rem             | 0.875rem                 |
 | **Buttons**    | 1rem, Semibold (600) | 0.875rem, Semibold (600) |
@@ -86,17 +85,18 @@ typography and spacing — for the Compile website. Component specifications liv
 ## Spacing (8-point scale)
 
 On mobile, spacing typically steps down one scale from the desktop value.
-The exception is page horizontal padding, which steps down to scale 5 rather than scale 6.
+The exceptions are page horizontal padding, which steps down to scale 5, and header horizontal padding, which steps
+down to scale 3.
 
-| Scale | Value | rem     | Usage                                                                                                                           |
-|-------|-------|---------|---------------------------------------------------------------------------------------------------------------------------------|
-| 1     | 4px   | 0.25rem | Border radius on buttons and badges, gap between tags                                                                           |
-| 2     | 8px   | 0.5rem  | Gap between label and input, gap between input and error message                                                                |
-| 3     | 16px  | 1rem    | Gap between post title and meta                                                                                                 |
-| 4     | 24px  | 1.5rem  | Gap between form fields, gap between post meta and body, card internal padding, gap between post cards, header vertical padding |
-| 5     | 32px  | 2rem    | Gap between content blocks, page vertical padding                                                                               |
-| 6     | 48px  | 3rem    | Section vertical padding                                                                                                        |
-| 7     | 64px  | 4rem    | Page horizontal padding, profile page header padding                                                                            |
+| Scale | Value | rem     | Usage                                      |
+|-------|-------|---------|--------------------------------------------|
+| 1     | 4px   | 0.25rem | Small inline gaps                          |
+| 2     | 8px   | 0.5rem  | Small padding for closely related elements |
+| 3     | 16px  | 1rem    | General padding                            |
+| 4     | 24px  | 1.5rem  | Card padding, form fields                  |
+| 5     | 32px  | 2rem    | Spacing between components                 |
+| 6     | 48px  | 3rem    | Section gaps, page vertical padding        |
+| 7     | 64px  | 4rem    | Page horizontal padding                    |
 
 ***
 
