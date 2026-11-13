@@ -20,18 +20,18 @@ typography and spacing — for the Compile website. Component specifications liv
 
 ### Text
 
-| Token    | Colour              | Usage                                                      |
-|----------|---------------------|------------------------------------------------------------|
-| **Text** | #E6EDF3             | Headings, post titles, body text                           |
-| Muted    | #E6EDF3 70% opacity | Timestamps, author metadata, placeholders, follower counts |
+| Token    | Colour              | Usage                                         |
+|----------|---------------------|-----------------------------------------------|
+| **Text** | #E6EDF3             | Headings, post titles, body text              |
+| Muted    | #E6EDF3 70% opacity | Secondary text, placeholders, disabled states |
 
 ### Background
 
-| Token       | Colour  | Usage                                          |
-|-------------|---------|------------------------------------------------|
-| **Page**    | #0D1117 | Page background                                |
-| **Surface** | #161B22 | Post cards, profile page header, menus, toasts |
-| **Input**   | #010409 | Input fields                                   |
+| Token       | Colour  | Usage                |
+|-------------|---------|----------------------|
+| **Page**    | #0D1117 | Page background      |
+| **Surface** | #161B22 | Cards, menus, toasts |
+| **Input**   | #010409 | Input fields         |
 
 ### Borders
 
