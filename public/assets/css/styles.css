@@ -830,7 +830,8 @@ a:hover, .link-button:hover {
         font-size: 1rem;
     }
 
-    .feed {
+    .feed,
+    .feed__list {
         gap: var(--spacing-4);
     }
 
