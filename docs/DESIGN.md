@@ -87,15 +87,15 @@ typography and spacing — for the Compile website. Component specifications liv
 On mobile, spacing typically steps down one scale from the desktop value.
 The exception is page horizontal padding, which steps down to scale 5 rather than scale 6.
 
-| Scale | Value | rem     | Usage                                                                                                                           |
-|-------|-------|---------|---------------------------------------------------------------------------------------------------------------------------------|
-| 1     | 4px   | 0.25rem | Border radius on buttons and badges, gap between tags                                                                           |
-| 2     | 8px   | 0.5rem  | Gap between label and input, gap between input and error message                                                                |
-| 3     | 16px  | 1rem    | Gap between post title and meta                                                                                                 |
-| 4     | 24px  | 1.5rem  | Gap between form fields, gap between post meta and body, card internal padding, gap between post cards, header vertical padding |
-| 5     | 32px  | 2rem    | Gap between content blocks, page vertical padding                                                                               |
-| 6     | 48px  | 3rem    | Section vertical padding                                                                                                        |
-| 7     | 64px  | 4rem    | Page horizontal padding, profile page header padding                                                                            |
+| Scale | Value | rem     | Usage                                      |
+|-------|-------|---------|--------------------------------------------|
+| 1     | 4px   | 0.25rem | Small inline gaps                          |
+| 2     | 8px   | 0.5rem  | Small padding for closely related elements |
+| 3     | 16px  | 1rem    | General padding                            |
+| 4     | 24px  | 1.5rem  | Card padding, form fields                  |
+| 5     | 32px  | 2rem    | Spacing between components                 |
+| 6     | 48px  | 3rem    | Section gaps, page vertical padding        |
+| 7     | 64px  | 4rem    | Page horizontal padding                    |
 
 ***
 
