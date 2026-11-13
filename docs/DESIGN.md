@@ -10,13 +10,13 @@ typography and spacing — for the Compile website. Component specifications liv
 
 ### Brand
 
-| Token          | Colour  | Usage           |
-|----------------|---------|-----------------|
-| **Primary**    | #2B59C3 | Primary actions |
-| Primary hover  | #264EAC |                 |
-| Primary active | #204392 |                 |
-| **Secondary**  | #FFA62B | Badges          |
-| **Accent**     | #A2D6F9 | Links           |
+| Token          | Colour  | Usage                                                              |
+|----------------|---------|--------------------------------------------------------------------|
+| **Primary**    | #2B59C3 | Primary actions, focus outline, selected state, loading indicators |
+| Primary hover  | #264EAC |                                                                    |
+| Primary active | #204392 |                                                                    |
+| **Secondary**  | #FFA62B | Badges                                                             |
+| **Accent**     | #A2D6F9 | Links, hovers                                                      |
 
 ### Text
 
