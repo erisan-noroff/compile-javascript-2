@@ -2,10 +2,6 @@
 @import url("variables.css");
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-:root {
-    font-size: 16px;
-}
-
 body {
     background-color: var(--color-background);
     color: var(--color-text);
