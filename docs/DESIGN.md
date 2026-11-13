@@ -64,7 +64,7 @@ typography and spacing — for the Compile website. Component specifications liv
 | **H1**         | 2.5rem                              | 2rem                               |
 | **H2**         | 2rem                                | 1.5rem                             |
 | **Navigation** | 1.125rem, Semibold (600), uppercase | 1rem, Semibold (600), uppercase    |
-| **Post title**  | H1 in single post view, H2 in feed  | H1 in single post view, H2 in feed |
+| **Post title** | H1 in single post view, H2 in feed  | H1 in single post view, H2 in feed |
 
 ### Body
 
