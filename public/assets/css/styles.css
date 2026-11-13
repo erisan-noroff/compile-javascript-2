@@ -206,6 +206,10 @@ a:hover, .link-button:hover {
     color: var(--color-background);
 }
 
+.button--danger:active {
+    background-color: var(--color-danger-active);
+}
+
 .button--loading::after {
     animation: spin 1s linear infinite;
     border: 2px solid var(--spinner-track);
