@@ -271,7 +271,7 @@ a:hover, .link-button:hover {
     color: var(--color-text);
     display: flex;
     justify-content: center;
-    width: 2.75rem;
+    width: var(--tap-target-size);
 }
 
 .create-post-link:hover {
@@ -292,8 +292,8 @@ a:hover, .link-button:hover {
     border: 1px solid transparent;
     display: flex;
     justify-content: center;
-    min-height: 2.75rem;
-    min-width: 2.75rem;
+    min-height: var(--tap-target-size);
+    min-width: var(--tap-target-size);
 }
 
 .menu__items {
@@ -412,7 +412,7 @@ a:hover, .link-button:hover {
 
 .toast__close::after {
     content: '';
-    inset: -0.5rem;
+    inset: calc((100% - var(--tap-target-size)) / 2);
     position: absolute;
 }
 
@@ -721,7 +721,7 @@ a:hover, .link-button:hover {
 
 .post-form__tag-icon::after {
     content: '';
-    inset: -0.5rem;
+    inset: calc((100% - var(--tap-target-size)) / 2);
     position: absolute;
 }
 
@@ -764,7 +764,7 @@ a:hover, .link-button:hover {
 
 
 .confirmation-modal__close {
-    width: 2.75rem;
+    width: var(--tap-target-size);
 }
 
 .toast__close,
@@ -886,7 +886,7 @@ a:hover, .link-button:hover {
 
     .pagination-button::after {
         content: '';
-        inset: -0.625rem;
+        inset: calc((100% - var(--tap-target-size)) / 2);
         position: absolute;
     }
 
