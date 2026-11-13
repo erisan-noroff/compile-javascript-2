@@ -464,6 +464,7 @@ a:hover, .link-button:hover {
 .byline {
     align-items: center;
     display: flex;
+    font-size: 0.875rem;
     gap: var(--spacing-2);
     padding-block: var(--spacing-3);
     padding-inline: var(--spacing-4);
@@ -555,6 +556,7 @@ a:hover, .link-button:hover {
 .post-card__stats {
     color: var(--color-text-muted);
     display: flex;
+    font-size: 0.875rem;
     gap: var(--spacing-3);
 }
 
