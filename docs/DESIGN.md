@@ -4,8 +4,6 @@ All developers must adhere to these design specifications when implementing the 
 made by the UX/UI team and approved by the Product Owner. This document outlines the design tokens — colour palette,
 typography and spacing — for the Compile website. Component specifications live in Figma.
 
-**Root font size:** 16px.
-
 ***
 
 ## Colour Palette
