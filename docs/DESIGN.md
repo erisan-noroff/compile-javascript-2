@@ -63,7 +63,6 @@ typography and spacing — for the Compile website. Component specifications liv
 | **Logo**       | 1.75rem, Bold (700), 0.1em tracking | 1.5rem, Bold (700), 0.1em tracking |
 | **H1**         | 2.5rem                              | 2rem                               |
 | **H2**         | 2rem                                | 1.5rem                             |
-| **H3**         | 1.5rem                              | 1rem                               |
 | **Navigation** | 1.125rem, Semibold (600), uppercase | 1rem, Semibold (600), uppercase    |
 
 ### Body
