@@ -85,7 +85,8 @@ typography and spacing — for the Compile website. Component specifications liv
 ## Spacing (8-point scale)
 
 On mobile, spacing typically steps down one scale from the desktop value.
-The exception is page horizontal padding, which steps down to scale 5 rather than scale 6.
+The exceptions are page horizontal padding, which steps down to scale 5, and header horizontal padding, which steps
+down to scale 3.
 
 | Scale | Value | rem     | Usage                                      |
 |-------|-------|---------|--------------------------------------------|
