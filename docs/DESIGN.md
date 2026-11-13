@@ -42,13 +42,13 @@ typography and spacing — for the Compile website. Component specifications liv
 
 ### States
 
-| Token                   | Colour              | Usage                                                |
-|-------------------------|---------------------|------------------------------------------------------|
-| **Success**             | #31D962             | Success toast                                        |
-| **Danger**              | #F85149             | Errors, delete actions                               |
-| Danger hover            | #F85149             | Fill on hover, text using parent's background colour |
-| Danger active           | #DF4942             |                                                      |
-| Spinner track (buttons) | #E6EDF3 25% opacity | Spinner track on buttons                             |
+| Token         | Colour              | Usage                                                |
+|---------------|---------------------|------------------------------------------------------|
+| **Success**   | #31D962             | Success toast                                        |
+| **Danger**    | #F85149             | Errors, delete actions                               |
+| Danger hover  | #F85149             | Fill on hover, text using parent's background colour |
+| Danger active | #DF4942             |                                                      |
+| Spinner track | #E6EDF3 25% opacity | Spinner track on buttons                             |
 
 ***
 
